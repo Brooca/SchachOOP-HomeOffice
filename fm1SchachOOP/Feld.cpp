@@ -26,7 +26,7 @@ Feld::Feld(std::string bez, char symbol)
 {
 	std::cout << "Feld " << bezeichnung << " wird mit " << symbol << " angelegt\n";
 	bezeichnung = bez;
-	// abhängig von symbol soll eine Figur des Typs über einen Zeiger in das Feld gesetzt werden
+	// abhÃ¤ngig von symbol soll eine Figur des Typs Ã¼ber einen Zeiger in das Feld gesetzt werden
 
 	switch (symbol)
 	{
@@ -46,7 +46,6 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Leer();
 		break;
 	}
-	
 
 
 
