@@ -43,7 +43,7 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Leer();
 		break;
 	}
-
+	// Test
 	
 
 
