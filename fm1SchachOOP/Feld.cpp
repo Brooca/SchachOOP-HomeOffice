@@ -39,6 +39,9 @@ Feld::Feld(std::string bez, char symbol)
 	case 'L': case 'l':
 		figur = new Laeufer(isupper(symbol));
 		break;
+	case 'S': case 's':
+		figur = new Springer(isupper(symbol));
+		break;
 	default:
 		figur = new Leer();
 		break;
