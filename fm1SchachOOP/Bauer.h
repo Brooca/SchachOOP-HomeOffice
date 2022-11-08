@@ -4,6 +4,6 @@ class Bauer :
     public Figur
 {
 public:
-    Bauer();
+    Bauer(bool);
 };
 

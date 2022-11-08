@@ -31,13 +31,13 @@ Feld::Feld(std::string bez, char symbol)
 	switch (symbol)
 	{
 	case 'B': case 'b':
-		figur = new Bauer(); 
+		figur = new Bauer(isupper(symbol)); // mach mir Bauer(true false // isupper ?? B b)
 		break;
 	case 'T': case 't':
-		figur = new Turm();
+		figur = new Turm(isupper(symbol));  // T oder t ??
 		break;
 	case 'L': case 'l':
-		figur = new Laeufer();
+		figur = new Laeufer(isupper(symbol));
 		break;
 	default:
 		figur = new Leer();
