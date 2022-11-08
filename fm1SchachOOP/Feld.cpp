@@ -37,7 +37,7 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Turm(isupper(symbol));  // T oder t ??
 		break;
 	case 'L': case 'l':
-		figur = new Laeufer();
+		figur = new Laeufer(isupper(symbol));
 		break;
 	default:
 		figur = new Leer();
