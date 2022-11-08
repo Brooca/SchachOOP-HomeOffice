@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Anzeige" Collapsed="true">
+    <Position X="17.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Anzeige.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bauer">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Bauer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dame">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Feld">
+    <Position X="6.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAA=</HashCode>
+      <FileName>Feld.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Figur">
+    <Position X="12.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Figur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Koenig">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Koenig.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Laeufer">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Laeufer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spiel">
+    <Position X="3.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAEA=</HashCode>
+      <FileName>Spiel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spieler">
+    <Position X="1.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Spieler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Springer">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Springer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Turm">
+    <Position X="19.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Turm.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Leer">
+    <Position X="17.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Leer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
