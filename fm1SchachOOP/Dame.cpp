@@ -1,7 +1,9 @@
 #include "Dame.h"
 
-Dame::Dame(bool f)
+Dame::Dame(bool symbol)
 {
-	farbe = f;
-	std::cout << "Farbe Dame: " << f << std::endl;
+	farbe = symbol;
+	bezeichnung = (symbol) ? 'D' : 'd';
+	std::cout << "Farbe Dame: " << symbol << std::endl;
+	std::cout << "bezeichnung : " << bezeichnung << std::endl;
 }
