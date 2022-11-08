@@ -44,7 +44,7 @@ Feld::Feld(std::string bez, char symbol)
 		break;
 	}
 
-	
+	// Feld test
 
 
 
