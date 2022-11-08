@@ -39,6 +39,15 @@ Feld::Feld(std::string bez, char symbol)
 	case 'L': case 'l':
 		figur = new Laeufer(isupper(symbol));
 		break;
+	case 'S': case 's':
+		figur = new Springer(isupper(symbol));
+		break;
+	case 'D': case 'd':
+		figur = new Dame(isupper(symbol));
+		break;
+	case 'K': case 'k':
+		figur = new Koenig(isupper(symbol));
+		break;
 	default:
 		figur = new Leer();
 		break;
