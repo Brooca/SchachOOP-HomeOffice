@@ -3,5 +3,7 @@
 class Dame :
     public Figur
 {
+public:
+    Dame(bool);
 };
 
