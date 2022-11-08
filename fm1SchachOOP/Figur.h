@@ -7,6 +7,7 @@ public:
 	
 protected:
 	bool farbe;
+	char bezeichnung;
 public:
 	bool get_farbe();
 };
