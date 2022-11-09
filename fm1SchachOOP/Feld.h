@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
+#include <vector>
 #include "Figur.h"
 class Feld
 {
 private:
 	std::string bezeichnung;
-	// bool feldFarbe;
+	bool feldFarbe;
 	Figur* figur;
-	// erlaubte Felder
+	// erlaubte Felder vector von strings oder Feldern
+	std::vector<std::string> erlaubteFelder;
 public:
 	Feld(); 
 	Feld(std::string);
