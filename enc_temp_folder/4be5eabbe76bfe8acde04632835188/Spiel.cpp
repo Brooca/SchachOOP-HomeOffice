@@ -29,6 +29,10 @@ std::cout << "Bitte den zweiten Spieler angeben, der schwarz spielt\n";
 			spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 			}
 		}
+		// Map mit der Grundstellung erstellt
+
+	//	spielstand["A2"].erlaubteFelder = {"A3", "A4"};
+	//	spielstand["c1"].erlaubteFelder = {"B3", "D3"}
 		
 		system("Pause"); 
 
