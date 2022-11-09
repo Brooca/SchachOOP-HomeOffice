@@ -18,5 +18,6 @@ private:
 
 public:
 	Spiel();
+	map<string, Feld> get_Spielstand();
 };
 

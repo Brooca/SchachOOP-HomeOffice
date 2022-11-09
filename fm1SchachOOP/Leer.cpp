@@ -2,5 +2,5 @@
 
 Leer::Leer()
 {
-	std::cout << "Leeres Feld instanziert\n";
+	// std::cout << "Leeres Feld instanziert\n";
 }
