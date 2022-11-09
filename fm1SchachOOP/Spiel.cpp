@@ -9,7 +9,9 @@ Spiel::Spiel()
 
 	
 	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += std::string(32, ' '); 
+	figurenFolge += std::string(19, ' ');
+	figurenFolge += "S";
+	figurenFolge += std::string(12, ' ');
 	figurenFolge += "bbbbbbbbtslkdlst";
 	int index = 0;
 	
