@@ -4,11 +4,12 @@
 #include <iostream>
 
 #include "Spiel.h"
+#include "Anzeige.h"
 
 
 
 int main()
 {
 	Spiel s;
-
+	Anzeige::anzeigeSpielstand(s.get_Spielstand());
 }

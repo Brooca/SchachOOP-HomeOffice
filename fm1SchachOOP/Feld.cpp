@@ -12,19 +12,19 @@ using namespace std;
 
 Feld::Feld()
 {
-	cout<<"Feld wird angelegt\n";
+	// cout<<"Feld wird angelegt\n";
 
 }
 
 Feld::Feld(std::string bez)
 {
 	bezeichnung = bez;
-	std::cout << "Feld " << bezeichnung << " wird angelegt\n";
+	// std::cout << "Feld " << bezeichnung << " wird angelegt\n";
 }
 
 Feld::Feld(std::string bez, char symbol)
 {
-	std::cout << "Feld " << bezeichnung << " wird mit " << symbol << " angelegt\n";
+	// std::cout << "Feld " << bezeichnung << " wird mit " << symbol << " angelegt\n";
 	bezeichnung = bez;
 	// abhängig von symbol soll eine Figur des Typs über einen Zeiger in das Feld gesetzt werden
 
@@ -32,7 +32,6 @@ Feld::Feld(std::string bez, char symbol)
 	{
 	case 'B': case 'b':
 		figur = new Bauer(isupper(symbol)); // mach mir Bauer(true false // isupper ?? B b)
-		// erlaubteFelder =
 		break;
 	case 'T': case 't':
 		figur = new Turm(isupper(symbol));  // T oder t ??
@@ -140,7 +139,7 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Koenig(isupper(symbol));
 		break;
 	default:
-		figur = new Leer();
+		figur = new Leer(bez);
 		break;
 	}
 
@@ -148,6 +147,16 @@ Feld::Feld(std::string bez, char symbol)
 
 
 
+}
+
+string Feld::get_Bezeichnung()
+{
+	return bezeichnung;
+}
+
+Figur* Feld::get_Figur()
+{
+	return figur;
 }
 
 

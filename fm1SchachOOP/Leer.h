@@ -1,9 +1,10 @@
 #pragma once
 #include "Figur.h"
+#include <string>
 class Leer :
     public Figur
 {
 public:
-    Leer(); 
+    Leer(std::string); 
 };
 

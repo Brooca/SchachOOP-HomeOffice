@@ -1,6 +1,6 @@
 #include "Leer.h"
 
-Leer::Leer()
+Leer::Leer(std::string s)
 {
-	std::cout << "Leeres Feld instanziert\n";
+	bezeichnung = (s.at(0) + s.at(1)) % 2 ? 176 : 32;
 }

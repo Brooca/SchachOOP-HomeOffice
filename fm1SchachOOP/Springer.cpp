@@ -2,9 +2,9 @@
 
 Springer::Springer(bool symbol)
 {
-	std::cout << "Springer instanziert\n";
+	// std::cout << "Springer instanziert\n";
 	farbe = symbol;
 	bezeichnung = (symbol) ? 'S' : 's';
-	std::cout << "symbol : " << symbol << std::endl;
-	std::cout << "bezeichnung : " << bezeichnung << std::endl;
+	// std::cout << "symbol : " << symbol << std::endl;
+	// std::cout << "bezeichnung : " << bezeichnung << std::endl;
 }
