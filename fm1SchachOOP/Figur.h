@@ -10,5 +10,6 @@ protected:
 	char bezeichnung;
 public:
 	bool get_farbe();
+	char get_bezeichnung();
 };
 

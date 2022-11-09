@@ -13,5 +13,6 @@ public:
 	Feld(std::string);
 	Feld(std::string, char);
 	std::string get_Bezeichnung();
+	Figur* get_Figur();
 };
 

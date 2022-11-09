@@ -63,3 +63,8 @@ string Feld::get_Bezeichnung()
 {
 	return bezeichnung;
 }
+
+Figur* Feld::get_Figur()
+{
+	return figur;
+}
