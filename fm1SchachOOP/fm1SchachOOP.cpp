@@ -12,4 +12,6 @@ int main()
 {
 	Spiel s;
 	Anzeige::anzeigeSpielstand(s.get_Spielstand());
+
+	system("Pause");
 }

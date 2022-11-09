@@ -2,7 +2,7 @@
 
 Spiel::Spiel()
 {
-	spielerEinlesen();
+	set_Spieler();
 
 	// spielstand map<string,Feld>   in Grundstellung mit Feldern füllen
 	// key strings erzeugen
@@ -32,7 +32,7 @@ map<string, Feld> Spiel::get_Spielstand()
 	return spielstand;
 }
 
-void Spiel::spielerEinlesen()
+void Spiel::set_Spieler()
 {
 	std::string eingabe;
 
