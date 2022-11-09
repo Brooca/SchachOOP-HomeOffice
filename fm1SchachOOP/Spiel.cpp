@@ -2,15 +2,7 @@
 
 Spiel::Spiel()
 {
-	std::string eingabe;
-	// Spieler bestimmen
-	std::cout << "Bitte den ersten Spieler angeben, der weiss spielt\n";
-	std::cin >> eingabe;
-	Spieler spieler1(eingabe,1);
-	std::cout << "Bitte den zweiten Spieler angeben, der schwarz spielt\n";
-	std::cin >> eingabe;
-	Spieler spieler2(eingabe,0);
-	std::cout << "\n";
+	spielerEinlesen();
 
 	// spielstand map<string,Feld>   in Grundstellung mit Feldern füllen
 	// key strings erzeugen
@@ -38,4 +30,17 @@ Spiel::Spiel()
 map<string, Feld> Spiel::get_Spielstand()
 {
 	return spielstand;
+}
+
+void Spiel::spielerEinlesen()
+{
+	std::string eingabe;
+
+	std::cout << "Spieler*in Weiss:   ";
+	std::cin >> eingabe;
+	Spieler spieler1(eingabe, 1);
+	std::cout << "Spieler*in Schwarz: ";
+	std::cin >> eingabe;
+	Spieler spieler2(eingabe, 0);
+	std::cout << "\n\n";
 }

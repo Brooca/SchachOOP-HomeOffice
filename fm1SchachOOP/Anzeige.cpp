@@ -2,6 +2,8 @@
 
 void Anzeige::anzeigeSpielstand(map<string, Feld> spielstand)
 {
+	cout << endl << endl;
+	
 	map<string, Feld>::iterator pos;
 
 	for (char c = '8'; c >= '1'; c--) {
