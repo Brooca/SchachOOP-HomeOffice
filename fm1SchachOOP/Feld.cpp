@@ -41,72 +41,71 @@ Feld::Feld(std::string bez, char symbol)
 		break;
 	case 'S': case 's':
 		figur = new Springer(isupper(symbol));
-		// Rechts hoch
+		
+		cout << "\nSpringer: ";
 		cout << bezeichnung.at(0);
 		cout << bezeichnung.at(1);
+		cout << " Erlaubte Felder ";
+		// Rechts hoch
+		
 		if (bezeichnung.at(0) < 71  && bezeichnung.at(1) > 48 && bezeichnung.at(1) < 56)
 		{
 			string x = "  ";
-			cout << "----------------";
+			cout << " ";
 			x.at(0) = bezeichnung.at(0) + 2;
 			x.at(1) = bezeichnung.at(1) + 1;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size()-1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size()-1);
 		}
 
 		//Rechts runter
 		 if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
 		{
 			string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) + 2;
 			x.at(1) = bezeichnung.at(1) - 1;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 
 		//links hoch
 		 if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 48 && bezeichnung.at(1) < 56)
 		{
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) - 2;
 			x.at(1) = bezeichnung.at(1) + 1;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 		
 		//links runter
 		 if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
 		{
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) - 2;
 			x.at(1) = bezeichnung.at(1) - 1;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 
 		// Hoch rechts
 		 if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 64 && bezeichnung.at(0) < 72)
 		{
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) + 2;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 		
 		//Hoch links
 		 if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
 		{
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) + 2;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 		
 		//Runter rechts
@@ -114,22 +113,20 @@ Feld::Feld(std::string bez, char symbol)
 		{
 			
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) - 2;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		}
 		
 		//Runter links
 		 if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
 		{
 				string x = "  ";
-			cout << "----------------";
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) - 2;
 			this->erlaubteFelder.push_back(x);
-			cout << "---------------" << erlaubteFelder.at(erlaubteFelder.size() - 1);
+			cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
 		} 
 		break;
 	case 'D': case 'd':
