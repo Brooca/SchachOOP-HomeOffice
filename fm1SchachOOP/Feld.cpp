@@ -49,7 +49,7 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Koenig(isupper(symbol));
 		break;
 	default:
-		figur = new Leer();
+		figur = new Leer(bez);
 		break;
 	}
 
