@@ -56,7 +56,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 
 		//Rechts runter
-		else if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
+		 if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
 		{
 			string x = "  ";
 			cout << "----------------";
@@ -67,7 +67,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 
 		//links hoch
-		else if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 48 && bezeichnung.at(1) < 56)
+		 if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 48 && bezeichnung.at(1) < 56)
 		{
 				string x = "  ";
 			cout << "----------------";
@@ -78,7 +78,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 		
 		//links runter
-		else if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
+		 if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > 49 && bezeichnung.at(1) < 57)
 		{
 				string x = "  ";
 			cout << "----------------";
@@ -89,7 +89,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 
 		// Hoch rechts
-		if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 64 && bezeichnung.at(0) < 72)
+		 if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 64 && bezeichnung.at(0) < 72)
 		{
 				string x = "  ";
 			cout << "----------------";
@@ -100,7 +100,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 		
 		//Hoch links
-		else if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
+		 if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
 		{
 				string x = "  ";
 			cout << "----------------";
@@ -111,7 +111,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 		
 		//Runter rechts
-		else if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > 64 && bezeichnung.at(0) < 72)
+		 if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > 64 && bezeichnung.at(0) < 72)
 		{
 			
 				string x = "  ";
@@ -123,7 +123,7 @@ Feld::Feld(std::string bez, char symbol)
 		}
 		
 		//Runter links
-		else if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
+		 if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > 65 && bezeichnung.at(0) < 73)
 		{
 				string x = "  ";
 			cout << "----------------";
