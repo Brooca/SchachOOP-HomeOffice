@@ -42,5 +42,5 @@ void Spiel::set_Spieler()
 	std::cout << "Spieler*in Schwarz: ";
 	std::cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
-	std::cout << "\n\n";
+	std::cout << "\n";
 }
