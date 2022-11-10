@@ -2,12 +2,10 @@
 
 Spiel::Spiel()
 {
-	spielerEinlesen();
+	// User-Input: Array<string> spieler
+	set_Spieler();
 
-	// spielstand map<string,Feld>   in Grundstellung mit Feldern füllen
-	// key strings erzeugen
-
-	
+	// Key-String
 	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
 	figurenFolge += std::string(19, ' ');
 	figurenFolge += "S";
@@ -15,18 +13,15 @@ Spiel::Spiel()
 	figurenFolge += "bbbbbbbbtslkdlst";
 	int index = 0;
 	
+	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
 		for (char d = '1'; d <= '8'; d++)
 		{
 			for (char c = 'A'; c <= 'H'; c++)
 			{
-			// std::cout << c << d << "=" << figurenFolge[index++] << "\n"; 
-			std::string key = std::string(1,c) + d; //  std::string(1,c1)+c2;
+			std::string key = std::string(1,c) + d;
 			spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 			}
 		}
-
-		// system("Pause"); 
-
 }
 
 map<string, Feld> Spiel::get_Spielstand()
@@ -34,15 +29,18 @@ map<string, Feld> Spiel::get_Spielstand()
 	return spielstand;
 }
 
-void Spiel::spielerEinlesen()
+void Spiel::set_Spieler()
 {
 	std::string eingabe;
 
+	// Spieler 1
 	std::cout << "Spieler*in Weiss:   ";
 	std::cin >> eingabe;
 	Spieler spieler1(eingabe, 1);
+
+	// Spieler 2
 	std::cout << "Spieler*in Schwarz: ";
 	std::cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
-	std::cout << "\n\n";
+	std::cout << "\n";
 }

@@ -1,7 +1,6 @@
 #include "Turm.h"
+
 Turm::Turm(bool symbol) {
-	farbe = symbol;  // true or false 
+	farbe = symbol;
 	bezeichnung = (symbol) ? 'T' : 't';
-	// std::cout << "Farbe Turm : " << symbol << std::endl;
-	// std::cout << "bezeichnung : " << bezeichnung << std::endl;
 }

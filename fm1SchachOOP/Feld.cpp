@@ -24,17 +24,17 @@ Feld::Feld(std::string bez)
 
 Feld::Feld(std::string bez, char symbol)
 {
-	// std::cout << "Feld " << bezeichnung << " wird mit " << symbol << " angelegt\n";
+	// Bezeichnung von Feld
 	bezeichnung = bez;
-	// abhängig von symbol soll eine Figur des Typs über einen Zeiger in das Feld gesetzt werden
 
+	// Figur* auf Feld setzen
 	switch (symbol)
 	{
 	case 'B': case 'b':
-		figur = new Bauer(isupper(symbol)); // mach mir Bauer(true false // isupper ?? B b)
+		figur = new Bauer(isupper(symbol));
 		break;
 	case 'T': case 't':
-		figur = new Turm(isupper(symbol));  // T oder t ??
+		figur = new Turm(isupper(symbol));
 		break;
 	case 'L': case 'l':
 		figur = new Laeufer(isupper(symbol));
@@ -46,6 +46,8 @@ Feld::Feld(std::string bez, char symbol)
 		cout << bezeichnung.at(0);
 		cout << bezeichnung.at(1);
 		cout << " Erlaubte Felder ";
+
+		// Rechts hoch
 		
 		// Kleinste variante (kleine fehler)
 		/*
@@ -121,11 +123,6 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Leer(bez);
 		break;
 	}
-
-
-
-
-
 }
 
 string Feld::get_Bezeichnung()
@@ -139,7 +136,7 @@ Figur* Feld::get_Figur()
 }
 
 
-/*
+/* Bewegungsmuster : Springer
 c = A d = 1
 
 	c + 2 & d +1 || c + 2 & d - 1 
