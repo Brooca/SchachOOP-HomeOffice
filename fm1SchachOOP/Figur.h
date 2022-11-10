@@ -9,7 +9,7 @@ protected:
 	bool farbe;
 	char bezeichnung;
 public:
-	bool get_farbe();
-	char get_bezeichnung();
+	bool get_Farbe();
+	char get_Bezeichnung();
 };
 
