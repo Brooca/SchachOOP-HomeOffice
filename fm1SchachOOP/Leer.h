@@ -6,5 +6,6 @@ class Leer :
 {
 public:
     Leer(std::string); 
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 

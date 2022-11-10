@@ -7,9 +7,7 @@ Spiel::Spiel()
 
 	// Key-String
 	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += std::string(19, ' ');
-	figurenFolge += "S";
-	figurenFolge += std::string(12, ' ');
+	figurenFolge += std::string(32, ' ');
 	figurenFolge += "bbbbbbbbtslkdlst";
 	int index = 0;
 	
@@ -43,4 +41,12 @@ void Spiel::set_Spieler()
 	std::cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
 	std::cout << "\n";
+}
+
+void Spiel::ziehen()
+{
+	// hier sollen die Felder aus der Map angesprochen werden
+	// fuer alle felder 
+	// spielstand["B1"] = 
+
 }

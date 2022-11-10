@@ -5,5 +5,6 @@ class Bauer :
 {
 public:
     Bauer(bool);
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 

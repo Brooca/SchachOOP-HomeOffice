@@ -10,49 +10,49 @@
   <Class Name="Bauer">
     <Position X="6" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAQA=</HashCode>
       <FileName>Bauer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Dame">
     <Position X="10.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAA=</HashCode>
       <FileName>Dame.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Feld">
-    <Position X="6.75" Y="1" Width="2.5" />
+    <Position X="6.75" Y="1" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAACAAAAAAEBAAAACAAAAAAAAABAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAIACAAAAAAEBAAAACAAAAAAAAABAAEAAAAAA=</HashCode>
       <FileName>Feld.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Figur">
     <Position X="12" Y="0.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAEAABAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAECAIAEAAAAAA=</HashCode>
       <FileName>Figur.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Koenig">
     <Position X="8.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Koenig.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Laeufer">
     <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Laeufer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spiel">
     <Position X="3.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAIAAAAAAAAEAAAAACAAAAEA=</HashCode>
+      <HashCode>AAAACgAAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAFA=</HashCode>
       <FileName>Spiel.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -64,23 +64,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Springer">
-    <Position X="15" Y="4.5" Width="1.5" />
+    <Position X="15" Y="4.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Springer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Turm">
     <Position X="19.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Turm.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Leer">
     <Position X="17.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAA=</HashCode>
       <FileName>Leer.h</FileName>
     </TypeIdentifier>
   </Class>

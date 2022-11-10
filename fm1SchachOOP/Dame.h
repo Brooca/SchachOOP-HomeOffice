@@ -5,5 +5,6 @@ class Dame :
 {
 public:
     Dame(bool);
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 

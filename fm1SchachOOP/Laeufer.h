@@ -5,5 +5,6 @@ class Laeufer :
 {
 public:
     Laeufer(bool);
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 

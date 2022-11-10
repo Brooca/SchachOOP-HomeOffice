@@ -5,5 +5,6 @@ class Koenig :
 { 
 public:
     Koenig(bool);
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 

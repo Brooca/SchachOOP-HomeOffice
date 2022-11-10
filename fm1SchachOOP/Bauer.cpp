@@ -6,3 +6,8 @@ Bauer::Bauer(bool symbol)
 	bezeichnung = (symbol) ? 'B' : 'b';
 }
 
+std::vector<std::string> Bauer::erlaubteFelderBerechnen()
+{
+	return {};
+}
+

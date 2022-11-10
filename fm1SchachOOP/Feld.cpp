@@ -135,6 +135,14 @@ Figur* Feld::get_Figur()
 	return figur;
 }
 
+vector<string> Feld::set_ErlaubteFelder() //Parameter ??
+{
+	// map<string,feld> -- feld.erlaubteFelder vector<string> <- erlaubteFelder Berechnen rein
+	// erlaubteFelder = 
+	cout << "Feld::set_ErlaubteFelder()";
+	return{};
+}
+
 
 /* Bewegungsmuster : Springer
 c = A d = 1

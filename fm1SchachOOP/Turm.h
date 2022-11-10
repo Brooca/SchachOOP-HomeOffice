@@ -5,5 +5,6 @@ class Turm :
 {
 public:
     Turm(bool);
+    std::vector<std::string> erlaubteFelderBerechnen();
 };
 
