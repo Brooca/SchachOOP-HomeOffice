@@ -20,6 +20,7 @@ Spiel::Spiel()
 			spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 			}
 		}
+		ziehen();
 }
 
 map<string, Feld> Spiel::get_Spielstand()
@@ -48,5 +49,6 @@ void Spiel::ziehen()
 	// hier sollen die Felder aus der Map angesprochen werden
 	// fuer alle felder 
 	// spielstand["B1"] = 
+	spielstand["B1"].set_ErlaubteFelder();
 
 }
