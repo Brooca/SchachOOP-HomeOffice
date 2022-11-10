@@ -76,42 +76,7 @@ Feld::Feld(std::string bez, char symbol)
 			}
 		}*/
 		// komprimierte Variante
-		for (int i = 0; i < 2; i++) {
-			if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + 1))
-			{
-				string x = "  ";
-				cout << " ";
-				x.at(0) = bezeichnung.at(0) + 2;
-				x.at(1) = bezeichnung.at(1) + (1 - (i + i));
-				this->erlaubteFelder.push_back(x);
-				cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-			}
-			if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
-			{
-				string x = "  ";
-				x.at(0) = bezeichnung.at(0) + (1 - (i + i));
-				x.at(1) = bezeichnung.at(1) + 2;
-				this->erlaubteFelder.push_back(x);
-				cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-			}
-			if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
-			{
-				string x = "  ";
-				x.at(0) = bezeichnung.at(0) - 2;
-				x.at(1) = bezeichnung.at(1) + (1 - (i + i));
-				this->erlaubteFelder.push_back(x);
-				cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-			}
-			if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
-			{
-
-				string x = "  ";
-				x.at(0) = bezeichnung.at(0) + (1 - (i + i));
-				x.at(1) = bezeichnung.at(1) - 2;
-				this->erlaubteFelder.push_back(x);
-				cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-			}
-		}
+		
 		break;
 	case 'D': case 'd':
 		figur = new Dame(isupper(symbol));
@@ -135,12 +100,13 @@ Figur* Feld::get_Figur()
 	return figur;
 }
 
-vector<string> Feld::set_ErlaubteFelder() //Parameter ??
+void Feld::set_ErlaubteFelder(string bezeichnung) //Parameter ??
 {
 	// map<string,feld> -- feld.erlaubteFelder vector<string> <- erlaubteFelder Berechnen rein
 	// erlaubteFelder = 
+	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
 	cout << "Feld::set_ErlaubteFelder()";
-	return{};
+	
 }
 
 

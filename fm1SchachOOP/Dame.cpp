@@ -6,7 +6,7 @@ Dame::Dame(bool symbol)
 	bezeichnung = (symbol) ? 'D' : 'd';
 }
 
-std::vector<std::string> Dame::erlaubteFelderBerechnen()
+std::vector<std::string> Dame::erlaubteFelderBerechnen(std::string)
 {
 	return {};
 }

@@ -9,6 +9,6 @@ class Springer :
 public:
     Springer(bool);
     // erlaubte Felder berechnen()
-   std::vector<std::string> erlaubteFelderBerechnen();
+   std::vector<std::string> erlaubteFelderBerechnen(std::string);
 };
 

@@ -13,5 +13,5 @@ public:
 	char get_Bezeichnung();
 
 	// FELD :: vector<string>erlaubte Felder <- virtuelle Methode erlaubteFelderBerechnen()
-	virtual std::vector<std::string> erlaubteFelderBerechnen() = 0;
+	virtual std::vector<std::string> erlaubteFelderBerechnen(std::string) = 0;
 };

@@ -5,7 +5,7 @@ Laeufer::Laeufer(bool symbol) {
 	bezeichnung = (symbol) ? 'L' : 'l';
 }
 
-std::vector<std::string> Laeufer::erlaubteFelderBerechnen()
+std::vector<std::string> Laeufer::erlaubteFelderBerechnen(std::string)
 {
 	return {};
 }
