@@ -2,9 +2,7 @@
 #include <iostream>
 class Figur
 {
-public:
-	
-	
+private:
 protected:
 	bool farbe;
 	char bezeichnung;

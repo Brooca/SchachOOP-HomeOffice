@@ -8,7 +8,6 @@ private:
 	std::string bezeichnung;
 	bool feldFarbe;
 	Figur* figur;
-	// erlaubte Felder vector von strings oder Feldern
 	std::vector<std::string> erlaubteFelder;
 public:
 	Feld(); 
