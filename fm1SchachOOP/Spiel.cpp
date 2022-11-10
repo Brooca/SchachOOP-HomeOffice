@@ -2,12 +2,12 @@
 
 Spiel::Spiel()
 {
+	// User-Input: Array<string> spieler
 	set_Spieler();
 
-	// spielstand map<string,Feld>   in Grundstellung mit Feldern füllen
-	// key strings erzeugen
+	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
 
-	
+	// Key-String
 	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
 	figurenFolge += std::string(32, ' '); 
 	figurenFolge += "bbbbbbbbtslkdlst";
@@ -22,9 +22,6 @@ Spiel::Spiel()
 			spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 			}
 		}
-
-		// system("Pause"); 
-
 }
 
 map<string, Feld> Spiel::get_Spielstand()
