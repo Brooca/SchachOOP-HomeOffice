@@ -31,9 +31,12 @@ void Spiel::set_Spieler()
 {
 	std::string eingabe;
 
+	// Spieler 1
 	std::cout << "Spieler*in Weiss:   ";
 	std::cin >> eingabe;
 	Spieler spieler1(eingabe, 1);
+
+	// Spieler 2
 	std::cout << "Spieler*in Schwarz: ";
 	std::cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
