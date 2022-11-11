@@ -1,8 +1,14 @@
 #pragma once
-#include "Figur.h"
+
+#include "Laeufer.h"
+#include "Turm.h"
+
 class Dame :
-    public Figur
+    public Laeufer, public Turm
 {
+private:
+    bool farbe;
+    char bezeichnung;
 public:
     Dame(bool);
     std::vector<std::string> erlaubteFelderBerechnen(std::string);
