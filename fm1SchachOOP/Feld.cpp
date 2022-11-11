@@ -109,6 +109,7 @@ void Feld::set_ErlaubteFelder(string bezeichnung)
 
 	// map<string,feld> -- feld.erlaubteFelder vector<string> <- erlaubteFelder Berechnen rein
 	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
+	// Push back bei mehrfach vererbung oder insert oder in --> dame neuer vector
 
 }
 
