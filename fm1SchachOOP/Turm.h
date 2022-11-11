@@ -3,8 +3,11 @@
 class Turm :
     public Figur
 {
+private:
+
 public:
-    Turm(bool);
+
+   Turm(bool); 
     std::vector<std::string> erlaubteFelderBerechnen(std::string);
 };
 

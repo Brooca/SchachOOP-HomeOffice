@@ -49,5 +49,7 @@ void Spiel::ziehen()
 	std::cout << endl << "void Spiel::ziehen()" << endl;
 
 	// Test-Abruf Springer auf B1 
-	spielstand["B1"].set_ErlaubteFelder("B1");
+	spielstand["B8"].set_ErlaubteFelder("B8");
+	// Test-Abruf Turm auf A1 
+	spielstand["A1"].set_ErlaubteFelder("A1");
 }

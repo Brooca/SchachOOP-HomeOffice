@@ -17,7 +17,7 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 
 	for (int i = 0; i < 2; i++) {
 		
-		if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + 1))
+		if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
 		{
 			string x = "  ";
 			cout << " ";

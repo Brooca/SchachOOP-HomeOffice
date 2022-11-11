@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Bauer">
-    <Position X="7.25" Y="4.5" Width="3.5" />
+    <Position X="5.75" Y="4.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAQA=</HashCode>
       <FileName>Bauer.h</FileName>
@@ -43,7 +43,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Laeufer">
-    <Position X="11.5" Y="4.5" Width="3.5" />
+    <Position X="13.5" Y="4.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Laeufer.h</FileName>
@@ -64,7 +64,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Springer">
-    <Position X="13.75" Y="4.5" Width="3.5" />
+    <Position X="17" Y="2" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Springer.h</FileName>
@@ -78,7 +78,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Leer">
-    <Position X="16.75" Y="4.5" Width="3.5" />
+    <Position X="19" Y="4.25" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAA=</HashCode>
       <FileName>Leer.h</FileName>
