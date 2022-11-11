@@ -9,9 +9,10 @@ protected:
 	bool farbe;
 	char bezeichnung;
 public:
+	// Figur();
 	bool get_Farbe();
 	char get_Bezeichnung();
 
 	// FELD :: vector<string>erlaubte Felder <- virtuelle Methode erlaubteFelderBerechnen()
-	virtual std::vector<std::string> erlaubteFelderBerechnen(std::string bezeichnung);
+	virtual std::vector<std::string> erlaubteFelderBerechnen(std::string);
 };
