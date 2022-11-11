@@ -10,7 +10,8 @@ private:
     bool farbe;
     char bezeichnung;
 public:
-    Dame(bool);
-    std::vector<std::string> erlaubteFelderBerechnen(std::string);
+  // Dame();
+  Dame(bool);
+  std::vector<std::string> erlaubteFelderBerechnen(std::string);
 };
 

@@ -1,5 +1,10 @@
 #include "Figur.h"
 
+/*
+Figur::Figur() {
+
+}*/
+
 std::vector<std::string> Figur::erlaubteFelderBerechnen(std::string bezeichnung) {
     std::cout << "std::vector<std::string> erlaubteFelderBerechnen(std::string)" << std::endl;
     return {};
