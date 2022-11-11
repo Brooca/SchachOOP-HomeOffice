@@ -13,7 +13,6 @@ using namespace std;
 Feld::Feld()
 {
 	// cout<<"Feld wird angelegt\n";
-
 }
 
 Feld::Feld(std::string bez)
