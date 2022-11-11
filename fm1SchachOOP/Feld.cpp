@@ -8,6 +8,8 @@
 #include "Turm.h"
 #include <iostream>
 
+#include <memory>
+
 using namespace std;
 
 Feld::Feld()
@@ -23,6 +25,15 @@ Feld::Feld(std::string bez)
 
 Feld::Feld(std::string bez, char symbol)
 {
+	/*Pointer fuer Dame ??
+		FIXME: 
+			case D:
+				erstellung des Pointers schlaegt fehl da dieser sowohl auf ein Objekt des Typs Turm als auch Laeufer zeigen muss 
+				*/
+
+	// Zeiger Dame
+	// std::unique_ptr<Dame> t(new Dame(isupper(symbol)));
+	
 	// Bezeichnung von Feld
 	bezeichnung = bez;
 
@@ -80,7 +91,12 @@ Feld::Feld(std::string bez, char symbol)
 		
 		break;
 	case 'D': case 'd':
-		figur = new Dame(isupper(symbol));
+		// figur = t;
+		// figur = new Dame::Dame.x (*t); ???
+		//(new Dame(isupper(symbol)));
+		//figur = Turm*( new Dame(isupper(symbol)));
+		//figur = new Dame::Laeufer(isupper(symbol)); //                  (isupper(symbol)); // Mehrdeutige Figur
+		// figur = new Leer(bez);
 		break;
 	case 'K': case 'k':
 		figur = new Koenig(isupper(symbol));
