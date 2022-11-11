@@ -6,7 +6,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String
-	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
+	std::string figurenFolge = "STLDKLSTBBBBBBBB";
 	figurenFolge += std::string(32, ' ');
 	figurenFolge += "bbbbbbbbtslkdlst";
 	int index = 0;
@@ -51,5 +51,5 @@ void Spiel::ziehen()
 	// Test-Abruf Springer auf B1 
 	spielstand["B8"].set_ErlaubteFelder("B8");
 	// Test-Abruf Turm auf A1 
-	spielstand["A1"].set_ErlaubteFelder("A1");
+	spielstand["B1"].set_ErlaubteFelder("B1");
 }

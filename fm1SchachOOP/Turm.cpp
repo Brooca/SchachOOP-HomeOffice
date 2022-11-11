@@ -22,8 +22,11 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 				cout << " ";
 				x.at(0) = bezeichnung.at(0) + k - i; // A + 7 / A + 6 
 				x.at(1) = bezeichnung.at(1);
-				TurmV.push_back(x);
-				cout << " " << TurmV.at(TurmV.size() - 1);
+				if (x.at(0) != (65 + i))
+				{
+					TurmV.push_back(x);
+					cout << " " << TurmV.at(TurmV.size() - 1);
+				}
 			}
 			if (bezeichnung.at(1) == (49 + i))
 			{
@@ -31,8 +34,11 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 				cout << " ";
 				x.at(0) = bezeichnung.at(0) ;
 				x.at(1) = bezeichnung.at(1) + k - i;
-				TurmV.push_back(x);
-				cout << " " << TurmV.at(TurmV.size() - 1);
+				if (x.at(1) != (49 + i))
+				{
+					TurmV.push_back(x);
+					cout << " " << TurmV.at(TurmV.size() - 1);
+				}
 			}
 		}
 	}
