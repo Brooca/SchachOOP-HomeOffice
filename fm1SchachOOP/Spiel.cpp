@@ -20,10 +20,6 @@ Spiel::Spiel()
 			spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 			}
 		}
-		ziehen();
-		std::cout<< endl << spielstand.at("B1").get_Figur()->get_Bezeichnung();
-		
-
 }
 
 map<string, Feld> Spiel::get_Spielstand()
@@ -49,10 +45,9 @@ void Spiel::set_Spieler()
 
 void Spiel::ziehen()
 {
-	// hier sollen die Felder aus der Map angesprochen werden
-	// fuer alle felder 
-	// spielstand["B1"] = 
+	// hier sollen alle Felder aus der Map angesprochen werden
+	std::cout << endl << "void Spiel::ziehen()" << endl;
 
+	// Test-Abruf Springer auf B1 
 	spielstand["B1"].set_ErlaubteFelder("B1");
-
 }

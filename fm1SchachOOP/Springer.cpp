@@ -9,6 +9,10 @@ Springer::Springer(bool symbol)
 
 std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 { 
+	// Output - Where am I
+	cout << endl << "std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)" << endl;
+	std::cout << std::endl << "Erlaubte Felder von Springer auf " << bezeichnung << " :";
+
 	vector<string>springerV;
 
 	for (int i = 0; i < 2; i++) {
@@ -48,7 +52,7 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 			cout << " " << springerV.at(springerV.size() - 1);
 		}
 	}
-		std::cout << std::endl << std::endl << "  Springer " << bezeichnung << std::endl << std::endl;
+		
 		return springerV;
 	}
 

@@ -6,8 +6,18 @@
 
 int main()
 {
+	// Initialisierung des Spiels
 	Spiel s;
-	Anzeige::anzeigeSpielstand(s.get_Spielstand());
 
-	system("Pause");
+	// Ablauf des Spiels
+	do {
+		Anzeige::anzeigeSpielstand(s.get_Spielstand());
+		s.ziehen();
+
+		// Pausieren der Ausgabe
+		cout << endl << endl;
+		system("Pause");
+	} while (true);
+
+
 }

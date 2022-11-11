@@ -42,10 +42,12 @@ Feld::Feld(std::string bez, char symbol)
 	case 'S': case 's':
 		figur = new Springer(isupper(symbol));
 		
+		/*
 		cout << "\nSpringer: ";
 		cout << bezeichnung.at(0);
 		cout << bezeichnung.at(1);
 		cout << " Erlaubte Felder ";
+		*/
 
 		// Rechts hoch
 		
@@ -100,13 +102,14 @@ Figur* Feld::get_Figur()
 	return figur;
 }
 
-void Feld::set_ErlaubteFelder(string bezeichnung) //Parameter ??
+void Feld::set_ErlaubteFelder(string bezeichnung)
 {
+	// Output - Where am I ?
+	cout  << endl << "void Feld::set_ErlaubteFelder(string bezeichnung)" << endl;
+
 	// map<string,feld> -- feld.erlaubteFelder vector<string> <- erlaubteFelder Berechnen rein
-	// erlaubteFelder = 
 	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
-	cout << "Feld::set_ErlaubteFelder()";
-	
+
 }
 
 
