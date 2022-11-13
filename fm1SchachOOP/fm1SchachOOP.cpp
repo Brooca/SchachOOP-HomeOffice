@@ -17,6 +17,4 @@ int main()
 		cout << endl << endl;
 		system("Pause");
 	} while (true);
-
-
 }
