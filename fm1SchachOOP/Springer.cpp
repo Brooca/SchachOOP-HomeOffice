@@ -1,6 +1,7 @@
 #include "Springer.h"
 #include <string>
 using namespace std;
+
 Springer::Springer(bool symbol)
 {
 	farbe = symbol;
@@ -9,18 +10,24 @@ Springer::Springer(bool symbol)
 
 std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 { 
-	// Output - Where am I
-	cout << endl << "std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)" << endl;
-	std::cout << std::endl << "Erlaubte Felder von Springer auf " << bezeichnung << " :";
+	// Bewegungsmuster : Springer
+	/* c = A d = 1
+	|| c + 2 & d +1 || c + 2 & d - 1
+	|| c - 2 & d + 1 || c - 2 & d - 1
+	|| d + 2 & c + 1 || d + 2 & c - 1
+	|| d + 2 & c + 1 || d + 2 & c - 1 */
 
+	// Output
+	cout << "std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)" << endl;
+	std::cout << "Erlaubte Felder von Springer auf " << bezeichnung << " :";
+
+	// Calculation
 	vector<string>springerV;
 
-	for (int i = 0; i < 2; i++) {
-		
+	for (int i = 0; i < 2; i++) {	
 		if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
 		{
 			string x = "  ";
-			cout << " ";
 			x.at(0) = bezeichnung.at(0) + 2;
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 			springerV.push_back(x);
@@ -52,7 +59,6 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 			cout << " " << springerV.at(springerV.size() - 1);
 		}
 	}
-		
-		return springerV;
-	}
+	return springerV;
+}
 

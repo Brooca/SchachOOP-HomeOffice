@@ -3,6 +3,7 @@ using namespace std;
 #include <string>
 #include <map>
 #include "Spiel.h"
+
 class Anzeige
 {
 public:

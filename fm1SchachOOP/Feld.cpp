@@ -7,19 +7,15 @@
 #include "Springer.h"
 #include "Turm.h"
 #include <iostream>
-
 using namespace std;
 
 Feld::Feld()
 {
-	// cout<<"Feld wird angelegt\n";
-
 }
 
 Feld::Feld(std::string bez)
 {
 	bezeichnung = bez;
-	// std::cout << "Feld " << bezeichnung << " wird angelegt\n";
 }
 
 Feld::Feld(std::string bez, char symbol)
@@ -40,48 +36,10 @@ Feld::Feld(std::string bez, char symbol)
 		figur = new Laeufer(isupper(symbol));
 		break;
 	case 'S': case 's':
-		figur = new Springer(isupper(symbol));
-		
-		/*
-		cout << "\nSpringer: ";
-		cout << bezeichnung.at(0);
-		cout << bezeichnung.at(1);
-		cout << " Erlaubte Felder ";
-		*/
-
-		// Rechts hoch
-		
-		// Kleinste variante (kleine fehler)
-		/*
-		for (int i = 0; i < 2; i++) {
-			for (int k = 0; k < 2; k++) {
-				// Rechts hoch
-				if (bezeichnung.at(0+k) < (71 - (6 * k)) && bezeichnung.at(1-k) > (48 + i + (6 * k)) && bezeichnung.at(1) < (56 + i + (6 * k)))
-				{
-					string x = "  ";
-					cout << " ";
-					x.at(0 + k) = bezeichnung.at(0 + k) + 2;
-					x.at(1 - k) = bezeichnung.at(1 - k) + (1 - (i + i));
-					this->erlaubteFelder.push_back(x);
-					cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-				}
-			
-			if (bezeichnung.at(0+k) > (66-(16*k)) && bezeichnung.at(1 - k) > (48 + i +(6*k)) && bezeichnung.at(1) < (56 + i+(6*k)))
-			{
-				string x = "  ";
-				x.at(0+k) = bezeichnung.at(0+k) - 2;
-				x.at(1-k) = bezeichnung.at(1-k) + (1 - (i + i));
-				this->erlaubteFelder.push_back(x);
-				cout << " " << erlaubteFelder.at(erlaubteFelder.size() - 1);
-			}
-		
-			}
-		}*/
-		// komprimierte Variante
-		
+		figur = new Springer(isupper(symbol));	
 		break;
 	case 'D': case 'd':
-		figur = new Dame(isupper(symbol));
+		figur = (Laeufer*) new Dame(isupper(symbol));			// Bridge-Pointer in cause of Mehrfachvererbung
 		break;
 	case 'K': case 'k':
 		figur = new Koenig(isupper(symbol));
@@ -104,19 +62,8 @@ Figur* Feld::get_Figur()
 
 void Feld::set_ErlaubteFelder(string bezeichnung)
 {
-	// Output - Where am I ?
-	cout  << endl << "void Feld::set_ErlaubteFelder(string bezeichnung)" << endl;
+	// Output
+	cout << endl << "void Feld::set_ErlaubteFelder(string bezeichnung)" << endl;
 
-	// map<string,feld> -- feld.erlaubteFelder vector<string> <- erlaubteFelder Berechnen rein
-	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
-	// Push back bei mehrfach vererbung oder insert oder in --> dame neuer vector
+	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);// Push back bei mehrfach vererbung oder insert oder in --> dame neuer vector
 }
-
-
-/* Bewegungsmuster : Springer
-c = A d = 1
-
-	c + 2 & d +1 || c + 2 & d - 1 
-|| c - 2 & d + 1 || c - 2 & d - 1
-|| d + 2 & c + 1 || d + 2 & c - 1 
-|| d + 2 & c + 1 || d + 2 & c - 1 */

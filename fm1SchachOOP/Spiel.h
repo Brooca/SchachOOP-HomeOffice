@@ -11,7 +11,6 @@ class Spiel
 private:
 	std::array<Spieler, 2> spieler;
     std::map<string,Feld> spielstand;
-	
 public:
 	Spiel();
 	map<string, Feld> get_Spielstand();

@@ -1,7 +1,12 @@
 #include "Turm.h"
-#include <string>
 #include <vector>
+#include <string>
 using namespace std;
+
+Turm::Turm()
+{
+	std::cout << "Turm erstellt\n";
+}
 
 Turm::Turm(bool symbol) {
 	farbe = symbol;
@@ -10,17 +15,21 @@ Turm::Turm(bool symbol) {
 
 std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 {
+	// Output
+	cout << "std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)\n";
+	std::cout << "Erlaubte Felder von Turm auf " << bezeichnung << " :";
+
+	// Calculation
 	vector<string>TurmV;
 	for (int i = 0; i < 8; i++)
 	{
 		for(int k = 7; k >= 0; k--)
-												//Erster durchlauf 
 		{
-		if (bezeichnung.at(0) == (65 + i))		// A + 0  
+		if (bezeichnung.at(0) == (65 + i))
 			{
 			string x = "  ";
 				cout << " ";
-				x.at(0) = bezeichnung.at(0) + k - i; // A + 7 / A + 6 
+				x.at(0) = bezeichnung.at(0) + k - i;
 				x.at(1) = bezeichnung.at(1);
 				if (x.at(0) != (65 + i))
 				{
@@ -42,6 +51,5 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 			}
 		}
 	}
-
 	return TurmV;
 }

@@ -8,7 +8,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Bauer">
-    <Position X="5.75" Y="4.5" Width="3.5" />
+    <Position X="0.5" Y="4.5" Width="3.5" />
+    <InheritanceLine Type="Figur" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="2.632" />
+        <Point X="13.75" Y="4.125" />
+        <Point X="1.562" Y="4.125" />
+        <Point X="1.562" Y="4.5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAQA=</HashCode>
       <FileName>Bauer.h</FileName>
@@ -17,7 +25,7 @@
   <Class Name="Dame">
     <Position X="10.5" Y="6.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAIAEAAAAAA=</HashCode>
       <FileName>Dame.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -36,7 +44,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Koenig">
-    <Position X="10.5" Y="8.75" Width="3.5" />
+    <Position X="5" Y="6.75" Width="3.5" />
+    <InheritanceLine Type="Figur" FixedToPoint="true">
+      <Path>
+        <Point X="13.75" Y="2.632" />
+        <Point X="13.75" Y="4.125" />
+        <Point X="6" Y="4.125" />
+        <Point X="6" Y="6.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Koenig.h</FileName>
@@ -64,21 +80,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Springer">
-    <Position X="17" Y="2" Width="3.5" />
+    <Position X="16" Y="4.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Springer.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Turm">
-    <Position X="9.5" Y="4.5" Width="3.5" />
+    <Position X="6.75" Y="4.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Turm.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Leer">
-    <Position X="19" Y="4.25" Width="3.5" />
+    <Position X="20.25" Y="4.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAA=</HashCode>
       <FileName>Leer.h</FileName>
