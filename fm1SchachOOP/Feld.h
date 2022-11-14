@@ -16,6 +16,6 @@ public:
 	Feld(std::string, char);
 	std::string get_Bezeichnung();
 	Figur* get_Figur();
-	void set_ErlaubteFelder(std::string); //Parameter
+	void set_ErlaubteFelder(std::string);
 };
 
