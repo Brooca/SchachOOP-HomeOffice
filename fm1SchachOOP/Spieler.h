@@ -11,5 +11,6 @@ private:
 public:
 	Spieler();
 	Spieler(string, bool);
+	friend ostream& operator << (ostream& lhs, array<Spieler, 2> rhs);
 };
 

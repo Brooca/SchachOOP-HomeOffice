@@ -27,6 +27,11 @@ map<string, Feld> Spiel::get_Spielstand()
 	return spielstand;
 }
 
+array<Spieler, 2> Spiel::get_Spieler()
+{
+	return spieler;
+}
+
 void Spiel::set_Spieler()
 {
 	std::string eingabe;

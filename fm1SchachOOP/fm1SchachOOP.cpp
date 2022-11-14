@@ -12,7 +12,10 @@ int main()
 	do {
 		Anzeige::anzeigeSpielstand(s.get_Spielstand());
 		cout << endl;
-		//cout << s.get_Spielstand();
+		// Operator overload
+		cout << s.get_Spieler();
+
+
 		s.ziehen();
 
 		// Pausieren der Ausgabe

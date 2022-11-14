@@ -1,4 +1,5 @@
 #include "Anzeige.h"
+#include "Spiel.h"
 #include <string>
 
 // Output via function
@@ -21,4 +22,10 @@ void Anzeige::anzeigeSpielstand(map<string, Feld> spielstand)
 	cout << string(10, ' ') << "  ABCDEFGH";
 
 cout << endl;
+}
+
+// Output via operator overload - Spieler*in
+ostream& operator << (ostream& lhs, array<Spieler, 2> rhs) {
+	lhs << "Spieler*in White: " << rhs.at(0).name << "\n" << "Spieler*in Black: " << rhs.at(1).name;
+	return lhs;
 }

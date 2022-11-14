@@ -14,6 +14,7 @@ private:
 public:
 	Spiel();
 	map<string, Feld> get_Spielstand();
+	array<Spieler, 2> get_Spieler();
 	void set_Spieler();
 	void ziehen();
 };
