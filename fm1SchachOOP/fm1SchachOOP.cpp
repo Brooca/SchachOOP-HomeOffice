@@ -11,6 +11,8 @@ int main()
 	// Ablauf des Spiels
 	do {
 		Anzeige::anzeigeSpielstand(s.get_Spielstand());
+		cout << endl;
+		//cout << s.get_Spielstand();
 		s.ziehen();
 
 		// Pausieren der Ausgabe
