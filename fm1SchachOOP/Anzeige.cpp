@@ -22,23 +22,3 @@ void Anzeige::anzeigeSpielstand(map<string, Feld> spielstand)
 
 cout << endl;
 }
-
-/* Output via Operator Overload
-//template
-ostream& operator << (ostream& lhs, map<string, Feld> spielstand) {
-
-	// Input of lhs
-	lhs << endl << endl;
-	for (char c = '8'; c >= '1'; c--) {
-		lhs << string(10, ' ') << c << " ";
-		for (char d = 'A'; d <= 'H'; d++) {
-			lhs << spielstand[string(1, d) + c].get_Figur()->get_Bezeichnung();
-		}
-		lhs << endl;
-	}
-	lhs << string(10, ' ') << "  ABCDEFGH";
-	lhs << endl;
-
-	return lhs;
-}
-*/

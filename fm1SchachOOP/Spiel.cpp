@@ -48,15 +48,14 @@ void Spiel::ziehen()
 	// Output
 	std::cout << endl << "void Spiel::ziehen()" << endl;
 
+	/*
 	// Test-Abruf Turm auf A1
 	cout << endl << endl << "Test-Abruf Turm auf A1";
 	spielstand["A1"].set_ErlaubteFelder("A1");
 
 	// Test-Abruf Springer auf B1
-	/*
 	cout << endl << "Test-Abruf Springer auf B1";
 	spielstand["B1"].set_ErlaubteFelder("B1");
-	*/
 
 	// Test-Abruf Laeufer auf C1
 	cout << endl << endl << "Test-Abruf Laeufer auf C1";
@@ -65,4 +64,5 @@ void Spiel::ziehen()
 	// Test-Abruf Dame auf D1
 	cout << endl << "Test-Abruf Dame auf D1";
 	spielstand["D1"].set_ErlaubteFelder("D1");
+	*/
 }
