@@ -17,9 +17,9 @@ std::vector<std::string> Laeufer::erlaubteFelderBerechnen(std::string bezeichnun
 {
 	// Output
 	cout << "std::vector<std::string> Laeufer::erlaubteFelderBerechnen(std::string bezeichnung)\n";
-	std::cout << "Erlaubte Felder von Laeufer auf " << bezeichnung << " :";
+	std::cout << "Erlaubte Felder von Laeufer auf " << bezeichnung << " : ";
 
 	// Test - Value
-	cout << "X1 X2 X3";
+	cout << "X1 X2 X3\n";
 	return {"X1","X2","X3"};
 }
