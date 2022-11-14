@@ -75,3 +75,12 @@ void Spiel::ziehen()
 }
 
 // Operator overload - Spieler*in
+ostream& operator << (ostream& lhs, Spieler& rhs) {
+	lhs << "Spieler*in: " << rhs.get_Name() << "\n";
+	return lhs;
+}
+
+ostream& operator << (ostream& lhs, array<Spieler, 2>& rhs) {
+	//lhs << "Spieler*in White: " << rhs.at(0).get_Name() << "\n" << "Spieler*in Black: " << rhs.at(1).get_Name();
+	return lhs;
+}

@@ -5,7 +5,7 @@ using namespace std;
 
 Laeufer::Laeufer()
 {
-	std::cout << "Laeufer erstellt\n";
+	// std::cout << "Laeufer erstellt\n";
 }
 
 Laeufer::Laeufer(bool symbol) {

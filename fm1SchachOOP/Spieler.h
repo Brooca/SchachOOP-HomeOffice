@@ -13,6 +13,6 @@ public:
 	Spieler();
 	Spieler(string, bool);
 	string get_Name() { return name; };
-	friend ostream& operator << (ostream& lhs, Spieler& rhs);
+	friend ostream& operator << (ostream& lhs, Spieler rhs);
 };
 

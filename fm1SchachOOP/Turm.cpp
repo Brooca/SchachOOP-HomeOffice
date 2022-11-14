@@ -5,7 +5,7 @@ using namespace std;
 
 Turm::Turm()
 {
-	std::cout << "Turm erstellt\n";
+	// std::cout << "Turm erstellt\n";
 }
 
 Turm::Turm(bool symbol) {

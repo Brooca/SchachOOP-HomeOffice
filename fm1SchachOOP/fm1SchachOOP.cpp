@@ -16,6 +16,7 @@ int main()
 
 		// Operator overload
 		cout << s.get_Spieler().at(0);
+		//cout << s.get_Spieler();
 
 
 

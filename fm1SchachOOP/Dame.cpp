@@ -5,7 +5,7 @@ using namespace std;
 Dame::Dame(bool symbol)								
 {
 	// Output
-	std::cout << "Dame::Dame(bool symbol)" << std::endl;
+	// std::cout << "Dame::Dame(bool symbol)" << std::endl;
 
 	// Figur:: in cause of anzeige.cpp asks for ...get_figur().get_Bezeichnung()
 	 Figur::farbe = symbol;

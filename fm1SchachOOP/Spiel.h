@@ -5,6 +5,7 @@
 #include <array>
 #include <vector>
 #include <map>
+using namespace std;
 
 class Spiel
 {
@@ -17,5 +18,6 @@ public:
 	array<Spieler, 2> get_Spieler();
 	void set_Spieler();
 	void ziehen();
+	friend ostream& operator << (ostream& lhs, array<Spieler, 2>& rhs);
 };
 
