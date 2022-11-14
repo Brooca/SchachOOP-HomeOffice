@@ -11,12 +11,13 @@ int main()
 	// Ablauf des Spiels
 	do {
 		Anzeige::anzeigeSpielstand(s.get_Spielstand());
-		cout << endl;
-		// Operator overload
-		cout << s.get_Spieler();
-
-
 		s.ziehen();
+		cout << endl;
+
+		// Operator overload
+		cout << s.get_Spieler().at(0);
+
+
 
 		// Pausieren der Ausgabe
 		cout << endl << endl;

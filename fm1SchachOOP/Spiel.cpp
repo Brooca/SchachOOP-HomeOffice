@@ -46,6 +46,8 @@ void Spiel::set_Spieler()
 	std::cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
 	std::cout << "\n";
+
+	spieler = { spieler1, spieler2 };
 }
 
 void Spiel::ziehen()
@@ -71,3 +73,5 @@ void Spiel::ziehen()
 	spielstand["D1"].set_ErlaubteFelder("D1");
 	*/
 }
+
+// Operator overload - Spieler*in
