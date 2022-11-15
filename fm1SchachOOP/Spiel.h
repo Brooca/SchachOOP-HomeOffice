@@ -16,7 +16,6 @@ private:
 	array<Spieler, 2> spieler;
     map<string,Feld> spielstand;
 public:
-	string test;
 	Spiel();
 	map<string, Feld> get_Spielstand();
 	array<Spieler, 2> get_Spieler();
