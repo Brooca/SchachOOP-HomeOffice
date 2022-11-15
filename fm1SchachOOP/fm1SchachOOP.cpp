@@ -4,11 +4,11 @@ using namespace std;
 #include <iostream>
 
 #include "Spiel.h"
-
-int main()
-{
 	// Initialisierung des Spiels
 	Spiel s;
+int main()
+{
+
 
 	// Ablauf des Spiels
 	do {
