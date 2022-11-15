@@ -3,6 +3,8 @@
 #include "Anzeige.h"
 using namespace std;
 
+
+
 int main()
 {
 	// Initialisierung des Spiels
@@ -10,15 +12,12 @@ int main()
 
 	// Ablauf des Spiels
 	do {
-		Anzeige::anzeigeSpielstand(s.get_Spielstand());
+		// Anzeige::anzeigeSpielstand(s.get_Spielstand());
 		s.ziehen();
-		cout << endl;
 
 		// Operator overload
-		cout << s.get_Spieler().at(0);
-		//cout << s.get_Spieler();
-
-
+		// cout << s.get_Spieler().at(0);
+		cout << s;
 
 		// Pausieren der Ausgabe
 		cout << endl << endl;

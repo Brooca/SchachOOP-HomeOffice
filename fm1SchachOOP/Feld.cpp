@@ -50,6 +50,11 @@ Feld::Feld(std::string bez, char symbol)
 	}
 }
 
+std::vector<string> Feld::get_ErlaubteFelder()
+{
+	return erlaubteFelder;
+}
+
 string Feld::get_Bezeichnung()
 {
 	return bezeichnung;

@@ -18,6 +18,6 @@ public:
 	array<Spieler, 2> get_Spieler();
 	void set_Spieler();
 	void ziehen();
-	friend ostream& operator << (ostream& lhs, array<Spieler, 2>& rhs);
+	friend ostream& operator << (ostream& lhs, Spiel& rhs);
 };
 

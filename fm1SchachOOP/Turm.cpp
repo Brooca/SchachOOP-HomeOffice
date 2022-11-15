@@ -16,8 +16,8 @@ Turm::Turm(bool symbol) {
 std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 {
 	// Output
-	cout << "std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)\n";
-	std::cout << "Erlaubte Felder von Turm auf " << bezeichnung << " :";
+	// cout << "std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)\n";
+	// std::cout << "Erlaubte Felder von Turm auf " << bezeichnung << " :";
 
 	// Calculation
 	vector<string>TurmV;
@@ -34,7 +34,7 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 				if (x.at(0) != (65 + i))
 				{
 					TurmV.push_back(x);
-					cout << " " << TurmV.at(TurmV.size() - 1);
+					// cout << " " << TurmV.at(TurmV.size() - 1);
 				}
 			}
 			if (bezeichnung.at(1) == (49 + i))
@@ -46,7 +46,7 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 				if (x.at(1) != (49 + i))
 				{
 					TurmV.push_back(x);
-					cout << " " << TurmV.at(TurmV.size() - 1);
+					// cout << " " << TurmV.at(TurmV.size() - 1);
 				}
 			}
 		}
