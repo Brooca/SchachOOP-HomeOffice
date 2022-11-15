@@ -1,7 +1,4 @@
 #include "Turm.h"
-#include <vector>
-#include <string>
-using namespace std;
 
 Turm::Turm()
 {
@@ -23,7 +20,6 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 		if (bezeichnung.at(0) == (65 + i))
 			{
 			string x = "  ";
-				cout << " ";
 				x.at(0) = bezeichnung.at(0) + k - i;
 				x.at(1) = bezeichnung.at(1);
 				if (x.at(0) != (65 + i))
@@ -34,7 +30,6 @@ std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
 			if (bezeichnung.at(1) == (49 + i))
 			{
 				string x = "  ";
-				cout << " ";
 				x.at(0) = bezeichnung.at(0) ;
 				x.at(1) = bezeichnung.at(1) + k - i;
 				if (x.at(1) != (49 + i))

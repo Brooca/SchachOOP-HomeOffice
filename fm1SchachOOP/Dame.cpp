@@ -1,6 +1,4 @@
 #include "Dame.h"
-#include <iostream>
-using namespace std;
 
 Dame::Dame(bool symbol)								
 {
@@ -17,7 +15,7 @@ std::vector<std::string> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 		for (auto &value : Turm::erlaubteFelderBerechnen(bezeichnung)) {
 			dameV.push_back(value);
 		}
-		cout << endl;
+		
 		// Bishop
 		for (auto &value : Laeufer::erlaubteFelderBerechnen(bezeichnung)) {
 			dameV.push_back(value);

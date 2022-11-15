@@ -1,4 +1,8 @@
 #pragma once
+using namespace std;
+#include <string>
+#include <vector>
+
 #include "Figur.h"
 
 class Laeufer :
@@ -7,5 +11,5 @@ class Laeufer :
 public:
     Laeufer();
     Laeufer(bool);
-    std::vector<std::string> erlaubteFelderBerechnen(std::string);
+    vector<string> erlaubteFelderBerechnen(string);
 };

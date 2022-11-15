@@ -1,4 +1,8 @@
 #pragma once
+using namespace std;
+#include <vector>
+#include <string>
+
 #include "Figur.h"
 
 class Turm :
@@ -7,6 +11,6 @@ class Turm :
 public:
     Turm();
     Turm(bool);
-    std::vector<std::string> erlaubteFelderBerechnen(std::string);
+    vector<string> erlaubteFelderBerechnen(string);
 };
 

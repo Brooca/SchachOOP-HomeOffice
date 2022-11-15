@@ -1,5 +1,4 @@
 #include "Spiel.h"
-#include "Spieler.h"		// needed for operator overload << spieler
 
 Spiel::Spiel()
 {

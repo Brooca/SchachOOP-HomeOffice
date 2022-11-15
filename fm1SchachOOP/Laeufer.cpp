@@ -1,7 +1,4 @@
 #include "Laeufer.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 Laeufer::Laeufer()
 {
