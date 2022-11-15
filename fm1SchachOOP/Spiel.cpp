@@ -128,6 +128,8 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 			lhs << endl;
 		}
 		// Underline with characters
+		
+		setCursorPosition(startzeile, startspalte);
 		lhs << string(20, ' ') << "ABCDEFGH" << endl;
 
 	// erlaubteFelder
