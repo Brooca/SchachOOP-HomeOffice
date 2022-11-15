@@ -131,4 +131,3 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	return lhs;
 }
-// test
