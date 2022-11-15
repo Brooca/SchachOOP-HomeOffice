@@ -1,12 +1,13 @@
 #include "Spiel.h"
-
+#include "consolenfarbe.h"
+using namespace dkremer;
 Spiel::Spiel()
 {
 	// User-Input: Array<string> spieler
 	set_Spieler();
 
 	// Key-String
-	std::string figurenFolge = "STLDKLSTBBBBBBBB";
+	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
 	figurenFolge += std::string(32, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
@@ -77,9 +78,11 @@ void Spiel::ziehen()
 ostream& operator << (ostream& lhs, Spiel& rhs) {
 	// Clear Screen
 	system("cls");
-
+	concolinit();
+	//setcolor(white, blue );
+	
 	// Headline
-	lhs << string(20, '#') << " CHESS " << string(20, '#') << endl << endl;
+	lhs << blue << string(20, '#') << " CHESS " << string(20, '#') << white<< endl << endl;
 
 	// Spieler*in
 	lhs << "White: " << rhs.get_Spieler().at(0);
@@ -98,7 +101,17 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 			
 			// Field
 			for (char d = 'A'; d <= 'H'; d++) {
-				lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+				if (((d + c) % 2) == 1) {
+					setcolor(black, blue);
+					lhs <<  rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+					setcolor(deftextcol, defbackcol);
+				}
+				else { 
+					setcolor(black, white);
+					lhs <<   rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung() ;
+					setcolor(deftextcol, defbackcol);
+				}
+				
 			}
 			lhs << endl;
 		}

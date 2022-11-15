@@ -92,6 +92,9 @@
     <ClInclude Include="Springer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="consolenfarbe.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

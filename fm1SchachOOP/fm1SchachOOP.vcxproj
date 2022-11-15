@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Anzeige.h" />
     <ClInclude Include="Bauer.h" />
+    <ClInclude Include="consolenfarbe.h" />
     <ClInclude Include="Dame.h" />
     <ClInclude Include="Feld.h" />
     <ClInclude Include="Figur.h" />
