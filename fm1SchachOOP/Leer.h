@@ -1,12 +1,15 @@
 #pragma once
-#include "Figur.h"
+using namespace std;
 #include <string>
+#include <vector>
+
+#include "Figur.h"
 
 class Leer :
     public Figur
 {
 public:
-    Leer(std::string); 
-    std::vector<std::string> erlaubteFelderBerechnen(std::string);
+    Leer(string); 
+    vector<string> erlaubteFelderBerechnen(string);
 };
 

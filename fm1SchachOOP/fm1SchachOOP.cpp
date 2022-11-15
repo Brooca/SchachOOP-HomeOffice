@@ -1,9 +1,8 @@
-#include <iostream>
-#include "Spiel.h"
-#include "Anzeige.h"
+#pragma once
 using namespace std;
+#include <iostream>
 
-
+#include "Spiel.h"
 
 int main()
 {

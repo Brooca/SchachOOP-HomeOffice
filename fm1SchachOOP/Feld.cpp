@@ -1,13 +1,4 @@
 #include "Feld.h"
-#include "Bauer.h"
-#include "Dame.h"
-#include "Koenig.h"
-#include "Laeufer.h"
-#include "Leer.h"
-#include "Springer.h"
-#include "Turm.h"
-#include <iostream>
-using namespace std;
 
 Feld::Feld()
 {

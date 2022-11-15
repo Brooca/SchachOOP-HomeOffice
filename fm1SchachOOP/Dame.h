@@ -1,4 +1,8 @@
 #pragma once
+using namespace std;
+#include <vector>
+#include <string>
+
 #include "Laeufer.h"
 #include "Turm.h"
 
@@ -7,6 +11,6 @@ class Dame :
 {
 public:
   Dame(bool);
-  std::vector<std::string> erlaubteFelderBerechnen(std::string);
+  vector<string> erlaubteFelderBerechnen(string);
 };
 

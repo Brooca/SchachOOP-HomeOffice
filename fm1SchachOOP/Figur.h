@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+using namespace std;
 #include <string>
 #include <vector>
 
@@ -11,5 +11,5 @@ protected:
 public:
 	bool get_Farbe();
 	char get_Bezeichnung();
-	virtual std::vector<std::string> erlaubteFelderBerechnen(std::string);
+	virtual vector<string> erlaubteFelderBerechnen(string);
 };

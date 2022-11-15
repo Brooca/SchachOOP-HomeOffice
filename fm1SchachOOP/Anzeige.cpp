@@ -1,6 +1,4 @@
 #include "Anzeige.h"
-#include "Spiel.h"
-#include <string>
 
 // Output via function
 void Anzeige::anzeigeSpielstand(map<string, Feld> spielstand)

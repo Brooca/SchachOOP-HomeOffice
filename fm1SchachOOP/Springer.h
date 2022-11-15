@@ -1,13 +1,15 @@
 #pragma once
-#include "Figur.h"
+using namespace std;
 #include <string>
 #include <vector>
+
+#include "Figur.h"
 
 class Springer :
     public Figur
 {
 public:
     Springer(bool);
-   std::vector<std::string> erlaubteFelderBerechnen(std::string);
+    vector<string> erlaubteFelderBerechnen(string);
 };
 

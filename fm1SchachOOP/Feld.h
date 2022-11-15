@@ -1,22 +1,31 @@
 #pragma once
+using namespace std;
 #include <string>
 #include <vector>
+
+#include "Bauer.h"
+#include "Dame.h"
+#include "Koenig.h"
+#include "Laeufer.h"
+#include "Leer.h"
+#include "Springer.h"
+#include "Turm.h"
 #include "Figur.h"
 
 class Feld
 {
 private:
-	std::string bezeichnung;
+	string bezeichnung;
 	bool feldFarbe;
 	Figur* figur;
-	std::vector<std::string> erlaubteFelder;
+	vector<string> erlaubteFelder;
 public:
 	Feld(); 
-	Feld(std::string);
-	Feld(std::string, char);
-	std::vector<std::string> get_ErlaubteFelder();
-	std::string get_Bezeichnung();
+	Feld(string);
+	Feld(string, char);
+	vector<string> get_ErlaubteFelder();
+	string get_Bezeichnung();
 	Figur* get_Figur();
-	void set_ErlaubteFelder(std::string);
+	void set_ErlaubteFelder(string);
 };
 

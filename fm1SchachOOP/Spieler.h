@@ -1,8 +1,8 @@
 #pragma once
+using namespace std;
 #include <string>
 #include <iostream>
 #include <array>
-using namespace std;
 
 class Spieler
 {
@@ -12,7 +12,7 @@ private:
 public:
 	Spieler();
 	Spieler(string, bool);
-	string get_Name() { return name; };
-	friend ostream& operator << (ostream& lhs, Spieler rhs);
+	string get_Name();
+	friend ostream& operator << (ostream& lhs, Spieler& rhs);
 };
 
