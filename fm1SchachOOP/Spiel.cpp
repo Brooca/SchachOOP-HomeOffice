@@ -1,6 +1,6 @@
-#include "Spiel.h"
-#include "consolenfarbe.h"
 #include "libChess.h"
+#include "consolenfarbe.h"
+#include "Spiel.h"
 
 Spiel::Spiel()
 {
@@ -77,28 +77,53 @@ void Spiel::ziehen()
 
 // Operator overload
 ostream& operator << (ostream& lhs, Spiel& rhs) {
+
+	// Output Manipulation Values
 	using namespace dkremer;
-	// Clear Screen
-	system("cls");
+	unsigned int startzeile;
+	unsigned int startspalte;
 
 	// Colour Setup
 	concolinit();
+
+	// Clear Screen
+	system("cls");
 	
 	// Headline
-	lhs << blue << string(20, '#') << " CHESS " << string(20, '#') << white<< endl << endl;
+	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white<< endl << endl;
 
-	// Spieler*in
+	// Spieler*in White
+	setCursorPosition(startspalte = 5, startzeile = 3);
+	lhs << "    /\\/|   " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  //   .\\  " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  ||  ;^;) "  << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  3____\\   " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << " ((n_____) "  << "\n";
+
+	setCursorPosition(startspalte, ++startzeile);
 	lhs << "White: " << rhs.get_Spieler().at(0);
-	lhs << "Black: " << rhs.get_Spieler().at(1);
-	lhs << endl;
 
-	/* Board */
+	// Spieler*in Black
+	setCursorPosition(startspalte = 45, startzeile = 3);
+	lhs <<  "|\\/\\_"    << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs <<  "/.  \\\\"   << "\n"; setCursorPosition(--startspalte, ++startzeile);
+	lhs << "(;^;  ||"    << "\n"; setCursorPosition(startspalte += 2, ++startzeile);
+	lhs <<   "/____3"    << "\n"; setCursorPosition(--startspalte, ++startzeile);
+	lhs	<<  "(____n))"   << "\n";
+
+	setCursorPosition(startspalte, ++startzeile);
+	lhs << "Black: " << rhs.get_Spieler().at(1);
+
+	/* Board */		
+		startzeile = 3;
+		startspalte = 25;
+
 		// Output : Figur auf Feld passend zur Bezeichnung
 		for (char c = '8'; c >= '1'; c--) {
+		setCursorPosition(startspalte, startzeile);
+			// Numbers to the left side
+			lhs << c;
 
-			// Distance to terminal edge
-			lhs << string(19, ' ') << c;
-			
 			// Field
 			for (char d = 'A'; d <= 'H'; d++) {
 				if (((d + c) % 2) == 1) {
@@ -113,9 +138,11 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 				}
 			}
 			lhs << endl;
+			startzeile++;
 		}
 		// Underline with characters
-		lhs << string(20, ' ') << "ABCDEFGH" << endl;
+		setCursorPosition(++startspalte, startzeile);
+		lhs << "ABCDEFGH" << endl;
 
 	// erlaubteFelder
 	lhs << endl << "Erlaubte Felder\n";
