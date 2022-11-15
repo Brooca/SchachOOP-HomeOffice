@@ -7,9 +7,9 @@ class Figur
 {
 protected:
 	bool farbe;
-	char bezeichnung;
+	unsigned char bezeichnung;
 public:
 	bool get_Farbe();
-	char get_Bezeichnung();
+	unsigned char get_Bezeichnung();
 	virtual vector<string> erlaubteFelderBerechnen(string);
 };
