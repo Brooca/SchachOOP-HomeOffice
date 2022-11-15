@@ -3,6 +3,8 @@
 #include "Anzeige.h"
 using namespace std;
 
+
+
 int main()
 {
 	// Initialisierung des Spiels
@@ -10,8 +12,8 @@ int main()
 
 	// Ablauf des Spiels
 	do {
-		Anzeige::anzeigeSpielstand(s.get_Spielstand());
 		s.ziehen();
+		cout << s;
 
 		// Pausieren der Ausgabe
 		cout << endl << endl;

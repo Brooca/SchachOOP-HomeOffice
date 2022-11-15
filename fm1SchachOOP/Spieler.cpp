@@ -9,3 +9,8 @@ Spieler::Spieler(string n, bool f)
 {
 	// std::cout << name << " spielt " << (f ? "weiss" : "schwarz") << "\n"; 
 }
+
+ostream& operator << (ostream& lhs, Spieler rhs) {
+	lhs << "Spieler*in: " << rhs.get_Name() << "\n";
+	return lhs;
+}

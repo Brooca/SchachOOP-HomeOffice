@@ -50,6 +50,11 @@ Feld::Feld(std::string bez, char symbol)
 	}
 }
 
+std::vector<string> Feld::get_ErlaubteFelder()
+{
+	return erlaubteFelder;
+}
+
 string Feld::get_Bezeichnung()
 {
 	return bezeichnung;
@@ -62,8 +67,5 @@ Figur* Feld::get_Figur()
 
 void Feld::set_ErlaubteFelder(string bezeichnung)
 {
-	// Output
-	cout << endl << "void Feld::set_ErlaubteFelder(string bezeichnung)" << endl;
-
-	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);// Push back bei mehrfach vererbung oder insert oder in --> dame neuer vector
+	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <array>
 using namespace std;
 
 class Spieler
@@ -11,5 +12,7 @@ private:
 public:
 	Spieler();
 	Spieler(string, bool);
+	string get_Name() { return name; };
+	friend ostream& operator << (ostream& lhs, Spieler rhs);
 };
 

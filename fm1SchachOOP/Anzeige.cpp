@@ -1,8 +1,11 @@
 #include "Anzeige.h"
+#include "Spiel.h"
 #include <string>
 
+// Output via function
 void Anzeige::anzeigeSpielstand(map<string, Feld> spielstand)
-{ cout << endl << endl;
+{
+	cout << endl << endl;
 	
 	// Output : Figur auf Feld passend zur Bezeichnung
 	for (char c = '8'; c >= '1'; c--) {
