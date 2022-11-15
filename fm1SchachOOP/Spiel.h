@@ -5,6 +5,7 @@ using namespace std;
 #include <vector>
 #include <map>
 
+#include "libChess.h"
 #include "Spieler.h"
 #include "Feld.h"
 

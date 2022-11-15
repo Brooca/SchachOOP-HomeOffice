@@ -151,6 +151,7 @@
     <ClInclude Include="Koenig.h" />
     <ClInclude Include="Laeufer.h" />
     <ClInclude Include="Leer.h" />
+    <ClInclude Include="libChess.h" />
     <ClInclude Include="Spiel.h" />
     <ClInclude Include="Spieler.h" />
     <ClInclude Include="Springer.h" />
