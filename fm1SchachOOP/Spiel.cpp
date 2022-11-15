@@ -54,7 +54,7 @@ void Spiel::set_Spieler()
 void Spiel::ziehen()
 {
 	// Output
-	std::cout << endl << "void Spiel::ziehen()" << endl;
+	// std::cout << endl << "void Spiel::ziehen()" << endl;
 
 	// Test-Abruf Turm auf A1
 	// cout << endl << endl << "Test-Abruf Turm auf A1";
@@ -79,8 +79,9 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	using namespace dkremer;
 	// Clear Screen
 	system("cls");
+
+	// Colour Setup
 	concolinit();
-	//setcolor(white, blue );
 	
 	// Headline
 	lhs << blue << string(20, '#') << " CHESS " << string(20, '#') << white<< endl << endl;
@@ -88,12 +89,9 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	// Spieler*in
 	lhs << "White: " << rhs.get_Spieler().at(0);
 	lhs << "Black: " << rhs.get_Spieler().at(1);
-	// lhs << "White: " << rhs.get_Spieler().at(0).get_Name() << endl;
-	// lhs << "Black: " << rhs.get_Spieler().at(1).get_Name() << endl;
 	lhs << endl;
 
-	// Board
-	
+	/* Board */
 		// Output : Figur auf Feld passend zur Bezeichnung
 		for (char c = '8'; c >= '1'; c--) {
 
@@ -104,15 +102,14 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 			for (char d = 'A'; d <= 'H'; d++) {
 				if (((d + c) % 2) == 1) {
 					setcolor(black, blue);
-					lhs <<  rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+					lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
 					setcolor(deftextcol, defbackcol);
 				}
 				else { 
 					setcolor(black, white);
-					lhs <<   rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung() ;
+					lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung() ;
 					setcolor(deftextcol, defbackcol);
 				}
-				
 			}
 			lhs << endl;
 		}
@@ -130,6 +127,6 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 		lhs << "\n";
 	}
 
+	// Return ostream
 	return lhs;
 }
-// test
