@@ -11,7 +11,7 @@ Spieler::Spieler(string n, bool f)
 }
 
 
-ostream& operator << (ostream& lhs, Spieler rhs) {
+ostream& operator << (ostream& lhs, Spieler& rhs) {
 	lhs << rhs.get_Name() << "\n";
 	return lhs;
 }
