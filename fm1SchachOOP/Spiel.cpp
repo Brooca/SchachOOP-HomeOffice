@@ -1,6 +1,6 @@
 #include "Spiel.h"
 #include "consolenfarbe.h"
-using namespace dkremer;
+
 Spiel::Spiel()
 {
 	// User-Input: Array<string> spieler
@@ -76,6 +76,7 @@ void Spiel::ziehen()
 
 // Operator overload
 ostream& operator << (ostream& lhs, Spiel& rhs) {
+	using namespace dkremer;
 	// Clear Screen
 	system("cls");
 	concolinit();
