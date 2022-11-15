@@ -16,11 +16,6 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 	|| c - 2 & d + 1 || c - 2 & d - 1
 	|| d + 2 & c + 1 || d + 2 & c - 1
 	|| d + 2 & c + 1 || d + 2 & c - 1 */
-
-	// Output
-	cout << "std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)" << endl;
-	std::cout << "Erlaubte Felder von Springer auf " << bezeichnung << " :";
-
 	// Calculation
 	vector<string>springerV;
 

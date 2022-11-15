@@ -89,20 +89,20 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	// Board
 	
-	// Output : Figur auf Feld passend zur Bezeichnung
-	for (char c = '8'; c >= '1'; c--) {
+		// Output : Figur auf Feld passend zur Bezeichnung
+		for (char c = '8'; c >= '1'; c--) {
 
-		// Distance to terminal edge
-		lhs << string(19, ' ') << c;
+			// Distance to terminal edge
+			lhs << string(19, ' ') << c;
 
-		// Field
-		for (char d = 'A'; d <= 'H'; d++) {
-			lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+			// Field
+			for (char d = 'A'; d <= 'H'; d++) {
+				lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+			}
+			lhs << endl;
 		}
-		lhs << endl;
-	}
-	// Underline with characters
-	lhs << string(20, ' ') << "ABCDEFGH" << endl;
+		// Underline with characters
+		lhs << string(20, ' ') << "ABCDEFGH" << endl;
 
 	// erlaubteFelder
 	lhs << endl << "Erlaubte Felder\n";

@@ -5,7 +5,6 @@ using namespace std;
 
 Laeufer::Laeufer()
 {
-	// std::cout << "Laeufer erstellt\n";
 }
 
 Laeufer::Laeufer(bool symbol) {
@@ -15,11 +14,6 @@ Laeufer::Laeufer(bool symbol) {
 
 std::vector<std::string> Laeufer::erlaubteFelderBerechnen(std::string bezeichnung)
 {
-	// Output
-	cout << "std::vector<std::string> Laeufer::erlaubteFelderBerechnen(std::string bezeichnung)\n";
-	std::cout << "Erlaubte Felder von Laeufer auf " << bezeichnung << " : ";
-
 	// Test - Value
-	cout << "X1 X2 X3\n";
 	return {"X1","X2","X3"};
 }

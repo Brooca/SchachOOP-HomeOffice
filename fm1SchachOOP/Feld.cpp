@@ -67,8 +67,5 @@ Figur* Feld::get_Figur()
 
 void Feld::set_ErlaubteFelder(string bezeichnung)
 {
-	// Output
-	cout << endl << "void Feld::set_ErlaubteFelder(string bezeichnung)" << endl;
-
 	erlaubteFelder = figur->erlaubteFelderBerechnen(bezeichnung);
 }
