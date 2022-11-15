@@ -1,5 +1,6 @@
 #include "Spiel.h"
 #include "consolenfarbe.h"
+#include "libChess.h"
 
 Spiel::Spiel()
 {
