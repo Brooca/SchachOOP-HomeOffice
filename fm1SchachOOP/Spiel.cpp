@@ -53,18 +53,18 @@ array<Spieler, 2> Spiel::get_Spieler()
 
 void Spiel::set_Spieler()
 {
-	std::string eingabe;
+	string eingabe;
 
 	// Spieler 1
-	std::cout << "Spieler*in Weiss:   ";
-	std::cin >> eingabe;
+	cout << "Spieler*in Weiss:   ";
+	cin >> eingabe;
 	Spieler spieler1(eingabe, 1);
 
 	// Spieler 2
-	std::cout << "Spieler*in Schwarz: ";
-	std::cin >> eingabe;
+	cout << "Spieler*in Schwarz: ";
+	cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
-	std::cout << "\n";
+	cout << "\n";
 
 	spieler = { spieler1, spieler2 };
 }

@@ -4,12 +4,12 @@ Feld::Feld()
 {
 }
 
-Feld::Feld(std::string bez)
+Feld::Feld(string bez)
 {
 	bezeichnung = bez;
 }
 
-Feld::Feld(std::string bez, char symbol)
+Feld::Feld(string bez, char symbol)
 {
 	// Bezeichnung von Feld
 	bezeichnung = bez;
@@ -41,7 +41,7 @@ Feld::Feld(std::string bez, char symbol)
 	}
 }
 
-std::vector<string> Feld::get_ErlaubteFelder()
+vector<string> Feld::get_ErlaubteFelder()
 {
 	return erlaubteFelder;
 }

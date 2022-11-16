@@ -6,7 +6,7 @@ Koenig::Koenig(bool symbol)
 	bezeichnung = (symbol) ? 'K' : 'k';
 }
 
-std::vector<std::string> Koenig::erlaubteFelderBerechnen(std::string)
+vector<string> Koenig::erlaubteFelderBerechnen(string)
 {
 	return {};
 }
