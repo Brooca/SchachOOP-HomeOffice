@@ -8,8 +8,8 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String
-	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += std::string(32, ' ');
+	string figurenFolge = "TSLDKLSTBBBBBBBB";
+	figurenFolge += string(32, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
 	
@@ -18,7 +18,7 @@ Spiel::Spiel()
 	{
 		for (char c = 'A'; c <= 'H'; c++)
 		{
-		std::string key = std::string(1,c) + d;
+		string key = string(1,c) + d;
 		spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 		}
 	}
@@ -71,9 +71,14 @@ void Spiel::set_Spieler()
 
 void Spiel::ziehen()
 {
+	// Output Manipulation Values
+	unsigned int startzeile;
+	unsigned int startspalte;
+
 	// User Input Departure
 	string zugVon;
 
+	setCursorPosition(startspalte = 5, startzeile = 10);
 	cout << "Von: ";
 	cin >> zugVon;
 }

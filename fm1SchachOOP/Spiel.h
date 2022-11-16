@@ -4,6 +4,7 @@ using namespace std;
 #include <array>
 #include <vector>
 #include <map>
+#include <string>
 
 #include "Spieler.h"
 #include "Feld.h"

@@ -13,9 +13,5 @@ int main()
 	do {
 		cout << s;
 		s.ziehen();
-
-		// Pausieren der Ausgabe
-		cout << endl << endl;
-		system("Pause");
 	} while (true);
 }
