@@ -11,8 +11,8 @@ int main()
 
 	// Ablauf des Spiels
 	do {
-		s.ziehen();
 		cout << s;
+		s.ziehen();
 
 		// Pausieren der Ausgabe
 		cout << endl << endl;
