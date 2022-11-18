@@ -9,7 +9,7 @@ Turm::Turm(bool symbol) {
 	bezeichnung = (symbol) ? 'T' : 't';
 }
 
-std::vector<std::string> Turm::erlaubteFelderBerechnen(std::string bezeichnung)
+vector<string> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
 	// Calculation
 	vector<string>TurmV;

@@ -1,14 +1,13 @@
 #pragma once
-
+using namespace std;
 #include <iostream>
 #include <array>
 #include <vector>
 #include <map>
+#include <string>
+
 #include "Spieler.h"
 #include "Feld.h"
-
-using namespace std;
-
 
 class Spiel
 {

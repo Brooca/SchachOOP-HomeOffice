@@ -1,5 +1,6 @@
-#include "Spiel.h"
+#include "libChess.h"
 #include "consolenfarbe.h"
+#include "Spiel.h"
 
 Spiel::Spiel()
 {
@@ -7,8 +8,8 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String
-	std::string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += std::string(32, ' ');
+	string figurenFolge = "TSLDKLSTBBBBBBBB";
+	figurenFolge += string(32, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
 	
@@ -17,10 +18,27 @@ Spiel::Spiel()
 	{
 		for (char c = 'A'; c <= 'H'; c++)
 		{
-		std::string key = std::string(1,c) + d;
+		string key = string(1,c) + d;
 		spielstand[key] = Feld::Feld(key,figurenFolge[index++]); 
 		}
 	}
+
+	// erlaubteFelder aus Grundstellung
+		// Test-Abruf Turm auf A1
+		// cout << endl << endl << "Test-Abruf Turm auf A1";
+		spielstand["A1"].set_ErlaubteFelder("A1");
+
+		// Test-Abruf Springer auf B1
+		// cout << endl << "Test-Abruf Springer auf B1";
+		spielstand["B1"].set_ErlaubteFelder("B1");
+
+		// Test-Abruf Laeufer auf C1
+		// cout << endl << endl << "Test-Abruf Laeufer auf C1";
+		spielstand["C1"].set_ErlaubteFelder("C1");
+
+		// Test-Abruf Dame auf D1
+		// cout << endl << "Test-Abruf Dame auf D1";
+		spielstand["D1"].set_ErlaubteFelder("D1");
 }
 
 map<string, Feld> Spiel::get_Spielstand()
@@ -35,102 +53,103 @@ array<Spieler, 2> Spiel::get_Spieler()
 
 void Spiel::set_Spieler()
 {
-	std::string eingabe;
+	string eingabe;
 
 	// Spieler 1
-	std::cout << "Spieler*in Weiss:   ";
-	std::cin >> eingabe;
+	cout << "Spieler*in Weiss:   ";
+	cin >> eingabe;
 	Spieler spieler1(eingabe, 1);
 
 	// Spieler 2
-	std::cout << "Spieler*in Schwarz: ";
-	std::cin >> eingabe;
+	cout << "Spieler*in Schwarz: ";
+	cin >> eingabe;
 	Spieler spieler2(eingabe, 0);
-	std::cout << "\n";
+	cout << "\n";
 
 	spieler = { spieler1, spieler2 };
 }
 
 void Spiel::ziehen()
 {
-	// Output
-	std::cout << endl << "void Spiel::ziehen()" << endl;
+	// Output Manipulation Values
+	unsigned int startzeile;
+	unsigned int startspalte;
 
-	// Test-Abruf Turm auf A1
-	// cout << endl << endl << "Test-Abruf Turm auf A1";
-	spielstand["A1"].set_ErlaubteFelder("A1");
+	// User Input Departure
+	string zugVon;
 
-	// Test-Abruf Springer auf B1
-	// cout << endl << "Test-Abruf Springer auf B1";
-	spielstand["B1"].set_ErlaubteFelder("B1");
-
-	// Test-Abruf Laeufer auf C1
-	// cout << endl << endl << "Test-Abruf Laeufer auf C1";
-	spielstand["C1"].set_ErlaubteFelder("C1");
-
-	// Test-Abruf Dame auf D1
-	// cout << endl << "Test-Abruf Dame auf D1";
-	spielstand["D1"].set_ErlaubteFelder("D1");
-	
+	setCursorPosition(startspalte = 5, startzeile = 10);
+	cout << "Von: ";
+	cin >> zugVon;
 }
-// Funktion set Cursor
-void setCursorPosition(unsigned int x, unsigned int y)
-{
-	static const HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	std::cout.flush();
-	COORD coord = { (SHORT)x, (SHORT)y };
-	SetConsoleCursorPosition(hOut, coord);
-	}
 
 // Operator overload
 ostream& operator << (ostream& lhs, Spiel& rhs) {
+
+	// Output Manipulation Values
 	using namespace dkremer;
+	unsigned int startzeile;
+	unsigned int startspalte;
+
+	// Colour Setup
+	concolinit();
+
 	// Clear Screen
 	system("cls");
-	concolinit();
-	//setcolor(white, blue );
 	
 	// Headline
-	lhs << blue << string(20, '#') << " CHESS " << string(20, '#') << white<< endl << endl;
+	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white<< endl << endl;
 
-	// Spieler*in
+	// Spieler*in White
+	setCursorPosition(startspalte = 5, startzeile = 3);
+	lhs << "    /\\/|   " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  //   .\\  " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  ||  ;^;) "  << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << "  3____\\   " << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs << " ((n_____) "  << "\n";
+
+	setCursorPosition(startspalte, ++startzeile);
 	lhs << "White: " << rhs.get_Spieler().at(0);
-	lhs << "Black: " << rhs.get_Spieler().at(1);
-	// lhs << "White: " << rhs.get_Spieler().at(0).get_Name() << endl;
-	// lhs << "Black: " << rhs.get_Spieler().at(1).get_Name() << endl;
-	lhs << endl;
 
-	// Board
-		
-	unsigned int startzeile{ 20 };
-	unsigned int startspalte{ 10 };
-	setCursorPosition(startzeile, startspalte);
-		for (char c = '8'; c >= '1'; c--) {  // Output : Figur auf Feld passend zur Bezeichnung
-			startspalte++;
-			setCursorPosition(startzeile, startspalte);
-			// Distance to terminal edge
-			lhs << string(19, ' ') << c;
-			
+	// Spieler*in Black
+	setCursorPosition(startspalte = 45, startzeile = 3);
+	lhs <<  "|\\/\\_"    << "\n"; setCursorPosition(startspalte, ++startzeile);
+	lhs <<  "/.  \\\\"   << "\n"; setCursorPosition(--startspalte, ++startzeile);
+	lhs << "(;^;  ||"    << "\n"; setCursorPosition(startspalte += 2, ++startzeile);
+	lhs <<   "/____3"    << "\n"; setCursorPosition(--startspalte, ++startzeile);
+	lhs	<<  "(____n))"   << "\n";
+
+	setCursorPosition(startspalte, ++startzeile);
+	lhs << "Black: " << rhs.get_Spieler().at(1);
+
+	/* Board */		
+		startzeile = 3;
+		startspalte = 25;
+
+		// Output : Figur auf Feld passend zur Bezeichnung
+		for (char c = '8'; c >= '1'; c--) {
+		setCursorPosition(startspalte, startzeile);
+			// Numbers to the left side
+			lhs << c;
+
 			// Field
 			for (char d = 'A'; d <= 'H'; d++) {
 				if (((d + c) % 2) == 1) {
 					setcolor(black, blue);
-					lhs <<  rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
+					lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung();
 					setcolor(deftextcol, defbackcol);
 				}
 				else { 
 					setcolor(black, white);
-					lhs <<   rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung() ;
+					lhs << rhs.get_Spielstand()[string(1, d) + c].get_Figur()->get_Bezeichnung() ;
 					setcolor(deftextcol, defbackcol);
 				}
-				
 			}
 			lhs << endl;
 		}
 		// Underline with characters
-		
-		setCursorPosition(startzeile, startspalte);
-		lhs << string(20, ' ') << "ABCDEFGH" << endl;
+		setCursorPosition(++startspalte, startzeile);
+		lhs << "ABCDEFGH" << endl;
 
 	// erlaubteFelder
 	lhs << endl << "Erlaubte Felder\n";
@@ -143,6 +162,6 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 		lhs << "\n";
 	}
 
+	// Return ostream
 	return lhs;
 }
-// test

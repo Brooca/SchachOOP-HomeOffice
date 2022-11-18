@@ -1,11 +1,11 @@
 #include "Leer.h"
 
-Leer::Leer(std::string s)
+Leer::Leer(string s)
 {
-	bezeichnung = 32;
+	bezeichnung = ' ';
 }
 
-std::vector<std::string> Leer::erlaubteFelderBerechnen(std::string)
+vector<string> Leer::erlaubteFelderBerechnen(string)
 {
 	return {};
 }
