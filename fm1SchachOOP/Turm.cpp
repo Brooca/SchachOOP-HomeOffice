@@ -1,6 +1,7 @@
 #include "Turm.h"
-#include "Feld.h"
+#include "FeldFigur.h"
 #include "Spiel.h"
+extern Spiel s;
 
 extern Spiel s;
 
@@ -15,7 +16,6 @@ Turm::Turm(bool symbol) {
 
 vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
-
 	// Calculation
 	vector<string> TurmV;
 	for (int i = 0; i < 8; i++)
@@ -29,7 +29,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 				x.at(1) = bezeichnung.at(1);
 				if (x.at(0) != (65 + i))
 				{
-					TurmV.push_back(x);
+					TurmV.push_back(x);  
 				}
 			}
 			if (bezeichnung.at(1) == (49 + i))
@@ -44,11 +44,10 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 			}
 		}
 	}
-
-	// vector<Feld> anhand der Schluessel von TurmV mit Feldern aus der map fuellen
 	vector<Feld> felder;
-	for(string& str : TurmV){
+	for (string& str : TurmV) {
 		felder.push_back(s.get_Spielstand()[str]);
 	}
+	
 	return felder;
 }

@@ -1,4 +1,4 @@
-#include "Figur.h"
+#include "FeldFigur.h"
 
 vector<Feld> Figur::erlaubteFelderBerechnen(string bezeichnung) {
     return {};

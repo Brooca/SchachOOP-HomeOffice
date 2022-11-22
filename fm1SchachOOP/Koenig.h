@@ -2,11 +2,11 @@
 using namespace std;
 #include <vector>
 #include <string>
-#include "Feld.h"
+#include "FeldFigur.h"
 
 class Feld;
 
-#include "Figur.h"
+
 
 class Koenig :
     public Figur
