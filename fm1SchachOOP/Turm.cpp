@@ -1,5 +1,7 @@
 #include "Turm.h"
 #include "Feld.h"
+#include "Spiel.h"
+extern Spiel s;
 
 Turm::Turm()
 {
@@ -11,7 +13,7 @@ Turm::Turm(bool symbol) {
 }
 
 vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
-{/*
+{
 	// Calculation
 	vector<string>TurmV;
 	for (int i = 0; i < 8; i++)
@@ -25,7 +27,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 				x.at(1) = bezeichnung.at(1);
 				if (x.at(0) != (65 + i))
 				{
-					TurmV.push_back(x);
+					TurmV.push_back(x);  
 				}
 			}
 			if (bezeichnung.at(1) == (49 + i))
@@ -40,6 +42,10 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 			}
 		}
 	}
-	return TurmV;*/
-	return {};
+	vector<Feld> felder;
+	for (string& str : TurmV) {
+		felder.push_back(s.get_Spielstand()[str]);
+	}
+	
+	return felder;
 }
