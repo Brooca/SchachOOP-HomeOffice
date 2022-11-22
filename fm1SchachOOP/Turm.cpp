@@ -1,4 +1,5 @@
 #include "Turm.h"
+#include "Feld.h"
 
 Turm::Turm()
 {
@@ -9,8 +10,8 @@ Turm::Turm(bool symbol) {
 	bezeichnung = (symbol) ? 'T' : 't';
 }
 
-vector<string> Turm::erlaubteFelderBerechnen(string bezeichnung)
-{
+vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
+{/*
 	// Calculation
 	vector<string>TurmV;
 	for (int i = 0; i < 8; i++)
@@ -39,5 +40,6 @@ vector<string> Turm::erlaubteFelderBerechnen(string bezeichnung)
 			}
 		}
 	}
-	return TurmV;
+	return TurmV;*/
+	return {};
 }

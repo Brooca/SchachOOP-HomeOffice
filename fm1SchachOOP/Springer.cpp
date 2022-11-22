@@ -6,7 +6,7 @@ Springer::Springer(bool symbol)
 	bezeichnung = (symbol) ? 'S' : 's';
 }
 
-std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
+std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 { 
 	// Bewegungsmuster : Springer
 	/* c = A d = 1
@@ -15,7 +15,7 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 	|| d + 2 & c + 1 || d + 2 & c - 1
 	|| d + 2 & c + 1 || d + 2 & c - 1 */
 	// Calculation
-	vector<string>springerV;
+	/*vector<string>springerV;
 
 	for (int i = 0; i < 2; i++) {	
 		if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
@@ -47,6 +47,7 @@ std::vector<std::string> Springer::erlaubteFelderBerechnen(std::string bezeichnu
 			springerV.push_back(x);
 		}
 	}
-	return springerV;
+	return springerV;*/
+	return {};
 }
 

@@ -155,13 +155,13 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	// erlaubteFelder
 	lhs << endl << "Erlaubte Felder\n";
 
-	for (string mapKey : {"A1", "B1", "C1", "D1"}) {
+	/*for (string mapKey : {"A1", "B1", "C1", "D1"}) {
 		lhs << rhs.get_Spielstand().at(mapKey).get_Bezeichnung() << " : ";
 		for (string s : rhs.get_Spielstand().at(mapKey).get_ErlaubteFelder()) {
 			lhs << s << " ";
 		}
 		lhs << "\n";
-	}
+	}*/
 
 	// Return ostream
 	return lhs;

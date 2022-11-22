@@ -7,7 +7,7 @@ using namespace std;
 #include <string>
 
 #include "Spieler.h"
-#include "Feld.h"
+#include "Figur.h"
 
 class Spiel
 {

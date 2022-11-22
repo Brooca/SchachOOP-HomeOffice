@@ -9,8 +9,9 @@ Laeufer::Laeufer(bool symbol) {
 	bezeichnung = (symbol) ? 'L' : 'l';
 }
 
-vector<string> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
-{
+vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
+{/*
 	// Test - Value
-	return {"X1","X2","X3"};
+	return {"X1","X2","X3"};*/
+	return {};
 }

@@ -2,6 +2,9 @@
 using namespace std;
 #include <vector>
 #include <string>
+#include "Feld.h"
+
+class Feld;
 
 #include "Figur.h"
 
@@ -10,6 +13,6 @@ class Bauer :
 {
 public:
     Bauer(bool);
-    vector<string> erlaubteFelderBerechnen(string);
+    vector<Feld> erlaubteFelderBerechnen(string);
 };
 

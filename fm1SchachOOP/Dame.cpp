@@ -6,8 +6,8 @@ Dame::Dame(bool symbol)
 	 Figur::bezeichnung = (symbol) ? 'D' : 'd';
 }
 
-vector<string> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
-{
+vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
+{/*
 	// Calculation
 	vector<string> dameV;
 
@@ -21,5 +21,6 @@ vector<string> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 			dameV.push_back(value);
 		}
 
-	return dameV;
+	return dameV;*/
+	return {};
 }

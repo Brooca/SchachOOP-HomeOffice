@@ -2,6 +2,9 @@
 using namespace std;
 #include <vector>
 #include <string>
+#include "Feld.h"
+
+class Feld;
 
 #include "Figur.h"
 
@@ -13,6 +16,6 @@ private:
 public:
     Turm();
     Turm(bool);
-    vector<string> erlaubteFelderBerechnen(string);
+    vector<Feld> erlaubteFelderBerechnen(string);
 };
 
