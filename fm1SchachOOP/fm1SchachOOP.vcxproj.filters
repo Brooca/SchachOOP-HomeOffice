@@ -62,10 +62,7 @@
     <ClInclude Include="Bauer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Feld.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="Figur.h">
+    <ClInclude Include="FeldFigur.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Leer.h">

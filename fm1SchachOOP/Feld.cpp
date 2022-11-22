@@ -1,4 +1,4 @@
-#include "Figur.h"
+#include "FeldFigur.h"
 
 Feld::Feld()
 {

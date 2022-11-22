@@ -4,7 +4,7 @@ using namespace std;
 #include <vector>
 
 // Inclusion in cause of Komposition
-#include "Feld.h"
+#include "FeldFigur.h"
 class Feld;
 
 class Figur
