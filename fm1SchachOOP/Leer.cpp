@@ -5,7 +5,7 @@ Leer::Leer(string s)
 	bezeichnung = ' ';
 }
 
-vector<string> Leer::erlaubteFelderBerechnen(string)
+vector<Feld> Leer::erlaubteFelderBerechnen(string)
 {
 	return {};
 }

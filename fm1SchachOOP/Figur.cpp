@@ -1,6 +1,6 @@
 #include "Figur.h"
 
-vector<string> Figur::erlaubteFelderBerechnen(string bezeichnung) {
+vector<Feld> Figur::erlaubteFelderBerechnen(string bezeichnung) {
     return {};
 }
 

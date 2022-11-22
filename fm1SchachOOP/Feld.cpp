@@ -1,4 +1,4 @@
-#include "Feld.h"
+#include "Figur.h"
 
 Feld::Feld()
 {
@@ -27,7 +27,7 @@ Feld::Feld(string bez, char symbol)
 		figur = new Laeufer(isupper(symbol));
 		break;
 	case 'S': case 's':
-		figur = new Springer(isupper(symbol));	
+		figur = new Springer(isupper(symbol));
 		break;
 	case 'D': case 'd':
 		figur = (Laeufer*) new Dame(isupper(symbol));			// Bridge-Pointer in cause of Mehrfachvererbung
@@ -41,7 +41,7 @@ Feld::Feld(string bez, char symbol)
 	}
 }
 
-vector<string> Feld::get_ErlaubteFelder()
+vector<Feld> Feld::get_ErlaubteFelder()
 {
 	return erlaubteFelder;
 }

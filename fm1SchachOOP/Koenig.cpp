@@ -6,7 +6,7 @@ Koenig::Koenig(bool symbol)
 	bezeichnung = (symbol) ? 'K' : 'k';
 }
 
-vector<string> Koenig::erlaubteFelderBerechnen(string)
+vector<Feld> Koenig::erlaubteFelderBerechnen(string)
 {
 	return {};
 }

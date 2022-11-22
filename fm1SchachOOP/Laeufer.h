@@ -2,6 +2,9 @@
 using namespace std;
 #include <string>
 #include <vector>
+#include "Feld.h"
+
+class Feld;
 
 #include "Figur.h"
 
@@ -11,5 +14,5 @@ class Laeufer :
 public:
     Laeufer();
     Laeufer(bool);
-    vector<string> erlaubteFelderBerechnen(string);
+    vector<Feld> erlaubteFelderBerechnen(string);
 };

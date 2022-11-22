@@ -6,7 +6,7 @@ Bauer::Bauer(bool symbol)
 	bezeichnung = (symbol) ? 'B' : 'b';
 }
 
-vector<string> Bauer::erlaubteFelderBerechnen(string)
+vector<Feld> Bauer::erlaubteFelderBerechnen(string)
 {
 	return {};
 }
