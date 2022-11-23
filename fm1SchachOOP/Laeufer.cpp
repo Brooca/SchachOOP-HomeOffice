@@ -1,5 +1,7 @@
 #include "Laeufer.h"
 
+extern Spiel s;
+
 Laeufer::Laeufer(bool symbol) {
 	farbe = symbol;
 	bezeichnung = (symbol) ? 'L' : 'l';
