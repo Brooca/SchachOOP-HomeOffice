@@ -4,8 +4,10 @@ using namespace std;
 #include <vector>
 
 // Inclusion in cause of Komposition
-#include "FeldFigur.h"
+// TODO Documentation Klasse B, A, B
 class Feld;
+
+// Figur -----------------------------------------------------------
 
 class Figur
 {
@@ -20,14 +22,6 @@ public:
 
 
 // FELD ___________________________________________________________
-using namespace std;
-#include <string>
-#include <vector>
-
-// Inclusion in cause of Komposition
-//#include "Figur.h"
-//class Figur;
-
 #include "Bauer.h"
 #include "Dame.h"
 #include "Koenig.h"
@@ -35,8 +29,6 @@ using namespace std;
 #include "Leer.h"
 #include "Springer.h"
 #include "Turm.h"
-
-
 
 class Feld
 {

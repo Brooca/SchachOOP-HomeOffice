@@ -1,10 +1,5 @@
 #pragma once
-using namespace std;
-#include <vector>
-#include <string>
 #include "FeldFigur.h"
-
-class Feld;
 
 #include "Laeufer.h"
 #include "Turm.h"
