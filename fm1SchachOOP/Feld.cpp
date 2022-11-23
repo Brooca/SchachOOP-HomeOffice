@@ -30,7 +30,7 @@ Feld::Feld(string bez, char symbol)
 		figur = new Springer(isupper(symbol));
 		break;
 	case 'D': case 'd':
-		figur = (Laeufer*) new Dame(isupper(symbol));			// Bridge-Pointer in cause of Mehrfachvererbung
+		figur = new Dame(isupper(symbol));			// Bridge-Pointer in cause of Mehrfachvererbung
 		break;
 	case 'K': case 'k':
 		figur = new Koenig(isupper(symbol));
