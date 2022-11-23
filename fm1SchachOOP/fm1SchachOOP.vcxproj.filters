@@ -18,9 +18,6 @@
     <ClCompile Include="fm1SchachOOP.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Anzeige.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Bauer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -56,9 +53,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Anzeige.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Bauer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>

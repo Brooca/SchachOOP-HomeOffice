@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Anzeige.cpp" />
     <ClCompile Include="Bauer.cpp" />
     <ClCompile Include="Dame.cpp" />
     <ClCompile Include="Feld.cpp" />
@@ -142,7 +141,6 @@
     <ClCompile Include="Turm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Anzeige.h" />
     <ClInclude Include="Bauer.h" />
     <ClInclude Include="consolenfarbe.h" />
     <ClInclude Include="Dame.h" />
