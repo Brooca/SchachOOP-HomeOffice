@@ -11,6 +11,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
 	// Calculation
 	vector<string> TurmV;
+	for(int n = 0; n < 2; n+2){
 	for (int i = 0; i < 8; i++)
 	{
 		for (int k = 0; k < 8; k++)
@@ -19,7 +20,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 			if (bezeichnung.at(0) == (65 + i))													// Feld auf dem man steht				| 65 + 0 = A 		
 			{
 				string x = "  ";														 
-				x.at(0) = bezeichnung.at(0) + k;												// Feld auf das man sich bewegen kann	| 65 + 0 = A 		
+				x.at(0) = bezeichnung.at(0) + k - (k * n);												// Feld auf das man sich bewegen kann	| 65 + 0 = A 		
 				x.at(1) = bezeichnung.at(1);													// vertikale bleibt unverändert		
 				if (x.at(0) != (65 + i) && x.at(0) >= 65 && x.at(0) <= 72) 						// Felder auf dem man steht excludieren & nur on Board range erlauben		
 				{	
@@ -39,33 +40,8 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 		
 		}
 	}
-	for (int i = 0; i < 8; i++)
-	{
-		for (int k = 0; k < 8; k++)
-		{
-			// Berechnung der horizontal erlaubten Felder : Nach Links <-
-			if (bezeichnung.at(0) == (65 + i))											
-			{
-				string x = "  ";														 
-				x.at(0) = bezeichnung.at(0)  - k;										
-				x.at(1) = bezeichnung.at(1);											
-				if (x.at(0) != (65 + i) && x.at(0) >= 65 && x.at(0) <= 72)				 
-				{
-					if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') {																	
-						TurmV.push_back(x);
-
-					}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe()) {
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe()) {
-							TurmV.push_back(x);
-							break;
-						}
-				}
-			}
-		}
 	}
+	/*
 	for (int i = 0; i < 8; i++)
 	{
 		for (int k = 0; k < 8; k++)
@@ -92,7 +68,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 				}
 			}
 		}
-	}
+	}*/
 		for (int i = 0; i < 8; i++)
 		{
 			for (int k = 0; k < 8; k++)
