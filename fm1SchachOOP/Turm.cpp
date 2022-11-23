@@ -29,7 +29,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 			if (bezeichnung.at(0) == (65 + i))											// wenn Spielfigur auf A + 0 = A										// wenn Spielfigur auf A + 7 = H
 			{
 				string x = "  ";														// erster durchgang der inneren // letzte durchgang der inneren			// erster durchgang der inneren // letzte durchgang der inneren
-				x.at(0) = bezeichnung.at(0)  - i;										// A + 7 - 0 = H		 		// A + 0 - 0 = A 						// H + 7 - 7 = H		 		// H + 0 - 7 = A 
+				x.at(0) = bezeichnung.at(0)  - k;										// A + 7 - 0 = H		 		// A + 0 - 0 = A 						// H + 7 - 7 = H		 		// H + 0 - 7 = A 
 				x.at(1) = bezeichnung.at(1);											// Zahl bleibt unverändert
 				if (x.at(0) != (65 + i) && x.at(0) >= 65 && x.at(0) <= 72)				// wenn die ausgerechnete zahl also A + k - i == A + i entspricht, dann nicht ausgeben  
 				{																		// damit wird die Position excludiert, auf der die Figur steht

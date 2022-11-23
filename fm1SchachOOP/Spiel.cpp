@@ -8,7 +8,9 @@ Spiel::Spiel()
 
 	// Key-String
 	string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += string(32, ' ');
+	figurenFolge += string(19, ' ');
+	figurenFolge += "T";
+	figurenFolge += string(12, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
 
@@ -31,6 +33,7 @@ Spiel::Spiel()
 	// cout << endl << "Test-Abruf Springer auf B1";
 	spielstand["H1"].set_ErlaubteFelder("H1");
 //}
+	   spielstand["D5"].set_ErlaubteFelder("D5");
 	// Test-Abruf Laeufer auf C1
 	// cout << endl << endl << "Test-Abruf Laeufer auf C1";
 	spielstand["C1"].set_ErlaubteFelder("C1");
