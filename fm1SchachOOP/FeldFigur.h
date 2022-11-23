@@ -30,6 +30,8 @@ public:
 #include "Springer.h"
 #include "Turm.h"
 
+#include "Spiel.h"
+
 class Feld
 {
 private:

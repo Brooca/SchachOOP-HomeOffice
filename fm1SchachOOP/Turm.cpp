@@ -1,13 +1,6 @@
 #include "Turm.h"
-#include "FeldFigur.h"
-#include "Spiel.h"
+// TODO DOKU externes Spiel warum und so
 extern Spiel s;
-
-extern Spiel s;
-
-Turm::Turm()
-{
-}
 
 Turm::Turm(bool symbol) {
 	farbe = symbol;
