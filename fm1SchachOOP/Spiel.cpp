@@ -8,7 +8,9 @@ Spiel::Spiel()
 
 	// Key-String
 	string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += string(32, ' ');
+	figurenFolge += string(19, ' ');
+	figurenFolge += "T";
+	figurenFolge += string(12, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
 
@@ -21,7 +23,7 @@ Spiel::Spiel()
 			spielstand[key] = Feld::Feld(key, figurenFolge[index++]);
 		}
 	}
-
+//for(int i = 0; i > 100; i++){
 	// erlaubteFelder aus Grundstellung
 		// Test-Abruf Turm auf A1
 		// cout << endl << endl << "Test-Abruf Turm auf A1";
@@ -29,8 +31,9 @@ Spiel::Spiel()
 
 	// Test-Abruf Springer auf B1
 	// cout << endl << "Test-Abruf Springer auf B1";
-	spielstand["B1"].set_ErlaubteFelder("B1");
-
+	spielstand["H1"].set_ErlaubteFelder("H1");
+//}
+	   spielstand["D5"].set_ErlaubteFelder("D5");
 	// Test-Abruf Laeufer auf C1
 	// cout << endl << endl << "Test-Abruf Laeufer auf C1";
 	spielstand["C1"].set_ErlaubteFelder("C1");
