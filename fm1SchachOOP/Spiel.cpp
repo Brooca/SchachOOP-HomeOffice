@@ -1,5 +1,4 @@
 #include "libChess.h"
-#include "consolenfarbe.h"
 #include "Spiel.h"
 
 Spiel::Spiel()
@@ -153,6 +152,7 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	lhs << "ABCDEFGH" << endl;
 
 	// erlaubteFelder
+	// operator << ueberladung fuer felder
 	lhs << endl << "Erlaubte Felder\n";
 
 	for (string mapKey : {"A1", "B1", "C1", "D1"}) {

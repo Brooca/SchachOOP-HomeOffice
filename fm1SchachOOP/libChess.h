@@ -3,7 +3,7 @@ using namespace std;
 #include <iostream>
 #include <vector>
 #include <array>
-#include <Windows.h>
+#include "consolenfarbe.h"
 
 // Funktion set Cursor
 void setCursorPosition(unsigned int x, unsigned int y)
