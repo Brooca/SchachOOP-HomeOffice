@@ -8,6 +8,7 @@ Spiel::Spiel()
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
 	string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
+ // string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
 	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
