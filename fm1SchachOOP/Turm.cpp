@@ -54,6 +54,6 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 	{
 		felder.push_back(s.get_Spielstand()[str]);
 	}
-	
+
 	return felder;
 }
