@@ -10,14 +10,20 @@ Springer::Springer(bool symbol)
 
 std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 { 
-	// Bewegungsmuster : Springer
-	/* c = A d = 1
-	|| c + 2 & d +1 || c + 2 & d - 1
-	|| c - 2 & d + 1 || c - 2 & d - 1
-	|| d + 2 & c + 1 || d + 2 & c - 1
-	|| d + 2 & c + 1 || d + 2 & c - 1 */
 	// Documentation
-	/*	wenn von einer Pos*/
+	/*	- Abhaengig von dem Bereich des Schachbretts auf dem die Positon des Springers zu verorten ist,
+		  werden die zwei moegliche Felder berechnet zu denen eine Bewegung moeglich ist.
+		- Wenn diese leer oder mit einer gegnerischen Figur besetzt sind werden sie  den erlaubten Feldern
+		  hinzugefuegt.
+
+	Bewegungsmuster : Springer
+		c = A d = 1
+		c + 2 & d +1 || c + 2 & d - 1
+		c - 2 & d + 1 || c - 2 & d - 1
+		d + 2 & c + 1 || d + 2 & c - 1
+		d + 2 & c + 1 || d + 2 & c - 1
+	*/
+
 	// Calculation
 	vector<string>springerV;
 
