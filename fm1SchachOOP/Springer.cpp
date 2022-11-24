@@ -21,7 +21,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 	vector<string>springerV;
 
 	for (int i = 0; i < 2; i++) {	
-		if (bezeichnung.at(0) < 71 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
+		if (bezeichnung.at(0) < 'G' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
 		{
 			string x = "  ";
 			x.at(0) = bezeichnung.at(0) + 2;
@@ -32,7 +32,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 				springerV.push_back(x);
 			}
 		}
-		if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
+		if (bezeichnung.at(1) < '7' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
 		{
 			string x = "  ";
 			x.at(0) = bezeichnung.at(0) + (1 - (i + i));
@@ -43,7 +43,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 				springerV.push_back(x);
 			}
 		}
-		if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
+		if (bezeichnung.at(0) > 'B' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
 		{
 			string x = "  ";
 			x.at(0) = bezeichnung.at(0) - 2;
@@ -54,7 +54,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 				springerV.push_back(x);
 			}
 		}
-		if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
+		if (bezeichnung.at(1) > '2' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
 		{
 			string x = "  ";
 			x.at(0) = bezeichnung.at(0) + (1 - (i + i));
