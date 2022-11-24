@@ -7,7 +7,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "TSLDKLSTBBBBBBBB             t                  bbbbbbbbtsldklst";
+	string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
 	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
@@ -36,7 +36,7 @@ void Spiel::set_Spieler()
 {
 	string eingabe;
 
-	// Spieler 1
+	// Spieler 1 
 	cout << "Spieler*in Weiss:   ";
 	cin >> eingabe;
 	Spieler spieler1(eingabe, 1);
