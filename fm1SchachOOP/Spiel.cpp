@@ -6,12 +6,8 @@ Spiel::Spiel()
 	// User-Input: Array<string> spieler
 	set_Spieler();
 
-	// Key-String
-	string figurenFolge = "TSLDKLSTBBBBBBBB";
-	figurenFolge += string(19, ' ');
-	figurenFolge += "T";
-	figurenFolge += string(12, ' ');
-	figurenFolge += "bbbbbbbbtsldklst";
+	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
+	string figurenFolge = "TSLDKLSTBBBBBBBB             t                  bbbbbbbbtsldklst";
 	int index = 0;
 
 	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
@@ -23,35 +19,16 @@ Spiel::Spiel()
 			spielstand[key] = Feld::Feld(key, figurenFolge[index++]);
 		}
 	}
-//for(int i = 0; i > 100; i++){
-	// erlaubteFelder aus Grundstellung
-		// Test-Abruf Turm auf A1
-		// cout << endl << endl << "Test-Abruf Turm auf A1";
-	spielstand["A1"].set_ErlaubteFelder("A1");
 
-	// Test-Abruf Springer auf B1
-	// cout << endl << "Test-Abruf Springer auf B1";
-	spielstand["H1"].set_ErlaubteFelder("H1");
-//}
-	   spielstand["D5"].set_ErlaubteFelder("D5");
-	// Test-Abruf Laeufer auf C1
-	// cout << endl << endl << "Test-Abruf Laeufer auf C1";
-	spielstand["C1"].set_ErlaubteFelder("C1");
-
-	// Test-Abruf Dame auf D1
-	// cout << endl << "Test-Abruf Dame auf D1";
-	spielstand["D1"].set_ErlaubteFelder("D1");
+	// erlaubteFelder berechnen aus der Grundstellung
+	for (auto& einzelfeld : spielstand) {
+		spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
+	}
 }
 
-map<string, Feld> Spiel::get_Spielstand()
-{
-	return spielstand;
-}
-
-array<Spieler, 2> Spiel::get_Spieler()
-{
-	return spieler;
-}
+/*### Getter ###*/
+map<string, Feld> Spiel::get_Spielstand(){	return spielstand;	}
+array<Spieler, 2> Spiel::get_Spieler(){	return spieler;	}
 
 void Spiel::set_Spieler()
 {
@@ -154,19 +131,40 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	setCursorPosition(++startspalte, startzeile);
 	lhs << "ABCDEFGH" << endl;
 
-	// erlaubteFelder
-	// operator << ueberladung fuer felder
+	/*### Output : erlaubteFelder ###*/
+	/*
+		Documentation:
+		Fuer jedes im Spielstand gespeicherte Feld wird
+			- wenn es nicht leer ist:
+				- die Feld-Bezeichnung ausgegeben und
+				- der Vector erlaubteFelder iterierend dem Output-Stream lhs hinzugefuegt.
+
+		ToDo:
+			- um nur die erlaubten Felder der eigenen Figuren auszugeben oder ueberhaupt zu unterscheiden
+			waere es noetig die spielerfarbe mit der figurenfarbe in zusammenhang zu bringen
+				-> Possible Solution: zugnummer etablieren
+	*/
 	lhs << endl << "Erlaubte Felder\n";
 
-	for (string mapKey : {"A1", "B1", "C1", "D1"}) {
-		lhs << rhs.get_Spielstand().at(mapKey).get_Bezeichnung() << " : ";
-		for (int i = 0; i < rhs.get_Spielstand().at(mapKey).get_ErlaubteFelder().size(); i++) {
-			string s = rhs.get_Spielstand().at(mapKey).get_ErlaubteFelder().at(i).get_Bezeichnung();
-			lhs << s << " ";
-		}
+	for(auto& einzelfeld : rhs.spielstand){
+	// if(einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(/*unpredictable  -> boolean zugnummer */)) {		// Fuer welchen Spieler ?
+	
+		// isEmpty ?
+		if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
+		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " : ";
+
+			// vector erlaubteFelder hinzufuegen
+			for (int i = 0; i < rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().size(); i++) {
+				string s = rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().at(i).get_Bezeichnung();
+				lhs << s << " ";
+			}
+
+		// Zeilenumbruch
 		lhs << "\n";
+		}
+	// }
 	}
 
-	// Return ostream
+	/*### Return ostream ###*/
 	return lhs;
 }
