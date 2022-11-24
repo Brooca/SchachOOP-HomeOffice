@@ -21,7 +21,9 @@ Spiel::Spiel()
 	}
 
 	// erlaubteFelder berechnen aus der Grundstellung
+	/* Documentation: Fuer alle Felder, die nicht leer sind werden die erlaubten Felder der Figuren berechnet */
 	for (auto& einzelfeld : spielstand) {
+		if(einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
 		spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
 	}
 }
