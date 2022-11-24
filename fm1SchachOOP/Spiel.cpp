@@ -7,7 +7,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "TSLDKLSTBBBBBBBB             t                  bbbbbbbbtsldklst";
+	string figurenFolge = "TSLDKLSTBBBBBBBB                             S  bbbbbbbbtsldklst";
 	int index = 0;
 
 	/* spielstand map<string, Feld> : in Grundstellung mit Feldern füllen */
