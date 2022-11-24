@@ -9,7 +9,7 @@ Spiel::Spiel()
 	// Key-String
 	string figurenFolge = "TSLDKLSTBBBBBBBB";
 	figurenFolge += string(19, ' ');
-	figurenFolge += "T";
+	figurenFolge += "L";
 	figurenFolge += string(12, ' ');
 	figurenFolge += "bbbbbbbbtsldklst";
 	int index = 0;
