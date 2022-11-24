@@ -27,19 +27,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(0) = bezeichnung.at(0) + 2;
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')						// Wenn das Feld leer ist, ist es erlaubt -> pushback
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
 			{
 				springerV.push_back(x);
-
-			}
-			else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
-			{
-				//break;
-			}
-			else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
-			{
-				springerV.push_back(x);
-				//break;
 			}
 		}
 		if (bezeichnung.at(1) < 55 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
@@ -48,19 +38,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(0) = bezeichnung.at(0) + (1 - (i + i));
 			x.at(1) = bezeichnung.at(1) + 2;
 
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')						// Wenn das Feld leer ist, ist es erlaubt -> pushback
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
 			{
 				springerV.push_back(x);
-
-			}
-			else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
-			{
-				//break;
-			}
-			else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
-			{
-				springerV.push_back(x);
-				//break;
 			}
 		}
 		if (bezeichnung.at(0) > 66 && bezeichnung.at(1) > (48 + i) && bezeichnung.at(1) < (56 + i))
@@ -69,19 +49,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(0) = bezeichnung.at(0) - 2;
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')						// Wenn das Feld leer ist, ist es erlaubt -> pushback
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
 			{
 				springerV.push_back(x);
-
-			}
-			else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
-			{
-				//break;
-			}
-			else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
-			{
-				springerV.push_back(x);
-				//break;
 			}
 		}
 		if (bezeichnung.at(1) > 50 && bezeichnung.at(0) > (64 + i) && bezeichnung.at(0) < (72 + i))
@@ -90,19 +60,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(0) = bezeichnung.at(0) + (1 - (i + i));
 			x.at(1) = bezeichnung.at(1) - 2;
 
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')						// Wenn das Feld leer ist, ist es erlaubt -> pushback
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
 			{
 				springerV.push_back(x);
-
-			}
-			else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
-			{
-				//break;
-			}
-			else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
-			{
-				springerV.push_back(x);
-				//break;
 			}
 		}
 	}
