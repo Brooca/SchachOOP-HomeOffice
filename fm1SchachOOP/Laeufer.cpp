@@ -28,9 +28,9 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 								x.at(1) = bezeichnung.at(1) + n - j;
 									
 										
-											for ( int p = 0; p <2; p++)
-											{ 
-												if (x.at(p) >= 65 - (16 * p) && x.at(p) <= 72 - (16 * p))
+											
+											 
+												if (x.at(0) >= 65  && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
 												{
 													if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')						
 													{
@@ -47,7 +47,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 														break;
 													}
 												}
-											}
+											
 						
 									
 							}
