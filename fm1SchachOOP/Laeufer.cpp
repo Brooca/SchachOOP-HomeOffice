@@ -12,20 +12,19 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 		// Calculation
 		vector<string> LaeuferV;
 	
-			for (int j = 0; j < 8; j++)
+			for (int j = 0; j < 16; j++)
 			{
-				for (int n = 7; n >= 0; n--)
-				{
-					for (int i = 0; i < 8; i++)
+				
+					for (int i = 0; i < 16; i++)
 					{
-						for (int k = 7; k >= 0; k--)
-						{
-							if (abs(bezeichnung.at(0) - bezeichnung.at(1)) == abs((bezeichnung.at(0)+ k - i) - (bezeichnung.at(1 )+ n - j)))
+						
+						
+							if (abs(bezeichnung.at(0) - bezeichnung.at(1)) == abs((bezeichnung.at(0) - 8 + i) - (bezeichnung.at(1) - 8 + j)))
 							{
 
 								string x = "  ";
-								x.at(0) = bezeichnung.at(0) + k - i;
-								x.at(1) = bezeichnung.at(1) + n - j;
+								x.at(0) = bezeichnung.at(0) - 8 + i;
+								x.at(1) = bezeichnung.at(1) - 8  + j;
 									
 										
 											
@@ -51,9 +50,9 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						
 									
 							}
-						}
+						
 					}
-				}
+				
 			}	
 			
 		vector<Feld> felder;
