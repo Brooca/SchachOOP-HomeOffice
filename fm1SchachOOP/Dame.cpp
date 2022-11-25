@@ -17,11 +17,9 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	// Bsp.: spielstand...???..at()
 	DameTurm.erlaubteFelderBerechnen(bezeichnung);
 
-
+	DameV = DameTurm.erlaubteFelderBerechnen(bezeichnung);
 	
-	
-		DameV.push_back(felder);
-	
+	return DameV;
 
 }
 	// DameV <- Turm erlaubte Felder
