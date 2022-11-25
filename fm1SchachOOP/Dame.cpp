@@ -9,7 +9,10 @@ Dame::Dame(bool symbol)
 vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 {
 	// Calculation
-	//vector<Feld> DameV
+	vector<Feld> DameV;
+	Turm::Turm(bool symbol){}
+	Turm::erlaubteFelderBerechnen();
+
 	// DameV <- Turm erlaubte Felder
 	// DameV <- Laeufer
 	// return dameV
