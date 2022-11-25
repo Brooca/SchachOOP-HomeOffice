@@ -15,7 +15,14 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 
 	// Objekt -> Methode aufrufen
 	// Bsp.: spielstand...???..at()
-	erlaubteFelderBerechnen().at;
+	DameTurm.erlaubteFelderBerechnen(bezeichnung);
+
+
+	
+	
+		DameV.push_back(felder);
+	
+
 }
 	// DameV <- Turm erlaubte Felder
 	// Laeufer erstellen
