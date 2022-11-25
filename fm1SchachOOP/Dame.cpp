@@ -22,7 +22,10 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	Laeufer DameLaeufer(this->farbe);
 
 	zwischenschritt = DameLaeufer.erlaubteFelderBerechnen(bezeichnung);
-	DameV.push_back(zwischenschritt);
+	for (auto& bezeichnung : zwischenschritt ) {
+		DameV.push_back(bezeichnung);
+	}
+	
 
 
 	return DameV;
