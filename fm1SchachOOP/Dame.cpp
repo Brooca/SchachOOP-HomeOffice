@@ -7,20 +7,10 @@ Dame::Dame(bool symbol)
 }
 
 vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
-{/*
+{
 	// Calculation
-	vector<string> dameV;
-
-		// Tower
-		for (auto &value : Turm::erlaubteFelderBerechnen(bezeichnung)) {
-			dameV.push_back(value);
-		}
-		
-		// Bishop
-		for (auto &value : Laeufer::erlaubteFelderBerechnen(bezeichnung)) {
-			dameV.push_back(value);
-		}
-
-	return dameV;*/
-	return {};
+	//vector<Feld> DameV
+	// DameV <- Turm erlaubte Felder
+	// DameV <- Laeufer
+	// return dameV
 }
