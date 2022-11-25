@@ -9,8 +9,8 @@ Dame::Dame(bool symbol)
 vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 {
 	// Calculation
-	
 	vector<Feld> DameV;
+	// Datentyp Name (parameter)
 	Turm::Turm(this->farbe)  DameTurm;
 	Turm::erlaubteFelderBerechnen();
 }
