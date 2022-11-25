@@ -12,6 +12,9 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	vector<Feld> DameV;
 	// Datentyp Name (parameter)
 	Turm DameTurm(this->farbe)  ;
+
+	// Objekt -> Methode aufrufen
+	// Bsp.: spielstand...???..at()
 	erlaubteFelderBerechnen().at;
 }
 	// DameV <- Turm erlaubte Felder
