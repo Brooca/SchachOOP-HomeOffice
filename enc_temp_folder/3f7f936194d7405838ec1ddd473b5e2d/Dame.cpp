@@ -10,7 +10,6 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 {
 	// Calculation
 	vector<Feld> DameV;
-	vector<Feld> zwischenschritt;
 	// Datentyp Name (parameter)
 	Turm DameTurm(this->farbe)  ;
 
@@ -21,8 +20,7 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	
 	Laeufer DameLaeufer(this->farbe);
 
-	zwischenschritt = DameLaeufer.erlaubteFelderBerechnen(bezeichnung);
-	DameV.push_back(zwischenschritt);
+	DameV = DameLaeufer.erlaubteFelderBerechnen(bezeichnung);
 
 
 	return DameV;
