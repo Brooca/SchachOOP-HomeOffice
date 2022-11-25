@@ -14,16 +14,16 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	// Datentyp Name (parameter)
 	Turm DameTurm(this->farbe)  ;
 
-	// Objekt -> Methode aufrufen
-	// Bsp.: spielstand...???..at()
 
 	DameV = DameTurm.erlaubteFelderBerechnen(bezeichnung);
 	
 	Laeufer DameLaeufer(this->farbe);
 
 	zwischenschritt = DameLaeufer.erlaubteFelderBerechnen(bezeichnung);
-	for (auto& bezeichnung : zwischenschritt ) {
-		DameV.push_back(bezeichnung);
+
+	for (auto& feld : zwischenschritt )
+	{
+		DameV.push_back(feld);
 	}
 	
 
@@ -31,9 +31,5 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	return DameV;
 
 }
-	// DameV <- Turm erlaubte Felder
-	// Laeufer erstellen
-	// DameV <- Laeufer
-	// return dameV
 
 
