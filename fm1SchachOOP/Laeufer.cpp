@@ -11,7 +11,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 {
 	// Calculation
 	vector<string> LaeuferV;
-
+	vector<string> Gedeckt;
 
 	// Rechts hoch
 	bool erlaubnis = true;
@@ -44,6 +44,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							Gedeckt.push_back(x);
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -97,6 +98,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							Gedeckt.push_back(x);
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -148,6 +150,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							Gedeckt.push_back(x);
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -198,6 +201,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())

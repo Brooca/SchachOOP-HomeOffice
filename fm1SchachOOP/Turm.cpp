@@ -11,6 +11,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
 	// Calculation
 	vector<string> TurmV;
+	vector<string> Gedeckt;
 	for (int m = 0; m < 2; m++) 
 	{
 		for (int n = 0; n < 3; n += 2) 
@@ -34,6 +35,7 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 							}
 							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
 							{
+								Gedeckt.push_back(x);
 								break;
 							}
 							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())					// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
