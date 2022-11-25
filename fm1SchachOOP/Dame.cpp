@@ -14,6 +14,7 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	Turm::erlaubteFelderBerechnen();
 
 	// DameV <- Turm erlaubte Felder
+	// Laeufer erstellen
 	// DameV <- Laeufer
 	// return dameV
 }
