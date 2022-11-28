@@ -20,17 +20,37 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		break;
 
 	case 1: // B läuft hoch
+		/*Geradeaus*/
+		// einfacher Schritt ab linie 3
+		if (bezeichnung.at(0) >= 'A' && bezeichnung.at(0) <= 'H' && bezeichnung.at(1) >= '3' && bezeichnung.at(1) <= '8')
+		{
 		x.at(0) = bezeichnung.at(0);
 		x.at(1) = bezeichnung.at(1) + 1;
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
+			{
+				BauerV.push_back(x);
+			}
+		}
 
-		if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-		{
+		// doppelter Schritt zum Anfang
+		if (bezeichnung.at(0) >= 'A' && bezeichnung.at(0) <= 'H' && bezeichnung.at(1) == '2') {
+			x.at(0) = bezeichnung.at(0);
+			x.at(1) = bezeichnung.at(1) + 1;
+			// Freeway : wenn ja : Feld hinzufuegen
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
 			{
 				BauerV.push_back(x);
 
+				// Zweiter Schritt
+				x.at(1) = bezeichnung.at(1) + 2;
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
+				{
+					BauerV.push_back(x);
+				}
 			}
 		}
+		/*Diagonal Schlagen*/
+
 		break;
 	}	
 	// Convert vector<string> into vector<Feld>
