@@ -7,7 +7,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "bSLDKLSTBBBBBBBB                Bb              bbbbbbbbbtsldklsB";
+	string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
  // string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
@@ -154,7 +154,8 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	
 		// isEmpty ?
 		if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
-		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " : ";
+		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " -> ";
+		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Figur()->get_Bezeichnung() << " : ";
 
 			// vector erlaubteFelder hinzufuegen
 			for (int i = 0; i < rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().size(); i++) {

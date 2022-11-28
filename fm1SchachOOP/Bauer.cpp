@@ -65,7 +65,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			x.at(1) = bezeichnung.at(1) - 1;
 
 			// Add Field
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
 
@@ -77,7 +77,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			x.at(1) = bezeichnung.at(1) - 1;
 
 			// Add Field
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
 		break;
@@ -125,7 +125,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + 1;
 
 			// Add Field
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
 
@@ -138,7 +138,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + 1;
 
 			// Add Field
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
 	}
