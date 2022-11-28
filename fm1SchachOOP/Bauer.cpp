@@ -24,12 +24,9 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
 			{
 				BauerV.push_back(x);
-				break;
+				
 			}
-			else
-			{
-				break;
-			}
+			
 		}
 
 		// doppelter Schritt zum Anfang
@@ -50,33 +47,27 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 			}
 		}
 			// b schlägt rechts runter
-		if(bezeichnung.at(1) != 49 && bezeichnung.at(0) <72 )
-		string x	= "  ";
-		x.at(0)		= bezeichnung.at(0) + 1;
-		x.at(1)		= bezeichnung.at(1) - 1;
-		if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
 		{
-			BauerV.push_back(x);
-			break;
-		}	
-		else
-		{
-			break;
+			x.at(0) = bezeichnung.at(0) + 1;
+			x.at(1) = bezeichnung.at(1) - 1;
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			{
+				BauerV.push_back(x);
+
+			}
 		}
-		
 		// b schlägt links runter
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65 )
-		x.at(0) = bezeichnung.at(0) - 1;
-		x.at(1) = bezeichnung.at(1) - 1;
-		if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65)
 		{
-			BauerV.push_back(x);
-			break;
+			x.at(0) = bezeichnung.at(0) - 1;
+			x.at(1) = bezeichnung.at(1) - 1;
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			{
+				BauerV.push_back(x);
+			}
 		}
-		else
-		{
-			break;
-		}
+		break;
 
 	case 1: // B läuft hoch
 		/*Geradeaus*/
@@ -110,93 +101,31 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		}
 		/*Diagonal Schlagen*/
 
-		// Rechts Hoch
-		bool erlaubnis = true;
+			// B schlägt rechts hoch
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
+		{ 
+			x.at(0) = bezeichnung.at(0) + 1;
+			x.at(1) = bezeichnung.at(1) + 1;
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			{
+				BauerV.push_back(x);
 
-		for (int i = 1; i < 8; i++)
+			}
+		}
+
+			
+			// B schlägt links hoch
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
 		{
-			if (erlaubnis == true)
+
+		
+			x.at(0) = bezeichnung.at(0) - 1;
+			x.at(1) = bezeichnung.at(1) + 1;
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
 			{
-				for (int k = 1; k < 8; k++)
-				{
-					if (abs(bezeichnung.at(0) - bezeichnung.at(0) + i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-					{
+				BauerV.push_back(x);
 
-						string x = "  ";
-						x.at(0) = bezeichnung.at(0) + i;
-						x.at(1) = bezeichnung.at(1) + k;
-
-						if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-						{
-							if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-
-								BauerV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-						}
-					}
-
-				}
 			}
-			else
-			{
-				break;
-			}
-
-			// Links hoch
-			erlaubnis = true;
-
-			for (int i = 1; i < 8; i++)
-			{
-				if (erlaubnis == true) {
-					for (int k = 1; k < 8; k++)
-					{
-						if (abs(bezeichnung.at(0) - bezeichnung.at(0) - i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-						{
-							string x = "  ";
-							x.at(0) = bezeichnung.at(0) - i;
-							x.at(1) = bezeichnung.at(1) + k;
-
-							if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-							{
-								if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-								{
-									erlaubnis = false;
-									break;
-								}
-								else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-								{
-									erlaubnis = false;
-									break;
-								}
-								else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-								{
-									BauerV.push_back(x);
-									erlaubnis = false;
-									break;
-								}
-							}
-						}
-					}
-				}
-				else
-				{
-					break;
-				}
-			}
-			break;
 		}
 	}
 
