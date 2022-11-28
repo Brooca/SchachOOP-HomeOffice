@@ -51,7 +51,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		{
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) - 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{
 				BauerV.push_back(x);
 
@@ -62,7 +62,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		{
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) - 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{
 				BauerV.push_back(x);
 			}
@@ -106,7 +106,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		{ 
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) + 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{
 				BauerV.push_back(x);
 
@@ -115,13 +115,13 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 
 			
 			// B schlägt links hoch
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65)
 		{
 
 		
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) + 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{
 				BauerV.push_back(x);
 
