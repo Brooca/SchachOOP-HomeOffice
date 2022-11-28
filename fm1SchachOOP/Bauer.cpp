@@ -10,131 +10,143 @@ Bauer::Bauer(bool symbol)
 
 vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 {
+	// Documentation:
+	/*	- mittels eines Switches wird fuer die schwarzen (0) und weissen (1) Bauern unterschieden, Steuer-Variable ist die Farbe der Figur 
+		- der Bauer kann am anfang zwei sonst ein Feld weiter laufen
+		- diagonal schlagen
+		-> TODO : eine Umwandlung der Figur auf Linie 8 und 1 ist noch zu implementieren
+	*/
+
+	// Variables
 	vector<string> BauerV;
-	string x	= "  ";
+	string x = "  ";
+
+	// Calculation
 	switch (this->farbe) {
+
+	// b laeuft runter-------------------------------------------------------------------------------------------------------------------
 	case 0:
-		
-			// b läuft runter
-		if (bezeichnung.at(1) != 49)
+
+		// einfacher Schritt
+		if (bezeichnung.at(1) != '1' && bezeichnung.at(1) != '7')
 		{
-			
+			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) - 1;
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-			{
-				BauerV.push_back(x);
-				
-			}
-			
+
+			// Add Field
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 		}
 
 		// doppelter Schritt zum Anfang
-		if (bezeichnung.at(0) >= 'A' && bezeichnung.at(0) <= 'H' && bezeichnung.at(1) == '7') {
+		if (bezeichnung.at(1) == '7') {
+
+			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) - 1;
-			// Freeway : wenn ja : Feld hinzufuegen
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-			{
-				BauerV.push_back(x);
+
+			// Freeway
+				// Add Field
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x);
 
 				// Zweiter Schritt
 				x.at(1) = bezeichnung.at(1) - 2;
-				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-				{
-					BauerV.push_back(x);
-				}
+
+				// Add Field
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 			}
 		}
-			// b schlägt rechts runter
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
+
+		// b schlaegt rechts runter
+		if ( bezeichnung.at(0) < 'H' && bezeichnung.at(1) != '1')
 		{
+			// Destination field
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) - 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
-			{
-				BauerV.push_back(x);
 
-			}
+			// Add Field
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			{ BauerV.push_back(x); }
 		}
-		// b schlägt links runter
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65)
+
+		// b schlaegt links runter
+		if (bezeichnung.at(0) > 'A' && bezeichnung.at(1) != '1')
 		{
+			// Destination field
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) - 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
-			{
-				BauerV.push_back(x);
-			}
+
+			// Add Field
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			{ BauerV.push_back(x); }
 		}
 		break;
 
-	case 1: // B läuft hoch
-		/*Geradeaus*/
-		// einfacher Schritt ab linie 3
-		if (bezeichnung.at(0) >= 'A' && bezeichnung.at(0) <= 'H' && bezeichnung.at(1) >= '3' && bezeichnung.at(1) <= '8')
+	// B laeuft hoch -----------------------------------------------------------------------------------------------------------------------------
+	case 1:
+
+	/*Geradeaus*/
+		// einfacher Schritt
+		if (bezeichnung.at(1) != '2' && bezeichnung.at(1) != '8')
 		{
+			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) + 1;
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-			{
-				BauerV.push_back(x);
-			}
+
+			// Add Field
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 		}
 
 		// doppelter Schritt zum Anfang
-		if (bezeichnung.at(0) >= 'A' && bezeichnung.at(0) <= 'H' && bezeichnung.at(1) == '2') {
+		if (bezeichnung.at(1) == '2') {
+
+			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) + 1;
-			// Freeway : wenn ja : Feld hinzufuegen
-			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-			{
-				BauerV.push_back(x);
+
+			// Freeway
+				// Add Field
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x);
 
 				// Zweiter Schritt
 				x.at(1) = bezeichnung.at(1) + 2;
-				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-				{
-					BauerV.push_back(x);
-				}
+
+				// Add Field
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 			}
 		}
-		/*Diagonal Schlagen*/
 
-			// B schlägt rechts hoch
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) < 72)
+	/*Diagonal Schlagen*/
+		// B schlaegt rechts hoch
+		if (bezeichnung.at(0) < 'H' && bezeichnung.at(1) < '8')
 		{ 
+			// Destination field
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) + 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
-			{
-				BauerV.push_back(x);
 
-			}
+			// Add Field
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			{ BauerV.push_back(x); }
 		}
 
 			
-			// B schlägt links hoch
-		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65)
+		// B schlägt links hoch
+		if (bezeichnung.at(0) > 'A' && bezeichnung.at(1) < '8')
 		{
-
-		
+			// Destination field
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) + 1;
-			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
-			{
-				BauerV.push_back(x);
 
-			}
+			// Add Field
+			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() || s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
+			{ BauerV.push_back(x); }
 		}
 	}
 
+	// Result -------------------------------------------------------------------------------------------------------------------------------
 	// Convert vector<string> into vector<Feld>
 	vector<Feld> felder;
-	for (string& str : BauerV)
-	{
-		felder.push_back(s.get_Spielstand()[str]);
-	}
+	for (string& str : BauerV) { felder.push_back(s.get_Spielstand()[str]); }
 
 	// Return
 	return felder;
