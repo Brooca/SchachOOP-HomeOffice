@@ -44,6 +44,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							erlaubnis = false;
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -97,6 +98,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							erlaubnis = false;
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -148,6 +150,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							erlaubnis = false;
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
@@ -198,6 +201,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 						}
 						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
 						{
+							erlaubnis = false;
 							break;
 						}
 						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
