@@ -1,5 +1,5 @@
 #include "Bauer.h"
-
+extern Spiel s;
 Bauer::Bauer(bool symbol)
 {
 	farbe = symbol;
@@ -11,16 +11,83 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 	vector<string> BauerV;
 
 	switch (this->farbe) {
-	case 0: // b läuft runter
+	case 0:
+		
+			// b läuft runter
+		if (bezeichnung.at(1) != 49)
+		{
+			
+			x.at(0) = bezeichnung.at(0);
+			x.at(1) = bezeichnung.at(1) - 1;
+			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
+			{
+				BauerV.push_back(x);
+				break;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+			// b läuft von startposition 2 runter
+		if (bezeichnung.at(1) == 55 && s.get_Spielstand()[bezeichnung.at(0),(bezeichnung.at(1))+1].get_Figur()->get_Bezeichnung() == '  ')
+		{
+			string x = "  ";
+			x.at(0) = bezeichnung.at(0);
+			x.at(1) = bezeichnung.at(1) - 2;
+				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
+				{
+					BauerV.push_back(x);
+					break;
+				}
+			
+				else
+				{
+					break;
+				}
+		}
+			// b schlägt rechts runter
+		if(bezeichnung.at(1) != 49 && bezeichnung.at(0) <72 )
 		string x	= "  ";
-		x.at(0)		= bezeichnung.at(0);
-		x.at(1)		 = bezeichnung.at(1) + 1;
-		break;
+		x.at(0)		= bezeichnung.at(0) + 1;
+		x.at(1)		= bezeichnung.at(1) - 1;
+		if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+		{
+			BauerV.push_back(x);
+			break;
+		}	
+		else
+		{
+			break;
+		}
+		
+		// b schlägt links runter
+		if (bezeichnung.at(1) != 49 && bezeichnung.at(0) > 65 )
+		x.at(0) = bezeichnung.at(0) - 1;
+		x.at(1) = bezeichnung.at(1) - 1;
+		if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
+		{
+			BauerV.push_back(x);
+			break;
+		}
+		else
+		{
+			break;
+		}
 
 	case 1: // B läuft hoch
 
 		break;
 		}
-	return {};
+
+
+		vector<Feld> felder;
+		for (string& str : BauerV)
+		{
+			felder.push_back(s.get_Spielstand()[str]);
+		}
+
+		return felder;
 }
 
