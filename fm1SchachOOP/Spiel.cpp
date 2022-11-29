@@ -58,6 +58,10 @@ void Spiel::ziehen()
 	unsigned int startspalte;
 
 	// User Input Departure
+	
+	// ZugVon ruft Feld der map auf 
+	// ZugZu gleicht erlaubte Felder des Feldes ab
+	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
 	string zugVon;
 
 	setCursorPosition(startspalte = 5, startzeile = 10);
