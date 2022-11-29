@@ -1,4 +1,5 @@
 #include "Koenig.h"
+#include <utility>
 
 extern Spiel s;
 Koenig::Koenig(bool symbol)
@@ -9,264 +10,64 @@ Koenig::Koenig(bool symbol)
 
 vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 {
+	// Documentation :
+	/*	- anhand der Ausgangsposition werden alle potentiellen Zielfelder formuliert und in einem Vector gesammelt
+	*	- beim iterieren wird geprueft ob die Felder onboard sind
+	*	- je nach Inhalt des Feldes kann es hinzugefuegt werden
+	*	- die Convertierung in einen vector<Feld> erfolgt zum Ende
+	*/
 
-	// Calculation Horizontal/ Vertikal
-	vector<string> KoenigV;
-	for (int m = 0; m < 2; m++)						// 0 = horizonal; 1 = vertikal
-	{
-		for (int n = 0; n < 3; n += 2)				// 0 = Horizontal Links & vertikal runter; 2 = Horizontal rechts & vertikal hoch
-		{
-			for (int i = 0; i < 8; i++)
-			{
-
-				// Berechnung der erlaubten Felder 								
-				if (bezeichnung.at(m) == (65 + i - (16 * m)))			// m = 0; i = 2; C									// Feld auf dem man steht				| 65 + 0 = A 		
-				{
-					string x = "  ";
-					x.at(m) = bezeichnung.at(m) + 1 - (1 * n);			//schreiben in erste stelle des string -> C + 1	= D -> D wird an erste stelle geschrieben											
-					x.at(1 - m) = bezeichnung.at(1 - m);				// 5 bleibt 5 -> kommt an zweite stelle																	
-					if (x.at(m) != (65 + i - (16 * m)) && x.at(m) >= 65 - (16 * m) && x.at(m) <= 72 - (16 * m))								// Felder auf dem man steht excludieren & nur on Board range erlauben		
-					{//  D		!=  C				   && D		  >= A			   && D		  <= H	
-						if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')													// Wenn das Feld leer ist, ist es erlaubt -> pushback
-						{
-							KoenigV.push_back(x);
-
-						}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())												// Wenn die Figur auf dem Feld die selbe Farbe hat als diese Figur kein pushback & break
-						{
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())												// Wenn die Figur auf dem Feld eine andere Farbe hat als diese Figur, ist es erlaubt -> pushback & danach break
-						{
-							KoenigV.push_back(x);
-							break;
-						}
-					}
-				}
-
-			}
-		}
-	}
-		// Rechts hoch 
-		bool erlaubnis = true;
-
-		for (int i = 1; i < 8; i++)
-		{
-			if (erlaubnis == true)
-			{
-
-
-				for (int k = 1; k < 8; k++)
-				{
-
-					if (abs(bezeichnung.at(0) - bezeichnung.at(0) + i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-					{
-
-						string x = "  ";
-						x.at(0) = bezeichnung.at(0) + i;
-						x.at(1) = bezeichnung.at(1) + k;
-
-
-
-
-						if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-						{
-							if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-						}
-					}
-
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-
-
-
-
-
-		// Links Runter
-		erlaubnis = true;
-
-		for (int i = 1; i < 8; i++)
-		{
-			if (erlaubnis == true)
-			{
-
-				for (int k = 1; k < 8; k++)
-				{
-					if (abs(bezeichnung.at(0) - bezeichnung.at(0) - i) == abs(bezeichnung.at(1) - bezeichnung.at(1) - k))
-					{
-
-						string x = "  ";
-						x.at(0) = bezeichnung.at(0) - i;
-						x.at(1) = bezeichnung.at(1) - k;
-
-
-
-
-						if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-						{
-							if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-						}
-
-
-
-					}
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-
-		// Rechts runter
-
-		erlaubnis = true;
-
-		for (int i = 1; i < 8; i++)
-		{
-			if (erlaubnis == true)
-			{
-
-				for (int k = 1; k < 8; k++)
-				{
-					if (abs(bezeichnung.at(0) - bezeichnung.at(0) + i) == abs(bezeichnung.at(1) - bezeichnung.at(1) - k))
-					{
-
-						string x = "  ";
-						x.at(0) = bezeichnung.at(0) + i;
-						x.at(1) = bezeichnung.at(1) - k;
-
-
-
-
-						if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-						{
-							if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-						}
-
-
-
-					}
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-
-		// Links hoch
-
-		erlaubnis = true;
-
-		for (int i = 1; i < 8; i++)
-		{
-			if (erlaubnis == true) {
-
-				for (int k = 1; k < 8; k++)
-				{
-					if (abs(bezeichnung.at(0) - bezeichnung.at(0) - i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-					{
-
-						string x = "  ";
-						x.at(0) = bezeichnung.at(0) - i;
-						x.at(1) = bezeichnung.at(1) + k;
-
-
-
-
-						if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-						{
-							if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								erlaubnis = false;
-								break;
-							}
-							else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-							{
-								KoenigV.push_back(x);
-								erlaubnis = false;
-								break;
-							}
-						}
-
-
-
-					}
-				}
-			}
-			else
-			{
-				break;
-			}
-		
-	}
+	// Variablen
 	vector<Feld> felder;
-	for (string& str : KoenigV)
-	{
-		felder.push_back(s.get_Spielstand()[str]);
+	vector<string> KoenigV;
+	vector<pair<char, char>> direction;
+	bool onboard;
+	string destination = bezeichnung;
+	
+	// Diagonal
+	pair<char, char> rechtsHoch		= make_pair(destination.at(0) + 1, destination.at(1) + 1);
+	pair<char, char> rechtsRunter	= make_pair(destination.at(0) + 1, destination.at(1) - 1);
+	pair<char, char> linksHoch		= make_pair(destination.at(0) - 1, destination.at(1) + 1);
+	pair<char, char> linksRunter	= make_pair(destination.at(0) - 1, destination.at(1) - 1);
+
+	// Vertical & Horizontal
+	pair<char, char> Hoch			= make_pair(destination.at(0)	 , destination.at(1) + 1);
+	pair<char, char> Runter			= make_pair(destination.at(0)	 , destination.at(1) - 1);
+	pair<char, char> Links			= make_pair(destination.at(0) - 1, destination.at(1)	);
+	pair<char, char> Rechts			= make_pair(destination.at(0) + 1, destination.at(1)	);
+
+	// Vector mit Koordinaten fuer die Zielfeld-Pruefung wird iteriert
+	direction = { rechtsHoch, rechtsRunter, linksHoch, linksRunter, Hoch, Runter, Links, Rechts };
+
+	for(unsigned int i = 0; i < direction.size(); i++) {
+
+		// Ziel Koordinaten werden ermittelt
+		destination.at(0) = direction.at(i).first;
+		destination.at(1) = direction.at(i).second;
+
+		// Pruefung ob diese Koordinate noch auf dem Feld ist
+		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
+
+		// Hinzufuegen des String-Feldes
+		if (onboard)
+		{
+			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
+			{
+				KoenigV.push_back(destination);
+			}
+			else if (this->farbe == s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+			}
+			else if (this->farbe != s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				KoenigV.push_back(destination);
+			}
+		}
 	}
 
-	return felder;
+	// Convert vector<string> into vector<Feld>
+	for (string& str : KoenigV) { felder.push_back(s.get_Spielstand()[str]); }
 
+	// Return
+	return felder;
 }
