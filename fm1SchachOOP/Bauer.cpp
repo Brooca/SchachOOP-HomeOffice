@@ -60,11 +60,9 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		// b schlaegt rechts runter
 		if ( bezeichnung.at(0) < 'H' && bezeichnung.at(1) != '1')
 		{
-			// Destination field
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) - 1;
 
-			// Add Field
 			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
@@ -72,11 +70,9 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		// b schlaegt links runter
 		if (bezeichnung.at(0) > 'A' && bezeichnung.at(1) != '1')
 		{
-			// Destination field
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) - 1;
 
-			// Add Field
 			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
@@ -89,29 +85,22 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		// einfacher Schritt
 		if (bezeichnung.at(1) != '2' && bezeichnung.at(1) != '8')
 		{
-			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) + 1;
 
-			// Add Field
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 		}
 
 		// doppelter Schritt zum Anfang
 		if (bezeichnung.at(1) == '2') {
 
-			// Destination field
 			x.at(0) = bezeichnung.at(0);
 			x.at(1) = bezeichnung.at(1) + 1;
 
 			// Freeway
-				// Add Field
 				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x);
-
-				// Zweiter Schritt
 				x.at(1) = bezeichnung.at(1) + 2;
 
-				// Add Field
 				if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ') { BauerV.push_back(x); }
 			}
 		}
@@ -120,11 +109,9 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		// B schlaegt rechts hoch
 		if (bezeichnung.at(0) < 'H' && bezeichnung.at(1) < '8')
 		{ 
-			// Destination field
 			x.at(0) = bezeichnung.at(0) + 1;
 			x.at(1) = bezeichnung.at(1) + 1;
 
-			// Add Field
 			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
@@ -133,11 +120,9 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		// B schlägt links hoch
 		if (bezeichnung.at(0) > 'A' && bezeichnung.at(1) < '8')
 		{
-			// Destination field
 			x.at(0) = bezeichnung.at(0) - 1;
 			x.at(1) = bezeichnung.at(1) + 1;
 
-			// Add Field
 			if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe() && s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() != ' ')
 			{ BauerV.push_back(x); }
 		}
