@@ -9,224 +9,134 @@ Laeufer::Laeufer(bool symbol) {
 
 vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 {
-	// Calculation
+	// Documentation:
+	/*	- ein Dummy - String dient als Zwischenkopie der Startkoordinate und wird iteriert je nach Richtung
+	*	- solange onboard die resultierende koordinate noch als auf dem Brett identifiziert
+	*	- auch nur dann wird diese Koordinate als erlaubtesFeld aufgenommen
+	*/
+
+	// Variablen
+	vector<Feld> felder;
 	vector<string> LaeuferV;
+	string destination = bezeichnung;
+	bool onboard;
 
+	// Rechts Hoch
+	destination = bezeichnung;
+	onboard = true;
 
-	// Rechts hoch
-	bool erlaubnis = true;
+	while (onboard) {
+		
+		destination.at(0)++;
+		destination.at(1)++;
 
-	for (int i = 1; i < 8; i++)
-	{
-		if (erlaubnis == true)
+		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
+
+		if (onboard)
 		{
-
-
-			for (int k = 1; k < 8; k++)
+			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
 			{
-
-				if (abs(bezeichnung.at(0) - bezeichnung.at(0) + i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-				{
-
-					string x = "  ";
-					x.at(0) = bezeichnung.at(0) + i;
-					x.at(1) = bezeichnung.at(1) + k;
-
-
-
-
-					if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-					{
-						if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-						{
-							LaeuferV.push_back(x);
-
-						}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							erlaubnis = false;
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-
-							LaeuferV.push_back(x);
-							erlaubnis = false;
-							break;
-						}
-					}
-				}
-
+				LaeuferV.push_back(destination);
 			}
-		}
-		else
-		{
-			break;
-		}
-	}
-
-
-
-
-
-	// Links Runter
-	erlaubnis = true;
-
-	for (int i = 1; i < 8; i++)
-	{
-		if (erlaubnis == true)
-		{
-
-			for (int k = 1; k < 8; k++)
+			else if (this->farbe == s.get_Spielstand()[destination].get_Figur()->get_Farbe())
 			{
-				if (abs(bezeichnung.at(0) - bezeichnung.at(0) - i) == abs(bezeichnung.at(1) - bezeichnung.at(1) - k))
-				{
-
-					string x = "  ";
-					x.at(0) = bezeichnung.at(0) - i;
-					x.at(1) = bezeichnung.at(1) - k;
-
-
-
-
-					if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-					{
-						if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-						{
-							LaeuferV.push_back(x);
-
-						}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							erlaubnis = false;
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							LaeuferV.push_back(x);
-							erlaubnis = false;
-							break;
-						}
-					}
-
-
-
-				}
+				break;
 			}
-		}
-		else
-		{
-			break;
+			else if (this->farbe != s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				LaeuferV.push_back(destination);
+				break;
+			}
 		}
 	}
 
 	// Rechts runter
+	destination = bezeichnung;
+	onboard = true;
 
-	erlaubnis = true;
+	while (onboard) {
+		destination.at(0)++;
+		destination.at(1)--;
 
-	for (int i = 1; i < 8; i++)
-	{
-		if (erlaubnis == true)
+		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
+
+		if (onboard)
 		{
-
-			for (int k = 1; k < 8; k++)
+			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
 			{
-				if (abs(bezeichnung.at(0) - bezeichnung.at(0) + i) == abs(bezeichnung.at(1) - bezeichnung.at(1) - k))
-				{
-
-					string x = "  ";
-					x.at(0) = bezeichnung.at(0) + i;
-					x.at(1) = bezeichnung.at(1) - k;
-
-
-
-
-					if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-					{
-						if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-						{
-							LaeuferV.push_back(x);
-
-						}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							erlaubnis = false;
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							LaeuferV.push_back(x);
-							erlaubnis = false;
-							break;
-						}
-					}
-
-
-
-				}
+				LaeuferV.push_back(destination);
+			}
+			else if (this->farbe == s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				break;
+			}
+			else if (this->farbe != s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				LaeuferV.push_back(destination);
+				break;
 			}
 		}
-		else
-		{
-			break;
-		}
 	}
 
-	// Links runter
+	// Links Runter
+	destination = bezeichnung;
+	onboard = true;
 
-	erlaubnis = true;
+	while (onboard) {
+		destination.at(0)--;
+		destination.at(1)--;
 
-	for (int i = 1; i < 8; i++)
-	{
-		if (erlaubnis == true) {
+		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
 
-			for (int k = 1; k < 8; k++)
+		if (onboard)
+		{
+			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
 			{
-				if (abs(bezeichnung.at(0) - bezeichnung.at(0) - i) == abs(bezeichnung.at(1) - bezeichnung.at(1) + k))
-				{
-
-					string x = "  ";
-					x.at(0) = bezeichnung.at(0) - i;
-					x.at(1) = bezeichnung.at(1) + k;
-
-
-
-
-					if (x.at(0) >= 65 && x.at(0) <= 72 && x.at(1) >= 49 && x.at(1) <= 56)
-					{
-						if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ')
-						{
-							LaeuferV.push_back(x);
-
-						}
-						else if (this->farbe == s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							erlaubnis = false;
-							break;
-						}
-						else if (this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-						{
-							LaeuferV.push_back(x);
-							erlaubnis = false;
-							break;
-						}
-					}
-
-
-
-				}
+				LaeuferV.push_back(destination);
+			}
+			else if (this->farbe == s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				break;
+			}
+			else if (this->farbe != s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				LaeuferV.push_back(destination);
+				break;
 			}
 		}
-		else
-		{
-			break;
-		}
-	}
-	vector<Feld> felder;
-	for (string& str : LaeuferV)
-	{
-		felder.push_back(s.get_Spielstand()[str]);
 	}
 
+	// Links hoch
+	destination = bezeichnung;
+	onboard = true;
+
+	while (onboard) {
+		destination.at(0)--;
+		destination.at(1)++;
+
+		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
+
+		if (onboard)
+		{
+			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
+			{
+				LaeuferV.push_back(destination);
+			}
+			else if (this->farbe == s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				break;
+			}
+			else if (this->farbe != s.get_Spielstand()[destination].get_Figur()->get_Farbe())
+			{
+				LaeuferV.push_back(destination);
+				break;
+			}
+		}
+	}
+
+	// Convert vector<string> into vector<Feld>
+	for (string& str : LaeuferV) { felder.push_back(s.get_Spielstand()[str]); }
+
+	// Return
 	return felder;
 }
