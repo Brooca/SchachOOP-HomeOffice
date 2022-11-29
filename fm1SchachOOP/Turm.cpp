@@ -11,13 +11,13 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
 	// Calculation
 	vector<string> TurmV;
-	for (int m = 0; m < 2; m++) 
+	for (int m = 0; m < 2; m++)  // wechselt zwischen Vertikal und horizontal // x.at(0) & x.at(1)
 	{
-		for (int n = 0; n < 3; n += 2) 
+		for (int n = 0; n < 3; n += 2) // Wechselt zwischen rechts & links || hoch und runter 
 		{
-			for (int i = 0; i < 8; i++)
+			for (int i = 0; i < 8; i++)	// bestimmt die passende Rechnung für die Startposition & löscht die Startposition aus TurmV
 			{
-				for (int k = 0; k < 8; k++)
+				for (int k = 0; k < 8; k++) // ist jeder der bis zu 7 Schritte in jede Richtung
 				{
 					// Berechnung der erlaubten Felder 								
 					if (bezeichnung.at(m) == (65 + i - (16 * m)))													// Feld auf dem man steht				| 65 + 0 = A 		
