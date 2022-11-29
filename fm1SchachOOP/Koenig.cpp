@@ -65,7 +65,7 @@ vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 	}
 
 	// Convert vector<string> into vector<Feld>
-	for (string& str : KoenigV) { felder.push_back(s.get_Spielstand()[str]); } //
+	for (string& str : KoenigV) { felder.push_back(s.get_Spielstand()[str]); }
 
 	// Return
 	return felder;
