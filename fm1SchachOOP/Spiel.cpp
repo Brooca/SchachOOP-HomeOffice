@@ -59,6 +59,7 @@ void Spiel::ziehen()
 
 	// User Input Departure
 	
+	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
 	// ZugVon ruft Feld der map auf 
 	// ZugZu gleicht erlaubte Felder des Feldes ab
 	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
