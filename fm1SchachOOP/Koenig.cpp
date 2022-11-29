@@ -23,10 +23,10 @@ vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 	bool onboard;
 	string destination = bezeichnung;
 	
-	// Diagonal
-	pair<char, char> rechtsHoch		= make_pair(destination.at(0) + 1, destination.at(1) + 1);
-	pair<char, char> rechtsRunter	= make_pair(destination.at(0) + 1, destination.at(1) - 1);
-	pair<char, char> linksHoch		= make_pair(destination.at(0) - 1, destination.at(1) + 1);
+	// Diagonal													  A+					 1+
+	pair<char, char> rechtsHoch		= make_pair(destination.at(0) + 1, destination.at(1) + 1);	// B2
+	pair<char, char> rechtsRunter	= make_pair(destination.at(0) + 1, destination.at(1) - 1);	// B0
+	pair<char, char> linksHoch		= make_pair(destination.at(0) - 1, destination.at(1) + 1);	//...
 	pair<char, char> linksRunter	= make_pair(destination.at(0) - 1, destination.at(1) - 1);
 
 	// Vertical & Horizontal
