@@ -18,7 +18,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 	// Variablen
 	vector<Feld> felder;
 	vector<string> LaeuferV;
-	string destination = bezeichnung;
+	string destination;
 	bool onboard;
 
 	// Rechts Hoch
@@ -27,11 +27,14 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 
 	while (onboard) {
 		
+		// Ziel Koordinaten werden ermittelt
 		destination.at(0)++;
 		destination.at(1)++;
 
+		// Pruefung ob diese Koordinate noch auf dem Feld ist
 		onboard = ((destination.at(0) >= 'A' && destination.at(0) <= 'H' && destination.at(1) >= '1' && destination.at(1) <= '8')) ? 1 : 0;
 
+		// Hinzufuegen des String-Feldes
 		if (onboard)
 		{
 			if (s.get_Spielstand()[destination].get_Figur()->get_Bezeichnung() == ' ')
