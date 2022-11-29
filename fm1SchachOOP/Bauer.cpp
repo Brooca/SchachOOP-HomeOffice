@@ -18,6 +18,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 	*/
 
 	// Variables
+	vector<Feld> felder;
 	vector<string> BauerV;
 	string x = "  ";
 
@@ -130,7 +131,6 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 
 	// Result -------------------------------------------------------------------------------------------------------------------------------
 	// Convert vector<string> into vector<Feld>
-	vector<Feld> felder;
 	for (string& str : BauerV) { felder.push_back(s.get_Spielstand()[str]); }
 
 	// Return
