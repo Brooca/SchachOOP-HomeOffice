@@ -20,6 +20,7 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	Turm Turm(this->farbe);
 	Laeufer Laeufer(this->farbe);
 
+	// Calculation
 	TurmV = Turm.erlaubteFelderBerechnen(bezeichnung);
 	LaeuferV = Laeufer.erlaubteFelderBerechnen(bezeichnung);
 

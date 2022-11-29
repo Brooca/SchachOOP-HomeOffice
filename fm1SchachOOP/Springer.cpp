@@ -24,9 +24,11 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 		d + 2 & c + 1 || d + 2 & c - 1
 	*/
 
-	// Calculation
-	vector<string>springerV;
+	// Variablen
+	vector<Feld> felder;
+	vector<string> springerV;
 
+	// Calculation
 	for(int i : { 0 , 1 } ) {
 		if (bezeichnung.at(0) < 'G' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
 		{// Right : Up and Down
@@ -35,10 +37,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{
-				springerV.push_back(x);
-			}
+			{	springerV.push_back(x);	}
 		}
+
 		if (bezeichnung.at(1) < '7' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
 		{// Up : Left and Right
 			string x = "  ";
@@ -46,9 +47,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + 2;
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{
-				springerV.push_back(x);
-			}
+			{	springerV.push_back(x);	}
 		}
 		
 		if (bezeichnung.at(0) > 'B' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
@@ -58,10 +57,9 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{
-				springerV.push_back(x);
-			}
+			{	springerV.push_back(x);	}
 		}
+
 		if (bezeichnung.at(1) > '2' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
 		{// Down : Left and Right
 			string x = "  ";
@@ -69,18 +67,12 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) - 2;
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{
-				springerV.push_back(x);
-			}
+			{	springerV.push_back(x);	}
 		}
 	}
 	
 	/* Convert vector<string> into vector<Feld> */
-	vector<Feld> felder;
-	for (string& str : springerV)
-	{
-		felder.push_back(s.get_Spielstand().at(str));
-	}
+	for (string& str : springerV) { felder.push_back(s.get_Spielstand().at(str)); }
 
 	// Return
 	return felder;
