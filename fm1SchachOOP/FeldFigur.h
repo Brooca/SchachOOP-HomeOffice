@@ -2,6 +2,7 @@
 using namespace std;
 #include <string>
 #include <vector>
+#include <utility>
 
 // Inclusion in cause of Komposition
 // TODO Documentation Klasse B, A, B

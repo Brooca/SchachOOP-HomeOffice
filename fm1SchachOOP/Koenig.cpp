@@ -1,5 +1,4 @@
 #include "Koenig.h"
-#include <utility>
 
 extern Spiel s;
 Koenig::Koenig(bool symbol)
