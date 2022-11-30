@@ -124,7 +124,7 @@ void Spiel::ziehen()
 			check = false;
 			cout << "Laenge der Eingabe nicht okay. \n"; 
 		} 
-		system("Pause");
+		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
@@ -133,7 +133,7 @@ void Spiel::ziehen()
 	//! zugVon ist eine eigene Figur
 	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(0).get_Farbe()){	//todo: amZug ??
 		cout << "Figur hat nicht deine Farbe";
-		system("Pause");
+	//	system("Pause");
 		ziehen();
 	}
 
@@ -162,7 +162,7 @@ void Spiel::ziehen()
 			check = false; 
 			cout << "Laenge der Eingabe nicht okay. \n";
 		}
-		system("Pause");
+		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
@@ -172,11 +172,11 @@ void Spiel::ziehen()
 	// Empty
 	if(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty()){
 		cout << "Figur hat keine erlaubten Feder   ";
-		system("Pause");
+		//system("Pause");
 		ziehen();
 	}
 
-	// map(zugVon).erlaubteFelder enthaelt zugNach
+	//! map(zugVon).erlaubteFelder enthaelt zugNach
 	bool enthalten = false;
 	for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
 	{
@@ -187,10 +187,29 @@ void Spiel::ziehen()
 	}
 
 	if (enthalten)
-	{//cout << "enthalten\n"; system("Pause");
+	{
 		//! map manipulieren
-		s.get_Spielstand()[zugNach] = Feld::Feld(zugNach,s.get_Spielstand().at(zugVon).get_Figur()->get_Bezeichnung());
-		//spielstand[key] = Feld::Feld(key, figurenFolge[index++]);
+		char zwischenspeicher = s.get_Spielstand().at(zugNach).get_Figur()->get_Bezeichnung();
+		s.spielstand.at(zugNach) = Feld::Feld(zugNach, s.spielstand.at(zugVon).get_Figur()->get_Bezeichnung());
+		s.spielstand.at(zugVon) = Feld::Feld(zugVon, ' ');
+
+		//! erlaubteFelder berechnen aus der Grundstellung
+		/* Documentation: Fuer alle Felder, die nicht leer sind werden die erlaubten Felder der Figuren berechnet */
+		for (auto& einzelfeld : spielstand) {
+			if (einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
+				spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
+		}
+
+		//! is der Koenig dabei ?
+		for (auto& einzelfeld : spielstand) {
+			for (auto& f1 : einzelfeld.second.get_ErlaubteFelder()) {
+				if(f1.get_Figur()->get_Bezeichnung() == 'K' || f1.get_Figur()->get_Bezeichnung() == 'k'){
+					cout << "Schach";
+					system("Pause");
+				}
+			}
+		}
+
 		cout << s;
 	}
 	else
