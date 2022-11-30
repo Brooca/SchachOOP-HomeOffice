@@ -189,9 +189,7 @@ void Spiel::ziehen()
 	if (enthalten)
 	{//cout << "enthalten\n"; system("Pause");
 		//! map manipulieren
-		//s.get_Spielstand()[zugNach] = Feld::Feld(zugNach,s.get_Spielstand().at(zugVon).get_Figur()->get_Bezeichnung());
-		// s.spielstand[zugNach] = Feld::Feld(zugNach, s.get_Spielstand().at(zugVon).get_Figur()->get_Bezeichnung());
-		// s.get_Spielstand()[zugNach] = 
+		s.get_Spielstand()[zugNach] = Feld::Feld(zugNach,s.get_Spielstand().at(zugVon).get_Figur()->get_Bezeichnung());
 		//spielstand[key] = Feld::Feld(key, figurenFolge[index++]);
 		cout << s;
 	}

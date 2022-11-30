@@ -3,7 +3,7 @@
 extern Spiel s;
 
 Turm::Turm(bool symbol) {
-	farbe = symbol;
+	farbe =  symbol;
 	bezeichnung = (symbol) ? 'T' : 't';
 }
 
