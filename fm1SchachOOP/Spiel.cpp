@@ -62,168 +62,7 @@ void Spiel::set_Spieler()
 	spieler = { spieler1, spieler2 };
 }
 
-void Spiel::ziehen()
-{
-	// Output Manipulation Values
-	unsigned int startzeile;
-	unsigned int startspalte;
 
-	// Todo: TODO
-	/*		
-		- wann wird schach angezeigt
-			-> Matt && Remis
-	*/
-
-	//TODO: Bugs
-	/*	
-		- alte eingabe Von bleibt:
-			->engabe von wes gueliig
-			-> engabeschwarz von ungueltig
-				-> gueiglt
-			-> wess hat engabeschwarz unguetig von gespechetril ii
-
-	*/
-
-	//! User Input Departure
-	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
-	// ZugVon ruft Feld der map auf 
-	// ZugNach gleicht erlaubte Felder des Feldes ab
-	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
-
-	//! Variablen
-	string zugVon, zugNach;
-	bool check;
-
-	//! zugVon wird geprueft
-	do{
-		check = true;
-
-		// User Input
-		cout << s;
-		setCursorPosition(startspalte = 5, startzeile = 10);
-		cout << "Von: ";
-		cin >> zugVon;
-
-		// Gueltigkeits-Pruefung
-		if ( zugVon.size() == 2 )
-		{  
-			if (not (zugVon.at(0) >= 'A' && zugVon.at(0) <= 'H' || zugVon.at(0) >= 'a' && zugVon.at(0) <= 'h'))
-			{ 
-				check = false; 
-				cout << " X Koordinate falsch eingegeben\n";
-			}
-			if (not (zugVon.at(1) >= '1' && zugVon.at(1) <= '8'))
-			{ 
-				check = false; 
-				cout << " Y Koordinate falsch eingegeben\n";
-			}
-		}
-		else
-		{	
-			check = false;
-			cout << "Laenge der Eingabe nicht okay. \n"; 
-		} 
-	} while (not check);
-
-	//! Eingabe muss in Upper convert
-	zugVon.at(0) = toupper(zugVon.at(0));
-
-	//! zugVon ist eine eigene Figur
-	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() != s.get_Spieler().at(zugnummer % 2).get_Farbe()){
-		cout << "Figur hat nicht deine Farbe";
-		ziehen();
-	}
-
-	//! zugNach wird geprueft
-	do {
-		check = true;
-
-		// UI (User Interface)
-		cout << s;
-		setCursorPosition(startspalte = 5, startzeile = 10);
-		cout << "Von: " << zugVon;
-
-		// User Input
-		setCursorPosition(startspalte = 5, startzeile = 11);
-		cout << "Nach: ";
-		cin >> zugNach;
-
-		// Gueltigkeits-Pruefung
-		if (zugNach.size() == 2) {
-			if (not (zugNach.at(0) >= 'A' && zugNach.at(0) <= 'H' || zugNach.at(0) >= 'a' && zugNach.at(0) <= 'h')) { 
-				check = false; 
-				cout << " X Koordinate falsch eingegeben\n"; 
-			}
-			if (not (zugNach.at(1) >= '1' && zugNach.at(1) <= '8')) { 
-				check = false; 
-				cout << " Y Koordinate falsch eingegeben\n";
-			}
-		}
-		else { 
-			check = false; 
-			cout << "Laenge der Eingabe nicht okay. \n";
-		}
-	} while (not check);
-
-	//! Eingabe muss in Upper convert
-	zugNach.at(0) = toupper(zugNach.at(0));
-
-	//! Pruefung der erlaubten Felder
-	// Empty
-	if(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty()){
-		cout << "Figur hat keine erlaubten Feder   ";
-		ziehen();
-	}
-
-	//! map(zugVon).erlaubteFelder enthaelt zugNach
-	bool enthalten = false;
-	for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
-	{
-		if (s.get_Spielstand().at(zugVon).get_ErlaubteFelder().at(i).get_Bezeichnung() == zugNach)
-		{
-			enthalten = true;
-		}
-	}
-
-	if (enthalten)
-	{
-		//! map manipulieren
-		char zwischenspeicher = s.get_Spielstand().at(zugNach).get_Figur()->get_Bezeichnung();
-		s.spielstand.at(zugNach) = Feld::Feld(zugNach, s.spielstand.at(zugVon).get_Figur()->get_Bezeichnung());
-		s.spielstand.at(zugVon) = Feld::Feld(zugVon, ' ');
-
-		//! erlaubteFelder berechnen aus der Grundstellung
-		/* Documentation: Fuer alle Felder, die nicht leer sind werden die erlaubten Felder der Figuren berechnet */
-		for (auto einzelfeld : spielstand) {
-			if (einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
-				spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
-		}
-
-		//! is der Koenig dabei ?
-		for (auto einzelfeld : spielstand) {
-			for (auto f1 : einzelfeld.second.get_ErlaubteFelder()) {
-				if((f1.get_Figur()->get_Bezeichnung() == 'K' && (zugnummer % 2) == 0) || (f1.get_Figur()->get_Bezeichnung() == 'k' && (zugnummer % 2) == 1)){
-
-					//! Schach ist bestehend
-					cout <<  s.get_Spieler().at(zugnummer % 2).get_Name() << " ist im Schach";	
-					system("Pause");
-				
-					// zug zurueck aendern
-					s.spielstand.at(zugVon) = Feld::Feld(zugVon, s.spielstand.at(zugNach).get_Figur()->get_Bezeichnung());
-					s.spielstand.at(zugNach) = Feld::Feld(zugNach, zwischenspeicher);
-					
-					ziehen();
-
-					// bist schachmatt
-					// Remis
-				}
-			}
-		}
-		cout << s;
-	}
-	else {	ziehen(); }
-	
-}	
 
 
 
@@ -332,4 +171,170 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	//! Return ostream
 	return lhs;
+}
+
+void Spiel::ziehen()
+{
+	// Output Manipulation Values
+	unsigned int startzeile;
+	unsigned int startspalte;
+
+	// Todo: TODO
+	/*
+		- wann wird schach angezeigt
+			-> Matt && Remis
+		- Rekursive funktion heraus nehmen
+	*/
+
+	//TODO: Bugs
+	/*
+		- alte eingabe Von bleibt:
+			->engabe von wes gueliig
+			-> engabeschwarz von ungueltig
+				-> gueiglt
+			-> wess hat engabeschwarz unguetig von gespechetril ii
+
+	*/
+
+	//! User Input Departure
+	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
+	// ZugVon ruft Feld der map auf 
+	// ZugNach gleicht erlaubte Felder des Feldes ab
+	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
+
+	//! Variablen
+	string zugVon, zugNach;
+	zugVon = "  ";
+	zugNach = "  ";
+	bool check;
+
+	//! zugVon wird geprueft
+	do {
+		check = true;
+
+		// User Input
+		cout << s;
+		setCursorPosition(startspalte = 5, startzeile = 10);
+		cout << "Von: ";
+		cin >> zugVon;
+
+		// Gueltigkeits-Pruefung
+		if (zugVon.size() == 2)
+		{
+			if (not (zugVon.at(0) >= 'A' && zugVon.at(0) <= 'H' || zugVon.at(0) >= 'a' && zugVon.at(0) <= 'h'))
+			{
+				check = false;
+				cout << " X Koordinate falsch eingegeben\n";
+			}
+			if (not (zugVon.at(1) >= '1' && zugVon.at(1) <= '8'))
+			{
+				check = false;
+				cout << " Y Koordinate falsch eingegeben\n";
+			}
+		}
+		else
+		{
+			check = false;
+			cout << "Laenge der Eingabe nicht okay. \n";
+		}
+	} while (not check);
+
+	//! Eingabe muss in Upper convert
+	zugVon.at(0) = toupper(zugVon.at(0));
+
+	//! zugVon ist eine eigene Figur
+	if (s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() != s.get_Spieler().at(zugnummer % 2).get_Farbe()) {
+		cout << "Figur hat nicht deine Farbe";
+		ziehen();
+	}
+
+	//! zugNach wird geprueft
+	do {
+		check = true;
+
+		// UI (User Interface)
+		cout << s;
+		setCursorPosition(startspalte = 5, startzeile = 10);
+		cout << "Von: " << zugVon;
+
+		// User Input
+		setCursorPosition(startspalte = 5, startzeile = 11);
+		cout << "Nach: ";
+		cin >> zugNach;
+
+		// Gueltigkeits-Pruefung
+		if (zugNach.size() == 2) {
+			if (not (zugNach.at(0) >= 'A' && zugNach.at(0) <= 'H' || zugNach.at(0) >= 'a' && zugNach.at(0) <= 'h')) {
+				check = false;
+				cout << " X Koordinate falsch eingegeben\n";
+			}
+			if (not (zugNach.at(1) >= '1' && zugNach.at(1) <= '8')) {
+				check = false;
+				cout << " Y Koordinate falsch eingegeben\n";
+			}
+		}
+		else {
+			check = false;
+			cout << "Laenge der Eingabe nicht okay. \n";
+		}
+	} while (not check);
+
+	//! Eingabe muss in Upper convert
+	zugNach.at(0) = toupper(zugNach.at(0));
+
+	//! Pruefung der erlaubten Felder
+	// Empty
+	if (s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty()) {
+		cout << "Figur hat keine erlaubten Felder";
+		ziehen();
+	}
+
+	//! map(zugVon).erlaubteFelder enthaelt zugNach
+	bool enthalten = false;
+	for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
+	{
+		if (s.get_Spielstand().at(zugVon).get_ErlaubteFelder().at(i).get_Bezeichnung() == zugNach)
+		{
+			enthalten = true;
+		}
+	}
+
+	if (enthalten)
+	{
+		//! map manipulieren
+		char zwischenspeicher = s.get_Spielstand().at(zugNach).get_Figur()->get_Bezeichnung();
+		s.spielstand.at(zugNach) = Feld::Feld(zugNach, s.spielstand.at(zugVon).get_Figur()->get_Bezeichnung());
+		s.spielstand.at(zugVon) = Feld::Feld(zugVon, ' ');
+
+		//! erlaubteFelder berechnen aus der Grundstellung
+		/* Documentation: Fuer alle Felder, die nicht leer sind werden die erlaubten Felder der Figuren berechnet */
+		for (auto einzelfeld : spielstand) {
+			if (einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
+				spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
+		}
+
+		//! is der Koenig dabei ?
+		for (auto einzelfeld : spielstand) {
+			for (auto f1 : einzelfeld.second.get_ErlaubteFelder()) {
+				if ((f1.get_Figur()->get_Bezeichnung() == 'K' && (zugnummer % 2) == 0) || (f1.get_Figur()->get_Bezeichnung() == 'k' && (zugnummer % 2) == 1)) {
+
+					//! Schach ist bestehend
+					cout << s.get_Spieler().at(zugnummer % 2).get_Name() << " ist im Schach";
+					system("Pause");
+
+					// zug zurueck aendern
+					s.spielstand.at(zugVon) = Feld::Feld(zugVon, s.spielstand.at(zugNach).get_Figur()->get_Bezeichnung());
+					s.spielstand.at(zugNach) = Feld::Feld(zugNach, zwischenspeicher);
+
+					ziehen();
+
+					// bist schachmatt
+					// Remis
+				}
+			}
+		}
+		cout << s;
+	}
+	else { ziehen(); }
+
 }
