@@ -283,7 +283,7 @@ void Spiel::ziehen()
 		}
 	}
 
-	//! zug wird ausgefuehrt
+	//! zug wird ausgefuehrt oder verworfen
 	if (enthalten)
 	{
 		//! map manipulieren
