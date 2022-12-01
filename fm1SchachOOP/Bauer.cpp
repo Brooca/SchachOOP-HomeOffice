@@ -26,7 +26,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 	switch (this->farbe) {
 
 	// b laeuft runter-------------------------------------------------------------------------------------------------------------------
-	case 0:
+	case 1:
 
 		// einfacher Schritt
 		if (bezeichnung.at(1) != '1' && bezeichnung.at(1) != '7')
@@ -80,7 +80,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		break;
 
 	// B laeuft hoch -----------------------------------------------------------------------------------------------------------------------------
-	case 1:
+	case 0:
 
 	/*Geradeaus*/
 		// einfacher Schritt
