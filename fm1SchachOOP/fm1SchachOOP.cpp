@@ -13,5 +13,6 @@ int main()
 	do {
 		cout << s;
 		s.ziehen();
+		s.set_zugnummer();
 	} while (true);
 }

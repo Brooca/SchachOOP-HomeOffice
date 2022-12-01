@@ -12,7 +12,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
+	string figurenFolge = "TSLDKLSTBBBBBBBB              hk D               bbbbbbbbtsldklst";
  // string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
@@ -32,6 +32,11 @@ Spiel::Spiel()
 		if(einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
 		spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
 	}
+}
+
+void Spiel::set_zugnummer()
+{
+	zugnummer++;
 }
 
 /*### Getter ###*/
@@ -64,13 +69,19 @@ void Spiel::ziehen()
 	unsigned int startspalte;
 
 	// Todo: TODO
-	/*		 - Schach fuer wen ?
-			 - Farbe von Spieler und Figur synchronisieren
+	/*		
+		- wann wird schach angezeigt
+			-> Matt && Remis
 	*/
 
 	//TODO: Bugs
-	/*	- Uebeschrift erlaubteFelder springt hin und her 
-		- alte eingabe Von bleibt 
+	/*	
+		- alte eingabe Von bleibt:
+			->engabe von wes gueliig
+			-> engabeschwarz von ungueltig
+				-> gueiglt
+			-> wess hat engabeschwarz unguetig von gespechetril ii
+
 	*/
 
 	//! User Input Departure
@@ -81,7 +92,7 @@ void Spiel::ziehen()
 
 	//! Variablen
 	string zugVon, zugNach;
-	bool check; // Steuer-Variable for while
+	bool check;
 
 	//! zugVon wird geprueft
 	do{
@@ -118,7 +129,7 @@ void Spiel::ziehen()
 	zugVon.at(0) = toupper(zugVon.at(0));
 
 	//! zugVon ist eine eigene Figur
-	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(zugnummer % 2).get_Farbe()){	//todo: amZug ??
+	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() != s.get_Spieler().at(zugnummer % 2).get_Farbe()){
 		cout << "Figur hat nicht deine Farbe";
 		ziehen();
 	}
@@ -183,24 +194,35 @@ void Spiel::ziehen()
 
 		//! erlaubteFelder berechnen aus der Grundstellung
 		/* Documentation: Fuer alle Felder, die nicht leer sind werden die erlaubten Felder der Figuren berechnet */
-		for (auto& einzelfeld : spielstand) {
+		for (auto einzelfeld : spielstand) {
 			if (einzelfeld.second.get_Figur()->get_Bezeichnung() != ' ')
 				spielstand[einzelfeld.first].set_ErlaubteFelder(einzelfeld.first);
 		}
 
 		//! is der Koenig dabei ?
-		for (auto& einzelfeld : spielstand) {
-			for (auto& f1 : einzelfeld.second.get_ErlaubteFelder()) {
-				if(f1.get_Figur()->get_Bezeichnung() == 'K' || f1.get_Figur()->get_Bezeichnung() == 'k'){
-					cout << "Schach";
+		for (auto einzelfeld : spielstand) {
+			for (auto f1 : einzelfeld.second.get_ErlaubteFelder()) {
+				if((f1.get_Figur()->get_Bezeichnung() == 'K' && (zugnummer % 2) == 0) || (f1.get_Figur()->get_Bezeichnung() == 'k' && (zugnummer % 2) == 1)){
+
+					//! Schach ist bestehend
+					cout <<  s.get_Spieler().at(zugnummer % 2).get_Name() << " ist im Schach";	
 					system("Pause");
+				
+					// zug zurueck aendern
+					s.spielstand.at(zugVon) = Feld::Feld(zugVon, s.spielstand.at(zugNach).get_Figur()->get_Bezeichnung());
+					s.spielstand.at(zugNach) = Feld::Feld(zugNach, zwischenspeicher);
+					
+					ziehen();
+
+					// bist schachmatt
+					// Remis
 				}
 			}
 		}
 		cout << s;
 	}
 	else {	ziehen(); }
-	zugnummer++;
+	
 }	
 
 
@@ -291,7 +313,7 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	for(auto& einzelfeld : rhs.spielstand){
 
 		// Spieler*in Farben spezifisch
-		if(einzelfeld.second.get_Figur()->get_Farbe() != rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {
+		if(einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {
 	
 			// isEmpty ?
 			if(not einzelfeld.second.get_ErlaubteFelder().empty()) {

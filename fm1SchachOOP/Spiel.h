@@ -20,6 +20,7 @@ public:
 	map<string, Feld> get_Spielstand();
 	array<Spieler, 2> get_Spieler();
 	void set_Spieler();
+	void set_zugnummer();
 	void ziehen();
 	friend ostream& operator << (ostream& lhs, Spiel& rhs);
 };
