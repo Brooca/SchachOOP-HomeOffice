@@ -68,31 +68,10 @@ void Spiel::ziehen()
 	//TODO: Bugs
 	/*	- Uebeschrift erlaubteFelder springt hin und her 
 		- synchronisieren der Farben
-
-	// Experiement find
-	Feld zugNachF(zugNach);
-	if (*find(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(), s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(), zugNachF)->get_Bezeichnung() == zugNachF.get_Bezeichnung())
-	{
-	}
-	
-	// Experiement Lambda + for_each
-	  for_each(arr1.begin(), arr1.end(), lambda function);
-	  Lamda : [ capture clause ] (parameters) -> return-type  { definition of method }
-
-		for_each(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(),
-		s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(),
-		[zugNach] (Feld f1) { 
-			cout << "Lambda";
-			return f1.get_Bezeichnung() == zugNach;
-		});
 	*/
 
 	//! User Input Departure
-	//? ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
-		/*	- Range von Buchstabe und von der Zahl
-			- Laenge des Strings muss 2 betragen
-		*/
-
+	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
 	// ZugVon ruft Feld der map auf 
 	// ZugNach gleicht erlaubte Felder des Feldes ab
 	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
