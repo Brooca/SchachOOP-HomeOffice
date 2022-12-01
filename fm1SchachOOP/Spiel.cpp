@@ -5,6 +5,9 @@ extern Spiel s;
 
 Spiel::Spiel()
 {
+	// Zugnummer initialisieren
+	zugnummer = 0;
+
 	// User-Input: Array<string> spieler
 	set_Spieler();
 
@@ -42,13 +45,13 @@ void Spiel::set_Spieler()
 	// Spieler 1 
 	cout << "Spieler*in Weiss:   ";
 	cin >> eingabe;
-	Spieler spieler1(eingabe, 1);
+	Spieler spieler1(eingabe, 0);
 
 	// Spieler 2
 	cout << "Spieler*in Schwarz: ";
 	cin >> eingabe;
 
-	Spieler spieler2(eingabe, 0);
+	Spieler spieler2(eingabe, 1);
 	cout << "\n";
 
 	spieler = { spieler1, spieler2 };
@@ -61,13 +64,13 @@ void Spiel::ziehen()
 	unsigned int startspalte;
 
 	// Todo: TODO
-	//		 - Schach fuer wen ?
-	//		 - Spieler wechselt
-	//		 - Farbe von Spieler und Figur synchronisieren
+	/*		 - Schach fuer wen ?
+			 - Farbe von Spieler und Figur synchronisieren
+	*/
 
 	//TODO: Bugs
 	/*	- Uebeschrift erlaubteFelder springt hin und her 
-		- synchronisieren der Farben
+		- alte eingabe Von bleibt 
 	*/
 
 	//! User Input Departure
@@ -79,7 +82,7 @@ void Spiel::ziehen()
 	//! Variablen
 	string zugVon, zugNach;
 	bool check; // Steuer-Variable for while
-	
+
 	//! zugVon wird geprueft
 	do{
 		check = true;
@@ -91,7 +94,7 @@ void Spiel::ziehen()
 		cin >> zugVon;
 
 		// Gueltigkeits-Pruefung
-		if ( zugVon.size() == 2)
+		if ( zugVon.size() == 2 )
 		{  
 			if (not (zugVon.at(0) >= 'A' && zugVon.at(0) <= 'H' || zugVon.at(0) >= 'a' && zugVon.at(0) <= 'h'))
 			{ 
@@ -104,20 +107,19 @@ void Spiel::ziehen()
 				cout << " Y Koordinate falsch eingegeben\n";
 			}
 		}
-		else {	
+		else
+		{	
 			check = false;
 			cout << "Laenge der Eingabe nicht okay. \n"; 
 		} 
-		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
 	zugVon.at(0) = toupper(zugVon.at(0));
 
 	//! zugVon ist eine eigene Figur
-	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(0).get_Farbe()){	//todo: amZug ??
+	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(zugnummer % 2).get_Farbe()){	//todo: amZug ??
 		cout << "Figur hat nicht deine Farbe";
-	//	system("Pause");
 		ziehen();
 	}
 
@@ -125,9 +127,13 @@ void Spiel::ziehen()
 	do {
 		check = true;
 
-		// User Input
+		// UI (User Interface)
 		cout << s;
 		setCursorPosition(startspalte = 5, startzeile = 10);
+		cout << "Von: " << zugVon;
+
+		// User Input
+		setCursorPosition(startspalte = 5, startzeile = 11);
 		cout << "Nach: ";
 		cin >> zugNach;
 
@@ -146,7 +152,6 @@ void Spiel::ziehen()
 			check = false; 
 			cout << "Laenge der Eingabe nicht okay. \n";
 		}
-		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
@@ -156,7 +161,6 @@ void Spiel::ziehen()
 	// Empty
 	if(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty()){
 		cout << "Figur hat keine erlaubten Feder   ";
-		//system("Pause");
 		ziehen();
 	}
 
@@ -193,24 +197,10 @@ void Spiel::ziehen()
 				}
 			}
 		}
-
 		cout << s;
 	}
-	else
-	{
-		ziehen();
-	}
-	/*
-	zugNach : A5 || A3
-	A6 A5 A4
-	A4 -> raus
-
-	if(zugNach = map(zugVon).erlaubteFelder))			
-	cout << "zugNach kein erlaubtes Feld";
-	 wenn nicht ziehen()
-	*/
-
-	
+	else {	ziehen(); }
+	zugnummer++;
 }	
 
 
@@ -230,7 +220,11 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	system("cls");
 
 	// Headline
-	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white << endl << endl;
+	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white;
+
+	// User Interface
+	setCursorPosition(startspalte = 3, startzeile = 0);
+	lhs << endl << "Zugnummer: " << rhs.zugnummer + 1 << "  " << "Spieler:   " << rhs.spieler.at(rhs.zugnummer % 2) << endl;
 
 	// Spieler*in White
 	setCursorPosition(startspalte = 5, startzeile = 3);
@@ -284,41 +278,36 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	setCursorPosition(++startspalte, startzeile);
 	lhs << "ABCDEFGH" << endl;
 
-	/*### Output : erlaubteFelder ###*/
-	/*
-		Documentation:
+	//! Output : erlaubteFelder
+	// Documentation:
+	/*	
 		Fuer jedes im Spielstand gespeicherte Feld wird
-			- wenn es nicht leer ist:
-				- die Feld-Bezeichnung ausgegeben und
-				- der Vector erlaubteFelder iterierend dem Output-Stream lhs hinzugefuegt.
+		- wenn es nicht leer ist:
+		- die Feld-Bezeichnung ausgegeben und
+		- der Vector erlaubteFelder iterierend dem Output-Stream lhs hinzugefuegt. */
 
-		ToDo:
-			- um nur die erlaubten Felder der eigenen Figuren auszugeben oder ueberhaupt zu unterscheiden
-			waere es noetig die spielerfarbe mit der figurenfarbe in zusammenhang zu bringen
-				-> Possible Solution: zugnummer etablieren
-	*/
 	lhs << endl << "Erlaubte Felder\n";
 
 	for(auto& einzelfeld : rhs.spielstand){
-	// if(einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(/*unpredictable  -> boolean zugnummer */)) {		// Fuer welchen Spieler ?
+
+		// Spieler*in Farben spezifisch
+		if(einzelfeld.second.get_Figur()->get_Farbe() != rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {
 	
-		// isEmpty ?
-		if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
-		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " -> ";
-		lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Figur()->get_Bezeichnung() << " : ";
+			// isEmpty ?
+			if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
+			lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " -> ";
+			lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Figur()->get_Bezeichnung() << " : ";
 
-			// vector erlaubteFelder hinzufuegen
-			for (int i = 0; i < rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().size(); i++) {
-				string s = rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().at(i).get_Bezeichnung();
-				lhs << s << " ";
+				// vector erlaubteFelder hinzufuegen
+				for (int i = 0; i < rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().size(); i++) {
+					string s = rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().at(i).get_Bezeichnung();
+					lhs << s << " ";
+				}
+			lhs << "\n";
 			}
-
-		// Zeilenumbruch
-		lhs << "\n";
 		}
-	// }
 	}
 
-	/*### Return ostream ###*/
+	//! Return ostream
 	return lhs;
 }

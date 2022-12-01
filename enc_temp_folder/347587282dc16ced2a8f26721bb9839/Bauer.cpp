@@ -5,7 +5,7 @@ extern Spiel s;
 Bauer::Bauer(bool symbol)
 {
 	farbe = symbol;
-	bezeichnung = (symbol) ? 'b' : 'B';
+	bezeichnung = (symbol) ? 'B' : 'b';
 }
 
 vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)

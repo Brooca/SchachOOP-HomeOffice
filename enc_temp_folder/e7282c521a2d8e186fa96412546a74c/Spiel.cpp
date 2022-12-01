@@ -5,6 +5,9 @@ extern Spiel s;
 
 Spiel::Spiel()
 {
+	// Zugnummer initialisieren
+	zugnummer = 0;
+
 	// User-Input: Array<string> spieler
 	set_Spieler();
 
@@ -42,13 +45,13 @@ void Spiel::set_Spieler()
 	// Spieler 1 
 	cout << "Spieler*in Weiss:   ";
 	cin >> eingabe;
-	Spieler spieler1(eingabe, 1);
+	Spieler spieler1(eingabe, 0);
 
 	// Spieler 2
 	cout << "Spieler*in Schwarz: ";
 	cin >> eingabe;
 
-	Spieler spieler2(eingabe, 0);
+	Spieler spieler2(eingabe, 1);
 	cout << "\n";
 
 	spieler = { spieler1, spieler2 };
@@ -60,34 +63,24 @@ void Spiel::ziehen()
 	unsigned int startzeile;
 	unsigned int startspalte;
 
+	//todo: Today
+	/*
+	*/
+	// Todo: TODO
+	/*		 - Schach fuer wen ?
+			 - Spieler wechselt
+				-> Gui passt sich an  
+			 - Farbe von Spieler und Figur synchronisieren
+	*/
+
 	//TODO: Bugs
 	/*	- Uebeschrift erlaubteFelder springt hin und her 
 		- synchronisieren der Farben
-
-	// Experiement find
-	Feld zugNachF(zugNach);
-	if (*find(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(), s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(), zugNachF)->get_Bezeichnung() == zugNachF.get_Bezeichnung())
-	{
-	}
-	
-	// Experiement Lambda + for_each
-	  for_each(arr1.begin(), arr1.end(), lambda function);
-	  Lamda : [ capture clause ] (parameters) -> return-type  { definition of method }
-
-		for_each(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(),
-		s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(),
-		[zugNach] (Feld f1) { 
-			cout << "Lambda";
-			return f1.get_Bezeichnung() == zugNach;
-		});
+		- alte eingabe Von bleibt 
 	*/
 
 	//! User Input Departure
-	//? ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
-		/*	- Range von Buchstabe und von der Zahl
-			- Laenge des Strings muss 2 betragen
-		*/
-
+	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
 	// ZugVon ruft Feld der map auf 
 	// ZugNach gleicht erlaubte Felder des Feldes ab
 	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
@@ -95,7 +88,7 @@ void Spiel::ziehen()
 	//! Variablen
 	string zugVon, zugNach;
 	bool check; // Steuer-Variable for while
-	
+
 	//! zugVon wird geprueft
 	do{
 		check = true;
@@ -107,7 +100,7 @@ void Spiel::ziehen()
 		cin >> zugVon;
 
 		// Gueltigkeits-Pruefung
-		if ( zugVon.size() == 2)
+		if ( zugVon.size() == 2 )
 		{  
 			if (not (zugVon.at(0) >= 'A' && zugVon.at(0) <= 'H' || zugVon.at(0) >= 'a' && zugVon.at(0) <= 'h'))
 			{ 
@@ -120,20 +113,19 @@ void Spiel::ziehen()
 				cout << " Y Koordinate falsch eingegeben\n";
 			}
 		}
-		else {	
+		else
+		{	
 			check = false;
 			cout << "Laenge der Eingabe nicht okay. \n"; 
 		} 
-		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
 	zugVon.at(0) = toupper(zugVon.at(0));
 
 	//! zugVon ist eine eigene Figur
-	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(0).get_Farbe()){	//todo: amZug ??
+	if(s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() == s.get_Spieler().at(zugnummer % 2).get_Farbe()){	//todo: amZug ??
 		cout << "Figur hat nicht deine Farbe";
-	//	system("Pause");
 		ziehen();
 	}
 
@@ -141,9 +133,13 @@ void Spiel::ziehen()
 	do {
 		check = true;
 
-		// User Input
+		// UI (User Interface)
 		cout << s;
 		setCursorPosition(startspalte = 5, startzeile = 10);
+		cout << "Von: " << zugVon;
+
+		// User Input
+		setCursorPosition(startspalte = 5, startzeile = 11);
 		cout << "Nach: ";
 		cin >> zugNach;
 
@@ -162,7 +158,6 @@ void Spiel::ziehen()
 			check = false; 
 			cout << "Laenge der Eingabe nicht okay. \n";
 		}
-		//system("Pause");
 	} while (not check);
 
 	//! Eingabe muss in Upper convert
@@ -172,7 +167,6 @@ void Spiel::ziehen()
 	// Empty
 	if(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty()){
 		cout << "Figur hat keine erlaubten Feder   ";
-		//system("Pause");
 		ziehen();
 	}
 
@@ -209,24 +203,10 @@ void Spiel::ziehen()
 				}
 			}
 		}
-
 		cout << s;
 	}
-	else
-	{
-		ziehen();
-	}
-	/*
-	zugNach : A5 || A3
-	A6 A5 A4
-	A4 -> raus
-
-	if(zugNach = map(zugVon).erlaubteFelder))			
-	cout << "zugNach kein erlaubtes Feld";
-	 wenn nicht ziehen()
-	*/
-
-	
+	else {	ziehen(); }
+	zugnummer++;
 }	
 
 
@@ -246,7 +226,11 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	system("cls");
 
 	// Headline
-	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white << endl << endl;
+	lhs << blue << string(27, '#') << " CHESS " << string(27, '#') << white;
+
+	// User Interface
+	setCursorPosition(startspalte = 3, startzeile = 0);
+	lhs << endl << "Zugnummer: " << rhs.zugnummer + 1 << "  " << "Spieler:   " << rhs.spieler.at(rhs.zugnummer % 2) << endl;
 
 	// Spieler*in White
 	setCursorPosition(startspalte = 5, startzeile = 3);
@@ -316,7 +300,8 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 	lhs << endl << "Erlaubte Felder\n";
 
 	for(auto& einzelfeld : rhs.spielstand){
-	// if(einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(/*unpredictable  -> boolean zugnummer */)) {		// Fuer welchen Spieler ?
+
+	if(einzelfeld.second.get_Figur()->get_Farbe() != rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {		// Fuer welchen Spieler ?
 	
 		// isEmpty ?
 		if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
@@ -328,11 +313,10 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 				string s = rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().at(i).get_Bezeichnung();
 				lhs << s << " ";
 			}
-
-		// Zeilenumbruch
 		lhs << "\n";
 		}
-	// }
+
+		}
 	}
 
 	/*### Return ostream ###*/

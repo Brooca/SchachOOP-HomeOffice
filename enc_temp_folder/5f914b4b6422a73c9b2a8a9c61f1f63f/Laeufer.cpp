@@ -4,7 +4,7 @@ extern Spiel s;
 
 Laeufer::Laeufer(bool symbol) {
 	farbe = symbol;
-	bezeichnung = (symbol) ? 'l' : 'L';
+	bezeichnung = (symbol) ? 'L' : 'l';
 }
 
 vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)

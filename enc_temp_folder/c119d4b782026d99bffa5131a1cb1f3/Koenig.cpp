@@ -4,7 +4,7 @@ extern Spiel s;
 Koenig::Koenig(bool symbol)
 {
 	farbe = symbol;
-	bezeichnung = (symbol) ? 'k' : 'K';
+	bezeichnung = (symbol) ? 'K' : 'k';
 }
 
 vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)

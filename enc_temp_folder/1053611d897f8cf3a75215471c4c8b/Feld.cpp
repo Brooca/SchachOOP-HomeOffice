@@ -18,22 +18,22 @@ Feld::Feld(string bez, char symbol)
 	switch (symbol)
 	{
 	case 'B': case 'b':
-		figur = new Bauer(islower(symbol));
+		figur = new Bauer(isupper(symbol));
 		break;
 	case 'T': case 't':
-		figur = new Turm(islower(symbol));
+		figur = new Turm(isupper(symbol));
 		break;
 	case 'L': case 'l':
-		figur = new Laeufer(islower(symbol));
+		figur = new Laeufer(isupper(symbol));
 		break;
 	case 'S': case 's':
-		figur = new Springer(islower(symbol));
+		figur = new Springer(isupper(symbol));
 		break;
 	case 'D': case 'd':
-		figur = new Dame(islower(symbol));
+		figur = new Dame(isupper(symbol));
 		break;
 	case 'K': case 'k':
-		figur = new Koenig(islower(symbol));
+		figur = new Koenig(isupper(symbol));
 		break;
 	default:
 		figur = new Leer(bez);

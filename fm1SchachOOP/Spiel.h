@@ -14,6 +14,7 @@ class Spiel
 private:
 	array<Spieler, 2> spieler;
     map<string,Feld> spielstand;
+	int zugnummer;
 public:
 	Spiel();
 	map<string, Feld> get_Spielstand();
