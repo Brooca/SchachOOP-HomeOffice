@@ -3,6 +3,7 @@
 
 extern Spiel s;
 
+//todo Konstruktoren
 Spiel::Spiel()
 {
 	// Zugnummer initialisieren
@@ -12,7 +13,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "TSLDKLSTBBBBBBBB              hk D               bbbbbbbbtsldklst";
+	string figurenFolge = "TSLDKLSTBBBBBBBB              k D               bbbbbbbbtsldklst";
  // string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
@@ -34,15 +35,10 @@ Spiel::Spiel()
 	}
 }
 
-void Spiel::set_zugnummer()
-{
-	zugnummer++;
-}
-
-/*### Getter ###*/
+//todo: Getter && Setter
 map<string, Feld> Spiel::get_Spielstand(){	return spielstand;	}
 array<Spieler, 2> Spiel::get_Spieler(){	return spieler;	}
-
+void Spiel::set_Zugnummer() { zugnummer++; }
 void Spiel::set_Spieler()
 {
 	string eingabe;
@@ -62,11 +58,7 @@ void Spiel::set_Spieler()
 	spieler = { spieler1, spieler2 };
 }
 
-
-
-
-
-// Operator overload
+//todo: Methoden
 ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	// Output Manipulation Values
@@ -141,7 +133,7 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	//! Output : erlaubteFelder
 	// Documentation:
-	/*	
+	/*
 		Fuer jedes im Spielstand gespeicherte Feld wird
 		- wenn es nicht leer ist:
 		- die Feld-Bezeichnung ausgegeben und
@@ -149,22 +141,22 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 	lhs << endl << "Erlaubte Felder\n";
 
-	for(auto& einzelfeld : rhs.spielstand){
+	for (auto& einzelfeld : rhs.spielstand) {
 
 		// Spieler*in Farben spezifisch
-		if(einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {
-	
+		if (einzelfeld.second.get_Figur()->get_Farbe() == rhs.get_Spieler().at(rhs.zugnummer % 2).get_Farbe()) {
+
 			// isEmpty ?
-			if(not einzelfeld.second.get_ErlaubteFelder().empty()) {
-			lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " -> ";
-			lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Figur()->get_Bezeichnung() << " : ";
+			if (not einzelfeld.second.get_ErlaubteFelder().empty()) {
+				lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Bezeichnung() << " -> ";
+				lhs << rhs.get_Spielstand().at(einzelfeld.first).get_Figur()->get_Bezeichnung() << " : ";
 
 				// vector erlaubteFelder hinzufuegen
 				for (int i = 0; i < rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().size(); i++) {
 					string s = rhs.get_Spielstand().at(einzelfeld.first).get_ErlaubteFelder().at(i).get_Bezeichnung();
 					lhs << s << " ";
 				}
-			lhs << "\n";
+				lhs << "\n";
 			}
 		}
 	}
@@ -175,10 +167,6 @@ ostream& operator << (ostream& lhs, Spiel& rhs) {
 
 void Spiel::ziehen()
 {
-	// Output Manipulation Values
-	unsigned int startzeile;
-	unsigned int startspalte;
-
 	// Todo: TODO
 	/*
 		- wann wird schach angezeigt
@@ -196,16 +184,12 @@ void Spiel::ziehen()
 
 	*/
 
-	//! User Input Departure
-	// ZugVon pruefen auf Guetltigkeit gegen Stack-overflow
-	// ZugVon ruft Feld der map auf 
-	// ZugNach gleicht erlaubte Felder des Feldes ab
-	// falls erlaubtes ausgewählt, wird es dort hin kopiert und hinterlässt leeres Feld
+	// Output Manipulation Values
+	unsigned int startzeile;
+	unsigned int startspalte;
 
 	//! Variablen
 	string zugVon, zugNach;
-	zugVon = "  ";
-	zugNach = "  ";
 	bool check;
 
 	//! zugVon wird geprueft
@@ -336,5 +320,4 @@ void Spiel::ziehen()
 		cout << s;
 	}
 	else { ziehen(); }
-
 }

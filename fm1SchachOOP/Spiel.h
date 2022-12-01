@@ -10,7 +10,9 @@ using namespace std;
 #include "FeldFigur.h"
 
 class Spiel
-{
+{	
+	friend ostream& operator << (ostream& lhs, Spiel& rhs);
+
 private:
 	array<Spieler, 2> spieler;
     map<string,Feld> spielstand;
@@ -20,8 +22,7 @@ public:
 	map<string, Feld> get_Spielstand();
 	array<Spieler, 2> get_Spieler();
 	void set_Spieler();
-	void set_zugnummer();
+	void set_Zugnummer();
 	void ziehen();
-	friend ostream& operator << (ostream& lhs, Spiel& rhs);
 };
 
