@@ -18,22 +18,22 @@ Feld::Feld(string bez, char symbol)
 	switch (symbol)
 	{
 	case 'B': case 'b':
-		figur = new Bauer(isupper(symbol));
+		figur = new Bauer(islower(symbol));
 		break;
 	case 'T': case 't':
-		figur = new Turm(isupper(symbol));
+		figur = new Turm(islower(symbol));
 		break;
 	case 'L': case 'l':
-		figur = new Laeufer(isupper(symbol));
+		figur = new Laeufer(islower(symbol));
 		break;
 	case 'S': case 's':
-		figur = new Springer(isupper(symbol));
+		figur = new Springer(islower(symbol));
 		break;
 	case 'D': case 'd':
-		figur = new Dame(isupper(symbol));			// Bridge-Pointer in cause of Mehrfachvererbung
+		figur = new Dame(islower(symbol));
 		break;
 	case 'K': case 'k':
-		figur = new Koenig(isupper(symbol));
+		figur = new Koenig(islower(symbol));
 		break;
 	default:
 		figur = new Leer(bez);

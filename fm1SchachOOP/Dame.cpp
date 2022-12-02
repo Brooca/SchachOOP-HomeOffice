@@ -3,7 +3,7 @@
 Dame::Dame(bool symbol)								
 {
 	 Figur::farbe = symbol;
-	 Figur::bezeichnung = (symbol) ? 'D' : 'd';
+	 Figur::bezeichnung = (symbol) ? 'd' : 'D';
 }
 
 vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)

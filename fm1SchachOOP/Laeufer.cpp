@@ -1,10 +1,9 @@
 #include "Laeufer.h"
-
 extern Spiel s;
 
 Laeufer::Laeufer(bool symbol) {
 	farbe = symbol;
-	bezeichnung = (symbol) ? 'L' : 'l';
+	bezeichnung = (symbol) ? 'l' : 'L';
 }
 
 vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
@@ -57,6 +56,7 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 
 	// Convert vector<string> into vector<Feld>
 	for (string& str : LaeuferV) { felder.push_back(s.get_Spielstand()[str]); }
+
 
 	// Return
 	return felder;

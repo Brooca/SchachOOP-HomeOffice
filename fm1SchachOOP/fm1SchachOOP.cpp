@@ -2,16 +2,17 @@
 using namespace std;
 #include <iostream>
 
-#include "Spiel.h"
-Spiel s;
+#include "Spiel.h"	
+
+//! Initialisierung des Spiels als globale Variable
+Spiel s; 
+
 int main()
 {
-	// Initialisierung des Spiels
-	
-
-	// Ablauf des Spiels
+	//! Ablauf des Spiels
 	do {
 		cout << s;
 		s.ziehen();
+		s.set_Zugnummer();
 	} while (true);
 }

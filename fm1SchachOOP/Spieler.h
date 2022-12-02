@@ -5,14 +5,16 @@ using namespace std;
 #include <array>
 
 class Spieler
-{
+{	
+	friend ostream& operator << (ostream& lhs, Spieler& rhs);
+
 private:
 	string name;
-	bool spielfarbe;
+	bool spielerFarbe;
 public:
 	Spieler();
 	Spieler(string, bool);
 	string get_Name();
-	friend ostream& operator << (ostream& lhs, Spieler& rhs);
+	bool get_Farbe();
 };
 

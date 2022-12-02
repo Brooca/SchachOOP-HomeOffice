@@ -5,7 +5,7 @@ extern Spiel s;
 Springer::Springer(bool symbol)
 {
 	farbe = symbol;
-	bezeichnung = (symbol) ? 'S' : 's';
+	bezeichnung = (symbol) ? 's' : 'S';
 }
 
 std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)

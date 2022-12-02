@@ -3,8 +3,8 @@
 extern Spiel s;
 
 Turm::Turm(bool symbol) {
-	farbe = symbol;
-	bezeichnung = (symbol) ? 'T' : 't';
+	farbe =  symbol;
+	bezeichnung = (symbol) ? 't' : 'T';
 }
 
 vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
