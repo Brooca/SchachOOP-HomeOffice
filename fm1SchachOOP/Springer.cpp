@@ -26,7 +26,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 
 	// Variablen
 	vector<Feld> felder;
-	vector<string> springerV;
+	vector<string> SpringerV;
 
 	// Calculation
 	for(int i : { 0 , 1 } ) {
@@ -37,7 +37,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{	springerV.push_back(x);	}
+			{	SpringerV.push_back(x);	}
 		}
 
 		if (bezeichnung.at(1) < '7' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
@@ -47,7 +47,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + 2;
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{	springerV.push_back(x);	}
+			{	SpringerV.push_back(x);	}
 		}
 		
 		if (bezeichnung.at(0) > 'B' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
@@ -57,7 +57,7 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) + (1 - (i + i));
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{	springerV.push_back(x);	}
+			{	SpringerV.push_back(x);	}
 		}
 
 		if (bezeichnung.at(1) > '2' && bezeichnung.at(0) >= ('A' + i) && bezeichnung.at(0) < ('H' + i))
@@ -67,12 +67,15 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 			x.at(1) = bezeichnung.at(1) - 2;
 
 			if (s.get_Spielstand()[x].get_Figur()->get_Bezeichnung() == ' ' || this->farbe != s.get_Spielstand()[x].get_Figur()->get_Farbe())
-			{	springerV.push_back(x);	}
+			{	SpringerV.push_back(x);	}
 		}
 	}
 	
+	//! Sort vector ascending
+	sort(SpringerV.begin(), SpringerV.end());
+
 	/* Convert vector<string> into vector<Feld> */
-	for (string& str : springerV) { felder.push_back(s.get_Spielstand().at(str)); }
+	for (string& str : SpringerV) { felder.push_back(s.get_Spielstand().at(str)); }
 
 	// Return
 	return felder;

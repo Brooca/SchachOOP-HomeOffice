@@ -1,5 +1,5 @@
 #include "Turm.h"
-// TODO DOKU externes Spiel warum und so
+
 extern Spiel s;
 
 Turm::Turm(bool symbol) {
@@ -48,7 +48,10 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 		}	
 	}	
 	
-		
+	//! Sort vector ascending
+	sort(TurmV.begin(), TurmV.end());
+
+	//! Convert vector<string> into vector<Feld>
 	vector<Feld> felder;
 	for (string& str : TurmV) 
 	{

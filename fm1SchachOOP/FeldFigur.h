@@ -3,6 +3,7 @@ using namespace std;
 #include <string>
 #include <vector>
 #include <utility>
+#include <algorithm>
 
 // Inclusion in cause of Komposition
 // TODO Documentation Klasse B, A, B

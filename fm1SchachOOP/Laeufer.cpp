@@ -52,6 +52,9 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 		} while (onboard);
 	}
 
+	//! Sort vector ascending
+	sort(LaeuferV.begin(), LaeuferV.end());
+
 	// Convert vector<string> into vector<Feld>
 	for (string& str : LaeuferV) { felder.push_back(s.get_Spielstand()[str]); }
 

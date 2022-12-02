@@ -64,6 +64,9 @@ vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 		}
 	}
 
+	//! Sort vector ascending
+	sort(KoenigV.begin(), KoenigV.end());
+
 	// Convert vector<string> into vector<Feld>
 	for (string& str : KoenigV) { felder.push_back(s.get_Spielstand()[str]); }
 

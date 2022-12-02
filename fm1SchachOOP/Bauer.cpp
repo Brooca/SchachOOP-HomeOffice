@@ -129,7 +129,10 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		}
 	}
 
-	// Result -------------------------------------------------------------------------------------------------------------------------------
+	//! Result -------------------------------------------------------------------------------------------------------------------------------
+	// Sort vector ascending
+	sort(BauerV.begin(), BauerV.end());
+
 	// Convert vector<string> into vector<Feld>
 	for (string& str : BauerV) { felder.push_back(s.get_Spielstand()[str]); }
 
