@@ -1,6 +1,6 @@
 #include "libChess.h"
 #include "Spiel.h"
-
+//todo #include <algorithm>
 extern Spiel s;
 
 //todo Konstruktoren
@@ -171,12 +171,43 @@ void Spiel::ziehen()
 	/*
 		- wann wird schach angezeigt
 			-> Matt && Remis
+		- Rekursive funktion heraus nehmen
+
+		Konstruktion
+		bool erlaubt;
+		do{
+		erlaubt = true
+			
+			if(erlaubt){ // eingabe von
+				wenn hier was falsch -> erlaubt = false
+				}
+			if(erlaubt) { // eingabe nach
+				springt nur an wenn bis hierher alles okay war
+			}
+
+			...
+		}while(not erlaubt)
 	*/
+
+	//TODO: Bugs
+	/*
+		- alte anzeige bleibt ??
+		- eigene Fede betretbar
+
+	*/
+
+	/* Experiement
+	//todo Testing lambda again
+	for_each(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(), s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(),
+	[zugNach, &enthalten]	(Feld f1)	{
+		if (f1.get_Bezeichnung() == zugNach) enthalten = true;
+	});
+*/
 
 	//! Variablen
 	unsigned int startzeile, startspalte;
 	string zugVon, zugNach;
-	bool check, enthalten = false;
+	bool check;
 	do{
 		check = true;
 
@@ -249,8 +280,13 @@ void Spiel::ziehen()
 
 		if (check) {//! zugNach : Convert Eingabe to Upper
 			zugNach.at(0) = toupper(zugNach.at(0)); }
-		
-		//! Pruefung der erlaubten Felder
+		/*
+		if (check) {//! zugVon = zugnach
+			if (zugVon == zugNach) {
+				check = false;
+			}
+		}*/
+	//! Pruefung der erlaubten Felder
 		
 		if(check) {// Empty
 			if (s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty())
@@ -260,6 +296,7 @@ void Spiel::ziehen()
 			}
 		}
 
+		bool enthalten = false;
 		if (check) {// zugNach Element von erlaubteFelder
 			
 			for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
@@ -269,9 +306,14 @@ void Spiel::ziehen()
 					enthalten = true;
 				}
 			}
-		} check = enthalten;
+		}
+
+		if (enthalten == false) check = false;
+
+		//! zug wird ausgefuehrt oder verworfen
 		
-		if (check) {//! zug wird ausgefuehrt oder verworfen 
+		if (check && enthalten)
+		{
 			//! map manipulieren
 			char zwischenspeicher = s.get_Spielstand().at(zugNach).get_Figur()->get_Bezeichnung();
 			s.spielstand.at(zugNach) = Feld::Feld(zugNach, s.spielstand.at(zugVon).get_Figur()->get_Bezeichnung());
@@ -297,6 +339,8 @@ void Spiel::ziehen()
 						s.spielstand.at(zugVon) = Feld::Feld(zugVon, s.spielstand.at(zugNach).get_Figur()->get_Bezeichnung());
 						s.spielstand.at(zugNach) = Feld::Feld(zugNach, zwischenspeicher);
 
+					
+
 						// bist schachmatt
 						// Remis kann hierbei garnicht gefunden werden -> Koenig ist dann garnicht bedroht
 					}
@@ -304,7 +348,6 @@ void Spiel::ziehen()
 			}
 			cout << s;
 		}
-
 	}while (not check);
 }
 

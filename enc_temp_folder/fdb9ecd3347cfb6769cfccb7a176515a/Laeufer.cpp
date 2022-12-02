@@ -1,4 +1,5 @@
 #include "Laeufer.h"
+#include <algorithm>
 extern Spiel s;
 
 Laeufer::Laeufer(bool symbol) {
@@ -54,7 +55,19 @@ vector<Feld> Laeufer::erlaubteFelderBerechnen(string bezeichnung)
 	// Convert vector<string> into vector<Feld>
 	for (string& str : LaeuferV) { felder.push_back(s.get_Spielstand()[str]); }
 
+/*	//todo Experiement Lambda
+	bool enthalten = false;
+	string nach = "J4";
 
+	for_each(LaeuferV.begin(), LaeuferV.end(), 
+		[nach, &enthalten](string s1) {
+			cout << "Lambda: " << s1 << " ";
+			if (s1 == nach) enthalten = true;
+		});
+
+	cout << endl << "Enthalten: " << enthalten << endl;
+	system("Pause");
+*/
 	// Return
 	return felder;
 }
