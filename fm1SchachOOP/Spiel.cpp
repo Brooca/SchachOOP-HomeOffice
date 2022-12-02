@@ -13,7 +13,7 @@ Spiel::Spiel()
 	set_Spieler();
 
 	// Key-String						   X_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-X
-	string figurenFolge = "TSLDKLSTBBBBBBBB              k D               bbbbbbbbtsldklst";
+	string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
  // string figurenFolge = "TSLDKLSTBBBBBBBB                                bbbbbbbbtsldklst";
 	int index = 0;
 
