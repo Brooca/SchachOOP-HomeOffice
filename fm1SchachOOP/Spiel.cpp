@@ -1,6 +1,6 @@
 #include "libChess.h"
 #include "Spiel.h"
-
+#include <algorithm>
 extern Spiel s;
 
 //todo Konstruktoren
@@ -271,6 +271,7 @@ void Spiel::ziehen()
 	}
 
 	// zugNach Element von erlaubteFelder
+	
 	bool enthalten = false;
 	for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
 	{
@@ -280,6 +281,12 @@ void Spiel::ziehen()
 		}
 	}
 
+	//todo Testing lambda again
+	for_each(s.get_Spielstand().at(zugVon).get_ErlaubteFelder().begin(), s.get_Spielstand().at(zugVon).get_ErlaubteFelder().end(), 
+		[zugNach, &enthalten]	(Feld f1)	{
+			if (f1.get_Bezeichnung() == zugNach) enthalten = true; 
+		});
+	
 	//! zug wird ausgefuehrt oder verworfen
 	if (enthalten)
 	{
