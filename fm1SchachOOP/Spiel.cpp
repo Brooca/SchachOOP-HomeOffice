@@ -36,8 +36,8 @@ Spiel::Spiel()
 }
 
 //todo: Getter && Setter
-map<string, Feld> Spiel::get_Spielstand(){	return spielstand;	}
-array<Spieler, 2> Spiel::get_Spieler(){	return spieler;	}
+map<string, Feld> Spiel::get_Spielstand() {	return spielstand;	}
+array<Spieler, 2> Spiel::get_Spieler() {	return spieler;	}
 void Spiel::set_Zugnummer() { zugnummer++; }
 void Spiel::set_Spieler()
 {
@@ -177,10 +177,12 @@ void Spiel::ziehen()
 	unsigned int startzeile, startspalte;
 	string zugVon, zugNach;
 	bool check, enthalten = false;
+
 	do{
 		check = true;
 
-		if (check) {//! zugVon : Koordinate wird geprueft
+		//! zugVon : Koordinate wird geprueft
+		if (check) {
 			// User Input
 			cout << s;
 			setCursorPosition(startspalte = 5, startzeile = 10);
@@ -207,19 +209,22 @@ void Spiel::ziehen()
 				cout << "Laenge der Eingabe nicht okay. \n";
 			}
 		}
-
-		if (check) {//! zugVon : Convert Eingabe to Upper
+		
+		//! zugVon : Convert Eingabe to Upper
+		if (check) {
 			zugVon.at(0) = toupper(zugVon.at(0));
 		}
-	
-		if (check) {//! zugVon : Pruefung figurFarbe
+
+		//! zugVon : Pruefung figurFarbe
+		if (check) {
 			if (s.get_Spielstand().at(zugVon).get_Figur()->get_Farbe() != s.get_Spieler().at(zugnummer % 2).get_Farbe()) {
 				cout << "Figur hat nicht deine Farbe";
 				check = false;
 			}
 		}
-
-		if (check) {//! zugNach : Koordinate wird geprueft
+		
+		//! zugNach : Koordinate wird geprueft
+		if (check) {
 			// UI (User Interface)
 			cout << s;
 			setCursorPosition(startspalte = 5, startzeile = 10);
@@ -247,12 +252,13 @@ void Spiel::ziehen()
 			}
 		}
 
-		if (check) {//! zugNach : Convert Eingabe to Upper
+		//! zugNach : Convert Eingabe to Upper
+		if (check) {
 			zugNach.at(0) = toupper(zugNach.at(0)); }
 		
 		//! Pruefung der erlaubten Felder
-		
-		if(check) {// Empty
+		// Empty
+		if(check) {
 			if (s.get_Spielstand().at(zugVon).get_ErlaubteFelder().empty())
 			{
 				cout << "Figur hat keine erlaubten Felder";
@@ -260,7 +266,8 @@ void Spiel::ziehen()
 			}
 		}
 
-		if (check) {// zugNach Element von erlaubteFelder
+		// zugNach Element von erlaubteFelder
+		if (check) {
 			
 			for (int i = 0; i < s.get_Spielstand().at(zugVon).get_ErlaubteFelder().size(); i++)
 			{
@@ -270,8 +277,9 @@ void Spiel::ziehen()
 				}
 			}
 		} check = enthalten;
-		
-		if (check) {//! zug wird ausgefuehrt oder verworfen 
+
+		//! zug wird ausgefuehrt oder verworfen 
+		if (check) {
 			//! map manipulieren
 			char zwischenspeicher = s.get_Spielstand().at(zugNach).get_Figur()->get_Bezeichnung();
 			s.spielstand.at(zugNach) = Feld::Feld(zugNach, s.spielstand.at(zugVon).get_Figur()->get_Bezeichnung());
@@ -307,4 +315,3 @@ void Spiel::ziehen()
 
 	}while (not check);
 }
-

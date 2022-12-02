@@ -41,5 +41,3 @@ vector<Feld> Dame::erlaubteFelderBerechnen(std::string bezeichnung)
 	//! Return
 	return DameV;
 }
-
-

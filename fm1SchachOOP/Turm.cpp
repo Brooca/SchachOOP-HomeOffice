@@ -9,8 +9,11 @@ Turm::Turm(bool symbol) {
 
 vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 {
-	// Calculation
+	//! Variablen
+	vector<Feld> felder;
 	vector<string> TurmV;
+
+	//! Calculation
 	for (int m = 0; m < 2; m++)  // wechselt zwischen Vertikal und horizontal // x.at(0) & x.at(1)
 	{
 		for (int n = 0; n < 3; n += 2) // Wechselt zwischen rechts & links || hoch und runter 
@@ -52,11 +55,8 @@ vector<Feld> Turm::erlaubteFelderBerechnen(string bezeichnung)
 	sort(TurmV.begin(), TurmV.end());
 
 	//! Convert vector<string> into vector<Feld>
-	vector<Feld> felder;
-	for (string& str : TurmV) 
-	{
-		felder.push_back(s.get_Spielstand()[str]);
-	}
+	for (string& str : TurmV) {	felder.push_back(s.get_Spielstand()[str]);	}
 
+	//! Return
 	return felder;
 }

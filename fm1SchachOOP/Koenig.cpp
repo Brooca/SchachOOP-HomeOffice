@@ -1,6 +1,7 @@
 #include "Koenig.h"
 
 extern Spiel s;
+
 Koenig::Koenig(bool symbol)
 {
 	farbe = symbol;
@@ -9,33 +10,33 @@ Koenig::Koenig(bool symbol)
 
 vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 {
-	// Documentation :
+	//! Documentation :
 	/*	- anhand der Ausgangsposition werden alle potentiellen Zielfelder formuliert und in einem Vector gesammelt
 	*	- beim iterieren wird geprueft ob die Felder onboard sind
 	*	- je nach Inhalt des Feldes kann es hinzugefuegt werden
 	*	- die Convertierung in einen vector<Feld> erfolgt zum Ende
 	*/
 
-	// Variablen
+	//! Variablen
 	vector<Feld> felder;
 	vector<string> KoenigV;
 	vector<pair<char, char>> direction;
 	bool onboard;
 	string destination = bezeichnung;
 	
-	// Diagonal													  A+					 1+
+	//! Diagonal													  A+					 1+
 	pair<char, char> rechtsHoch		= make_pair(destination.at(0) + 1, destination.at(1) + 1);	// B2
 	pair<char, char> rechtsRunter	= make_pair(destination.at(0) + 1, destination.at(1) - 1);	// B0
 	pair<char, char> linksHoch		= make_pair(destination.at(0) - 1, destination.at(1) + 1);	//...
 	pair<char, char> linksRunter	= make_pair(destination.at(0) - 1, destination.at(1) - 1);
 
-	// Vertical & Horizontal
+	//! Vertical & Horizontal
 	pair<char, char> Hoch			= make_pair(destination.at(0)	 , destination.at(1) + 1);
 	pair<char, char> Runter			= make_pair(destination.at(0)	 , destination.at(1) - 1);
 	pair<char, char> Links			= make_pair(destination.at(0) - 1, destination.at(1)	);
 	pair<char, char> Rechts			= make_pair(destination.at(0) + 1, destination.at(1)	);
 
-	// Vector mit Koordinaten fuer die Zielfeld-Pruefung wird iteriert
+	//! Vector mit Koordinaten fuer die Zielfeld-Pruefung wird iteriert
 	direction = { rechtsHoch, rechtsRunter, linksHoch, linksRunter, Hoch, Runter, Links, Rechts };
 
 	for(unsigned int i = 0; i < direction.size(); i++) {
@@ -67,9 +68,9 @@ vector<Feld> Koenig::erlaubteFelderBerechnen(string bezeichnung)
 	//! Sort vector ascending
 	sort(KoenigV.begin(), KoenigV.end());
 
-	// Convert vector<string> into vector<Feld>
+	//! Convert vector<string> into vector<Feld>
 	for (string& str : KoenigV) { felder.push_back(s.get_Spielstand()[str]); }
 
-	// Return
+	//! Return
 	return felder;
 }

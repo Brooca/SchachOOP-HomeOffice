@@ -10,22 +10,22 @@ Bauer::Bauer(bool symbol)
 
 vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 {
-	// Documentation:
+	//! Documentation:
 	/*	- mittels eines Switches wird fuer die schwarzen (0) und weissen (1) Bauern unterschieden, Steuer-Variable ist die Farbe der Figur 
 		- der Bauer kann am anfang zwei sonst ein Feld weiter laufen
 		- diagonal schlagen
 		-> TODO : eine Umwandlung der Figur auf Linie 8 und 1 ist noch zu implementieren
 	*/
 
-	// Variables
+	//! Variables
 	vector<Feld> felder;
 	vector<string> BauerV;
 	string x = "  ";
 
-	// Calculation
+	//! Calculation
 	switch (this->farbe) {
 
-	// b laeuft runter-------------------------------------------------------------------------------------------------------------------
+	//! b laeuft runter-------------------------------------------------------------------------------------------------------------------
 	case 1:
 
 		// einfacher Schritt
@@ -79,7 +79,7 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 		}
 		break;
 
-	// B laeuft hoch -----------------------------------------------------------------------------------------------------------------------------
+	//! B laeuft hoch -----------------------------------------------------------------------------------------------------------------------------
 	case 0:
 
 	/*Geradeaus*/
@@ -130,13 +130,12 @@ vector<Feld> Bauer::erlaubteFelderBerechnen(string bezeichnung)
 	}
 
 	//! Result -------------------------------------------------------------------------------------------------------------------------------
-	// Sort vector ascending
+	//! Sort vector ascending
 	sort(BauerV.begin(), BauerV.end());
 
-	// Convert vector<string> into vector<Feld>
+	//! Convert vector<string> into vector<Feld>
 	for (string& str : BauerV) { felder.push_back(s.get_Spielstand()[str]); }
 
-	// Return
+	//! Return
 	return felder;
 }
-

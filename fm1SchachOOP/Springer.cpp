@@ -8,9 +8,9 @@ Springer::Springer(bool symbol)
 	bezeichnung = (symbol) ? 's' : 'S';
 }
 
-std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
+vector<Feld> Springer::erlaubteFelderBerechnen(string bezeichnung)
 { 
-	// Documentation
+	//! Documentation
 	/*	- Abhaengig von dem Bereich des Schachbretts auf dem die Positon des Springers zu verorten ist,
 		  werden die zwei moegliche Felder berechnet zu denen eine Bewegung moeglich ist.
 		- Wenn diese leer oder mit einer gegnerischen Figur besetzt sind werden sie  den erlaubten Feldern
@@ -24,11 +24,11 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 		d + 2 & c + 1 || d + 2 & c - 1
 	*/
 
-	// Variablen
+	//! Variablen
 	vector<Feld> felder;
 	vector<string> SpringerV;
 
-	// Calculation
+	//! Calculation
 	for(int i : { 0 , 1 } ) {
 		if (bezeichnung.at(0) < 'G' && bezeichnung.at(1) > ('0' + i) && bezeichnung.at(1) < ('8' + i))
 		{// Right : Up and Down
@@ -74,10 +74,10 @@ std::vector<Feld> Springer::erlaubteFelderBerechnen(std::string bezeichnung)
 	//! Sort vector ascending
 	sort(SpringerV.begin(), SpringerV.end());
 
-	/* Convert vector<string> into vector<Feld> */
+	//! Convert vector<string> into vector<Feld>
 	for (string& str : SpringerV) { felder.push_back(s.get_Spielstand().at(str)); }
 
-	// Return
+	//! Return
 	return felder;
 }
 

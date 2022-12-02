@@ -5,11 +5,10 @@ using namespace std;
 #include <utility>
 #include <algorithm>
 
-// Inclusion in cause of Komposition
-// TODO Documentation Klasse B, A, B
+//! Inclusion in cause of Komposition
 class Feld;
 
-// Figur -----------------------------------------------------------
+//! Figur -----------------------------------------------------------
 
 class Figur
 {
@@ -23,7 +22,7 @@ public:
 };
 
 
-// FELD ___________________________________________________________
+//! FELD ___________________________________________________________
 #include "Bauer.h"
 #include "Dame.h"
 #include "Koenig.h"

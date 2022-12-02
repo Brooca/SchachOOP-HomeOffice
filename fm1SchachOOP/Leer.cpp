@@ -1,11 +1,7 @@
 #include "Leer.h"
 
-Leer::Leer(string s)
-{
-	bezeichnung = ' ';
-}
+//! Konstruktor
+Leer::Leer(string s) {	bezeichnung = ' ';	}
 
-vector<Feld> Leer::erlaubteFelderBerechnen(string)
-{
-	return {};
-}
+//! Methoden
+vector<Feld> Leer::erlaubteFelderBerechnen(string)	{	return {};	}
